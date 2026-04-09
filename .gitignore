@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+state/*.json
+briefings/*.json
+predictions/*.json
+scores/*.json
+price_history/
