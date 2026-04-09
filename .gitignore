@@ -7,4 +7,8 @@ state/*.json
 briefings/*.json
 predictions/*.json
 scores/*.json
+scores/*.csv
 price_history/
+contracts/*.json
+data/*.json
+orderflow_cache/

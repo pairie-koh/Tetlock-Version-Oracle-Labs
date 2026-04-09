@@ -1,11 +1,11 @@
 """
-Tetlock Oracle Labs — Constants
+Tetlock Oracle Labs -- Constants
 Markets, API endpoints, models, and Tetlock-specific configuration.
 """
 
 import os
 
-# ── Markets ──────────────────────────────────────────────────────────────────
+# -- Markets ------------------------------------------------------------------
 # Same contracts as Oracle Labs v2 for direct comparison.
 # To add a market: add an entry here + QUERY_TEMPLATES + DECOMPOSITION_HINTS.
 
@@ -21,22 +21,28 @@ MARKETS = {
     },
 }
 
-# ── API Endpoints ────────────────────────────────────────────────────────────
+# -- API Endpoints ------------------------------------------------------------
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 PERPLEXITY_API_URL = "https://api.perplexity.ai/chat/completions"
 POLYMARKET_CLOB_URL = "https://clob.polymarket.com"
+POLYMARKET_GAMMA_URL = "https://gamma-api.polymarket.com"
 
-# ── Models ───────────────────────────────────────────────────────────────────
+# -- Models -------------------------------------------------------------------
 
 PERPLEXITY_MODEL = "sonar-pro"
 HAIKU_MODEL = "anthropic/claude-haiku-4.5"
 SONNET_MODEL = "anthropic/claude-sonnet-4"
+OPUS_MODEL = "anthropic/claude-opus-4"
 
-# ── Tetlock-Specific Config ─────────────────────────────────────────────────
+# Tiered escalation thresholds (divergence from market to trigger next tier)
+SONNET_THRESHOLD = 0.05   # >5% divergence -> use Sonnet
+OPUS_THRESHOLD = 0.15     # >15% divergence -> use Opus
+
+# -- Tetlock-Specific Config --------------------------------------------------
 
 # Shrinkage: how much to trust LLM vs market. 0.0 = market only, 1.0 = LLM only.
-# We start at 0.5 (split the difference) — more conservative than Oracle Labs' 0.75.
+# We start at 0.5 (split the difference) -- more conservative than Oracle Labs' 0.75.
 SHRINKAGE_KEEP = 0.50
 
 # Bayesian prior: when no prior belief exists, start at market price.
@@ -48,7 +54,7 @@ MAX_SUB_QUESTIONS = 5
 # Evidence diagnostic test types (from Bayesian Process Tracing)
 DIAGNOSTIC_TESTS = ["straw_in_the_wind", "hoop", "smoking_gun", "doubly_decisive"]
 
-# ── Perplexity Query Templates ───────────────────────────────────────────────
+# -- Perplexity Query Templates -----------------------------------------------
 
 QUERY_TEMPLATES = {
     "regime_fall": [
@@ -71,8 +77,8 @@ QUERY_TEMPLATES = {
     ],
 }
 
-# ── Decomposition Hints ─────────────────────────────────────────────────────
-# Per-market hints for the decomposer — what sub-questions matter.
+# -- Decomposition Hints ------------------------------------------------------
+# Per-market hints for the decomposer -- what sub-questions matter.
 
 DECOMPOSITION_HINTS = {
     "regime_fall": [
@@ -84,11 +90,13 @@ DECOMPOSITION_HINTS = {
     ],
 }
 
-# ── Paths ────────────────────────────────────────────────────────────────────
+# -- Paths --------------------------------------------------------------------
 
 STATE_DIR = "state"
 BRIEFINGS_DIR = "briefings"
 PREDICTIONS_DIR = "predictions"
 SCORES_DIR = "scores"
 PRICE_HISTORY_DIR = "price_history"
+CONTRACTS_DIR = "contracts"
+DATA_DIR = "data"
 PRICE_CSV = os.path.join(PRICE_HISTORY_DIR, "prices.csv")

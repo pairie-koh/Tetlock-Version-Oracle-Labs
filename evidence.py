@@ -29,11 +29,34 @@ References:
 import json
 from datetime import datetime, timezone
 
-from constants import MARKETS, HAIKU_MODEL, SONNET_MODEL, DIAGNOSTIC_TESTS
+from constants import (
+    MARKETS, HAIKU_MODEL, SONNET_MODEL, OPUS_MODEL,
+    DIAGNOSTIC_TESTS, SONNET_THRESHOLD, OPUS_THRESHOLD,
+)
 from newswire import call_openrouter, parse_json_response
 
 
-def classify_evidence(facts, market_key, sub_questions):
+def select_model_tier(divergence_from_market):
+    """Select LLM tier based on how far our estimate diverges from market.
+
+    Three-tier system from Oracle Labs v2:
+      - Haiku: low divergence (<5%), routine triage
+      - Sonnet: moderate divergence (5-15%), deeper analysis
+      - Opus: high divergence (>15%), highest-stakes reasoning
+
+    Returns (model_id, tier_name).
+    """
+    abs_div = abs(divergence_from_market) if divergence_from_market else 0
+
+    if abs_div >= OPUS_THRESHOLD:
+        return OPUS_MODEL, "opus"
+    elif abs_div >= SONNET_THRESHOLD:
+        return SONNET_MODEL, "sonnet"
+    else:
+        return HAIKU_MODEL, "haiku"
+
+
+def classify_evidence(facts, market_key, sub_questions, divergence=None):
     """Classify each fact by its diagnostic type and compute likelihood ratios.
 
     For each fact, relative to each sub-question, the LLM estimates:
@@ -46,6 +69,8 @@ def classify_evidence(facts, market_key, sub_questions):
         facts: list of fact dicts from newswire
         market_key: which market these facts relate to
         sub_questions: list of sub-question dicts from decompose
+        divergence: optional float, current divergence from market price.
+            Used to select Haiku/Sonnet/Opus tier. Defaults to Sonnet.
 
     Returns:
         list of evidence evaluations, each containing:
@@ -59,8 +84,15 @@ def classify_evidence(facts, market_key, sub_questions):
             "likelihood_ratio": float,
             "direction": str,
             "reasoning": str,
+            "model_tier": str,
         }
     """
+    # Select model tier based on divergence
+    if divergence is not None:
+        model, tier = select_model_tier(divergence)
+    else:
+        model, tier = SONNET_MODEL, "sonnet"
+
     market = MARKETS[market_key]
     question = market["name"]
 
@@ -137,7 +169,8 @@ Return a JSON array of objects:
 
 Return ONLY the JSON array."""
 
-    raw = call_openrouter(prompt, SONNET_MODEL, max_tokens=4000)
+    print(f"  Using {tier} tier ({model}) for evidence evaluation")
+    raw = call_openrouter(prompt, model, max_tokens=4000)
 
     try:
         evaluations = parse_json_response(raw)
@@ -175,6 +208,7 @@ Return ONLY the JSON array."""
                 "likelihood_ratio": round(lr, 4),
                 "direction": ev.get("direction", "ambiguous"),
                 "reasoning": ev.get("reasoning", ""),
+                "model_tier": tier,
             })
 
         return processed
