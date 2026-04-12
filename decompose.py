@@ -78,10 +78,14 @@ Also specify the combination logic:
 - "mixed": combination of the above (explain in reasoning)
 
 IMPORTANT:
-- Sub-questions should be as independent as possible (avoid double-counting)
+- Sub-questions MUST be as independent as possible (avoid double-counting).
+  Two factors with the same root cause (e.g., "economic crisis" and "currency collapse")
+  are NOT independent -- combining them via multiplication would double-count.
 - Each should be something we can evaluate with evidence
 - Prefer concrete, observable conditions over abstract ones
 - The decomposition should explain MOST of the variance in the outcome
+- If using "all_necessary" logic, be especially careful: multiplying correlated
+  probabilities dramatically underestimates the true probability
 
 Return a JSON object:
 {{
@@ -149,9 +153,14 @@ def combine_sub_probabilities(decomposition, sub_probs):
 
     if logic == "all_necessary":
         # P(main) = product of P(each necessary condition)
+        # WARNING: This assumes independence. Correlated sub-questions will
+        # produce artificially low probabilities.
         prob = 1.0
         for p in sub_probs:
             prob *= p
+        # Floor: multiplication of many probs can produce near-zero results.
+        # Tetlock: be wary of extreme probabilities from multiplication.
+        prob = max(0.01, prob)
         return prob
 
     elif logic == "any_sufficient":
@@ -159,23 +168,16 @@ def combine_sub_probabilities(decomposition, sub_probs):
         prob = 1.0
         for p in sub_probs:
             prob *= (1.0 - p)
-        return 1.0 - prob
-
-    elif logic == "weighted_average":
-        # P(main) = weighted average of sub-probabilities
-        weights = [sq.get("weight", 1.0) for sq in sqs]
-        total_weight = sum(weights)
-        if total_weight == 0:
-            return sum(sub_probs) / len(sub_probs)
-        return sum(p * w for p, w in zip(sub_probs, weights)) / total_weight
+        return min(0.99, 1.0 - prob)
 
     else:
-        # Mixed or unknown: use weighted average as default
-        weights = [sq.get("weight", 1.0) for sq in sqs]
+        # weighted_average, mixed, or unknown: use weighted average
+        weights = [sq.get("weight", 1.0) for sq in sqs[:len(sub_probs)]]
         total_weight = sum(weights)
         if total_weight == 0:
             return sum(sub_probs) / len(sub_probs)
-        return sum(p * w for p, w in zip(sub_probs, weights)) / total_weight
+        norm_weights = [w / total_weight for w in weights]
+        return sum(p * w for p, w in zip(sub_probs, norm_weights))
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ import os
 import math
 from datetime import datetime, timezone
 
-from constants import MARKETS, STATE_DIR, SHRINKAGE_KEEP
+from constants import MARKETS, STATE_DIR, SHRINKAGE_KEEP, MAX_LR_PER_SQ, MAX_COMBINED_LR
 
 
 def prob_to_odds(p):
@@ -78,13 +78,24 @@ def save_belief_state(state):
 def initialize_belief(market_key, base_rate, market_price):
     """Initialize belief state for a new market.
 
-    The initial probability is the base rate (outside view), not the market price.
-    The market price is used later for shrinkage.
+    Tetlock principle: blend the outside view (base rate) with the market price.
+    The market is a strong prior -- it aggregates thousands of participants.
+    We use SHRINKAGE_KEEP to weight our base rate vs the crowd.
+
+    initial_prob = market_price + SHRINKAGE_KEEP * (base_rate - market_price)
+
+    With SHRINKAGE_KEEP=0.5, this splits the difference between our base rate
+    and the market. This is more principled than ignoring the market at init.
     """
+    # Blend base rate with market price using shrinkage
+    initial_prob = market_price + SHRINKAGE_KEEP * (base_rate - market_price)
+    initial_prob = max(0.02, min(0.98, initial_prob))
+
     state = {
         "market": market_key,
-        "probability": base_rate,
+        "probability": round(initial_prob, 4),
         "base_rate": base_rate,
+        "initial_blend": round(initial_prob, 4),
         "market_price_at_init": market_price,
         "update_history": [],
         "cycle_count": 0,
@@ -120,29 +131,39 @@ def bayesian_update(belief_state, evidence_evaluations, market_price):
     # from multiple pieces of evidence about the same thing
     sq_lrs = {}  # {sq_index: [list of likelihood ratios]}
     for ev in evidence_evaluations:
-        sq_idx = ev.get("sub_question_index", 0)
-        lr = ev.get("likelihood_ratio", 1.0)
-        if sq_idx not in sq_lrs:
-            sq_lrs[sq_idx] = []
-        sq_lrs[sq_idx].append(lr)
+        sq_lrs.setdefault(ev.get("sub_question_index", 0), []).append(
+            ev.get("likelihood_ratio", 1.0)
+        )
 
     # For each sub-question, take the geometric mean of its evidence LRs.
     # This dampens the effect of multiple weak signals about the same thing.
+    # Then cap per-SQ LR to prevent runaway updating (Tetlock: small incremental
+    # updates, not dramatic swings).
     combined_lr = 1.0
     lr_details = []
     for sq_idx, lrs in sq_lrs.items():
         if not lrs:
             continue
+        # Filter out zero/negative LRs that would crash log
+        valid_lrs = [lr for lr in lrs if lr > 0]
+        if not valid_lrs:
+            continue
         # Geometric mean
-        log_mean = sum(math.log(lr) for lr in lrs) / len(lrs)
+        log_mean = sum(math.log(lr) for lr in valid_lrs) / len(valid_lrs)
         sq_lr = math.exp(log_mean)
+        # Cap per-sub-question LR
+        sq_lr = max(1.0 / MAX_LR_PER_SQ, min(MAX_LR_PER_SQ, sq_lr))
         combined_lr *= sq_lr
         lr_details.append({
             "sub_question_index": sq_idx,
-            "evidence_count": len(lrs),
-            "individual_lrs": [round(lr, 4) for lr in lrs],
+            "evidence_count": len(valid_lrs),
+            "individual_lrs": [round(lr, 4) for lr in valid_lrs],
             "combined_lr": round(sq_lr, 4),
+            "capped": sq_lr == MAX_LR_PER_SQ or sq_lr == 1.0 / MAX_LR_PER_SQ,
         })
+
+    # Cap total combined LR across all sub-questions
+    combined_lr = max(1.0 / MAX_COMBINED_LR, min(MAX_COMBINED_LR, combined_lr))
 
     # Apply Bayesian update
     posterior_odds = prior_odds * combined_lr

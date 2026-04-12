@@ -74,43 +74,28 @@ def fetch_event(slug):
     return None
 
 
+def _parse_json_field(raw, transform=None):
+    """Parse a field that may be a JSON string or already a list."""
+    if isinstance(raw, list):
+        return [transform(x) for x in raw] if transform else raw
+    if isinstance(raw, str) and raw:
+        try:
+            parsed = json.loads(raw)
+            return [transform(x) for x in parsed] if transform else parsed
+        except (json.JSONDecodeError, ValueError):
+            return [raw] if not transform else []
+    return []
+
+
 def parse_market(market):
     """Extract useful fields from a market object."""
-    clob_ids_raw = market.get("clobTokenIds", "")
-    token_ids = []
-    if clob_ids_raw:
-        try:
-            token_ids = json.loads(clob_ids_raw)
-        except json.JSONDecodeError:
-            pass
-
-    outcomes_raw = market.get("outcomes", "")
-    outcomes = []
-    if isinstance(outcomes_raw, str):
-        try:
-            outcomes = json.loads(outcomes_raw)
-        except json.JSONDecodeError:
-            outcomes = [outcomes_raw]
-    elif isinstance(outcomes_raw, list):
-        outcomes = outcomes_raw
-
-    prices_raw = market.get("outcomePrices", "")
-    prices = []
-    if isinstance(prices_raw, str):
-        try:
-            prices = [float(p) for p in json.loads(prices_raw)]
-        except (json.JSONDecodeError, ValueError):
-            pass
-    elif isinstance(prices_raw, list):
-        prices = [float(p) for p in prices_raw]
-
     return {
         "question": market.get("question", ""),
         "slug": market.get("slug", ""),
         "condition_id": market.get("conditionId", ""),
-        "token_ids": token_ids,
-        "outcomes": outcomes,
-        "prices": prices,
+        "token_ids": _parse_json_field(market.get("clobTokenIds", "")),
+        "outcomes": _parse_json_field(market.get("outcomes", "")),
+        "prices": _parse_json_field(market.get("outcomePrices", ""), transform=float),
         "volume": float(market.get("volumeNum", 0)),
         "liquidity": float(market.get("liquidityNum", 0)),
         "end_date": market.get("endDate", ""),

@@ -3,7 +3,14 @@ Tetlock Oracle Labs -- lessons.py
 Feedback loop: scan past predictions, compute per-contract and per-domain
 performance stats, inject lessons into future prompts.
 
-Adapted from Oracle Labs v2 for the Tetlock prediction format.
+KEY PRINCIPLE (from Tetlock's Superforecasting):
+  Lessons must be computed against ACTUAL OUTCOMES (0 or 1), not market prices.
+  "Did I predict too high for events that didn't happen?" is the right question.
+  "Did I diverge from the market?" is NOT -- the market could also be wrong.
+
+Two modes:
+  - With resolutions: real Brier-based lessons (preferred)
+  - Without resolutions: divergence-from-market as weak proxy (clearly labeled)
 
 Two entry points:
   rebuild_lessons_cache()  -- called after scoring (evaluate.py)
@@ -15,17 +22,40 @@ import json
 import os
 from datetime import datetime, timezone
 
-from constants import DATA_DIR, PREDICTIONS_DIR, CONTRACTS_DIR
+from constants import DATA_DIR, PREDICTIONS_DIR, CONTRACTS_DIR, SCORES_DIR
 
 CACHE_PATH = os.path.join(DATA_DIR, "lessons_cache.json")
 CONTRACTS_PATH = os.path.join(CONTRACTS_DIR, "active_contracts.json")
+RESOLUTIONS_PATH = os.path.join(SCORES_DIR, "resolutions.json")
 
-MAX_HISTORY = 5       # last N predictions to show in prompt
+MAX_HISTORY = 20      # last N predictions to show in prompt (was 5, too small)
 MIN_CONTRACT = 2      # min predictions before showing per-contract lesson
 MIN_DOMAIN = 5        # min predictions before showing per-domain lesson
 BIAS_THRESHOLD = 0.02 # |avg_error| above this = bias
 
 _cache = None  # module-level singleton
+
+
+def _classify_bias(avg_err, resolved=True):
+    """Classify bias direction from average signed error."""
+    if avg_err < -BIAS_THRESHOLD:
+        return "TOO LOW vs outcomes" if resolved else "BELOW market"
+    elif avg_err > BIAS_THRESHOLD:
+        return "TOO HIGH vs outcomes" if resolved else "ABOVE market"
+    return "neutral"
+
+
+# -- Resolution Loading -------------------------------------------------------
+
+def _load_resolutions():
+    """Load resolution outcomes from evaluate.py's resolutions file."""
+    if not os.path.exists(RESOLUTIONS_PATH):
+        return {}
+    try:
+        with open(RESOLUTIONS_PATH, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 
 # -- Cache Building -----------------------------------------------------------
@@ -53,7 +83,7 @@ def _load_domain_lookup():
                 slug = c.get("slug", "")
                 cats = c.get("categories", [])
                 if slug and cats:
-                    lookup[slug] = cats[0]  # use first category as domain
+                    lookup[slug] = cats[0]
         except Exception:
             pass
 
@@ -61,16 +91,19 @@ def _load_domain_lookup():
 
 
 def rebuild_lessons_cache():
-    """Scan all prediction files, compute stats, write cache."""
+    """Scan all prediction files, compute stats, write cache.
+
+    Uses resolutions (actual outcomes) when available for real Brier-based
+    lessons. Falls back to market-divergence for unresolved contracts.
+    """
     domain_lookup = _load_domain_lookup()
+    resolutions = _load_resolutions()
 
     # Collect all predictions grouped by market key
     by_contract = {}  # key -> list of entries
 
     pattern = os.path.join(PREDICTIONS_DIR, "*.json")
     files = sorted(glob.glob(pattern))
-
-    # Skip latest.json (it's a symlink/copy of the most recent)
     files = [f for f in files if not f.endswith("latest.json")]
 
     for path in files:
@@ -80,7 +113,6 @@ def rebuild_lessons_cache():
         except Exception:
             continue
 
-        # Tetlock format: {market_key: prediction_record}
         for key, pred in data.items():
             if not isinstance(pred, dict):
                 continue
@@ -95,11 +127,23 @@ def rebuild_lessons_cache():
                 "prediction": final_prob,
                 "market_price": market_price,
                 "base_rate": pred.get("base_rate"),
-                "divergence": pred.get("divergence_from_market", 0),
-                "signed_error": final_prob - market_price,
+                "divergence_from_market": pred.get("divergence_from_market", 0),
                 "evidence_count": pred.get("evidence_count", 0),
                 "cycle": pred.get("cycle_number", 0),
             }
+
+            # If this contract has resolved, compute REAL error
+            if key in resolutions:
+                outcome = resolutions[key]["outcome"]
+                entry["outcome"] = outcome
+                entry["brier_score"] = (final_prob - outcome) ** 2
+                entry["signed_error"] = final_prob - outcome
+                # positive = predicted too high, negative = predicted too low
+                entry["scoring_type"] = "resolved"
+            else:
+                # No resolution -- use market divergence as weak proxy
+                entry["signed_error"] = final_prob - market_price
+                entry["scoring_type"] = "pre_resolution"
 
             by_contract.setdefault(key, []).append(entry)
 
@@ -110,23 +154,46 @@ def rebuild_lessons_cache():
     # Build per-contract stats
     per_contract = {}
     for key, entries in by_contract.items():
-        errors = [e["signed_error"] for e in entries]
-        avg_err = sum(errors) / len(errors)
-        avg_abs = sum(abs(e) for e in errors) / len(errors)
+        resolved_entries = [e for e in entries if e.get("scoring_type") == "resolved"]
+        has_resolution = len(resolved_entries) > 0
 
-        bias = "neutral"
-        if avg_err < -BIAS_THRESHOLD:
-            bias = "TOO LOW"
-        elif avg_err > BIAS_THRESHOLD:
-            bias = "TOO HIGH"
+        if has_resolution:
+            # USE REAL ERRORS (prediction - outcome)
+            errors = [e["signed_error"] for e in resolved_entries]
+            briers = [e["brier_score"] for e in resolved_entries]
+            avg_err = sum(errors) / len(errors)
+            avg_abs = sum(abs(e) for e in errors) / len(errors)
+            avg_brier = sum(briers) / len(briers)
 
-        per_contract[key] = {
-            "n_predictions": len(entries),
-            "avg_signed_error": round(avg_err, 3),
-            "avg_abs_error": round(avg_abs, 3),
-            "bias": bias,
-            "history": entries[-MAX_HISTORY:],
-        }
+            bias = _classify_bias(avg_err, resolved=True)
+
+            per_contract[key] = {
+                "n_predictions": len(entries),
+                "n_resolved": len(resolved_entries),
+                "scoring_type": "resolved",
+                "avg_signed_error": round(avg_err, 4),
+                "avg_abs_error": round(avg_abs, 4),
+                "avg_brier": round(avg_brier, 4),
+                "bias": bias,
+                "history": entries[-MAX_HISTORY:],
+            }
+        else:
+            # Pre-resolution: use market divergence (clearly labeled)
+            errors = [e["signed_error"] for e in entries]
+            avg_err = sum(errors) / len(errors)
+            avg_abs = sum(abs(e) for e in errors) / len(errors)
+
+            bias = _classify_bias(avg_err, resolved=False)
+
+            per_contract[key] = {
+                "n_predictions": len(entries),
+                "n_resolved": 0,
+                "scoring_type": "pre_resolution",
+                "avg_divergence": round(avg_err, 4),
+                "avg_abs_divergence": round(avg_abs, 4),
+                "bias": bias,
+                "history": entries[-MAX_HISTORY:],
+            }
 
     # Build per-domain stats
     per_domain = {}
@@ -136,39 +203,57 @@ def rebuild_lessons_cache():
             continue
 
         if domain not in per_domain:
-            per_domain[domain] = {"errors": [], "abs_errors": []}
+            per_domain[domain] = {
+                "resolved_errors": [],
+                "resolved_briers": [],
+                "unresolved_divergences": [],
+            }
 
         for e in entries:
-            per_domain[domain]["errors"].append(e["signed_error"])
-            per_domain[domain]["abs_errors"].append(abs(e["signed_error"]))
+            if e.get("scoring_type") == "resolved":
+                per_domain[domain]["resolved_errors"].append(e["signed_error"])
+                per_domain[domain]["resolved_briers"].append(e["brier_score"])
+            else:
+                per_domain[domain]["unresolved_divergences"].append(e["signed_error"])
 
     # Finalize domain stats
     domain_stats = {}
     for domain_key, raw in per_domain.items():
-        n = len(raw["errors"])
-        if n == 0:
-            continue
+        resolved = raw["resolved_errors"]
+        unresolved = raw["unresolved_divergences"]
 
-        avg_err = sum(raw["errors"]) / n
-        avg_abs = sum(raw["abs_errors"]) / n
+        if resolved:
+            # Prefer resolved stats
+            avg_err = sum(resolved) / len(resolved)
+            avg_brier = sum(raw["resolved_briers"]) / len(raw["resolved_briers"])
 
-        bias = "neutral"
-        if avg_err < -BIAS_THRESHOLD:
-            bias = "TOO LOW"
-        elif avg_err > BIAS_THRESHOLD:
-            bias = "TOO HIGH"
+            bias = _classify_bias(avg_err, resolved=True)
 
-        domain_stats[domain_key] = {
-            "n_predictions": n,
-            "avg_signed_error": round(avg_err, 3),
-            "avg_abs_error": round(avg_abs, 3),
-            "bias": bias,
-        }
+            domain_stats[domain_key] = {
+                "n_resolved": len(resolved),
+                "n_unresolved": len(unresolved),
+                "scoring_type": "resolved",
+                "avg_signed_error": round(avg_err, 4),
+                "avg_brier": round(avg_brier, 4),
+                "bias": bias,
+            }
+        elif unresolved:
+            avg_div = sum(unresolved) / len(unresolved)
+            bias = _classify_bias(avg_div, resolved=False)
+
+            domain_stats[domain_key] = {
+                "n_resolved": 0,
+                "n_unresolved": len(unresolved),
+                "scoring_type": "pre_resolution",
+                "avg_divergence": round(avg_div, 4),
+                "bias": bias,
+            }
 
     # Write cache
     cache = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "n_files_scanned": len(files),
+        "n_resolutions": len(resolutions),
         "per_contract": per_contract,
         "per_domain": domain_stats,
     }
@@ -182,8 +267,9 @@ def rebuild_lessons_cache():
 
     n_contracts = len(per_contract)
     n_domains = len(domain_stats)
-    print(f"  Lessons cache: {n_contracts} contracts, {n_domains} domains "
-          f"(from {len(files)} prediction files)")
+    n_resolved_contracts = sum(1 for c in per_contract.values() if c.get("scoring_type") == "resolved")
+    print(f"  Lessons cache: {n_contracts} contracts ({n_resolved_contracts} resolved), "
+          f"{n_domains} domains (from {len(files)} prediction files)")
     return cache
 
 
@@ -217,6 +303,10 @@ def build_lessons_block(contract_key, domain=None):
 
     Returns a formatted string showing past performance on this contract
     and/or domain, or "" if insufficient data.
+
+    Tetlock principle: lessons should reference ACTUAL OUTCOMES when available,
+    not just market divergence. "You predicted 70% but the event didn't happen"
+    is a real lesson. "You predicted 70% but the market was at 60%" is not.
     """
     cache = load_lessons_cache()
     if not cache:
@@ -229,37 +319,72 @@ def build_lessons_block(contract_key, domain=None):
     n_contract = contract_data.get("n_predictions", 0)
 
     if n_contract >= MIN_CONTRACT:
-        history = contract_data.get("history", [])
+        scoring = contract_data.get("scoring_type", "pre_resolution")
 
-        preds = [f"{h['prediction']:.2f}" for h in history[-MAX_HISTORY:]]
-        mkts = [f"{h['market_price']:.2f}" for h in history[-MAX_HISTORY:]]
-        lines.append(
-            f"PAST PERFORMANCE ON THIS CONTRACT ({n_contract} predictions):"
-        )
-        lines.append(f"  You: {', '.join(preds)} | Market: {', '.join(mkts)}")
+        if scoring == "resolved":
+            # REAL lessons from actual outcomes
+            n_res = contract_data.get("n_resolved", 0)
+            avg_brier = contract_data.get("avg_brier", 0)
+            bias = contract_data.get("bias", "neutral")
+            avg_err = contract_data.get("avg_signed_error", 0)
 
-        bias = contract_data.get("bias", "")
-        avg_err = contract_data.get("avg_signed_error", 0)
-        if bias and bias != "neutral":
-            lines.append(
-                f"  Bias: consistently {bias} vs market (avg error: {avg_err:+.3f})"
-            )
+            lines.append(f"PAST PERFORMANCE ON THIS CONTRACT ({n_res} resolved predictions):")
+            lines.append(f"  Your Brier score: {avg_brier:.4f} "
+                         f"{'(better than coin flip)' if avg_brier < 0.25 else '(worse than coin flip)'}")
+
+            if bias != "neutral":
+                lines.append(f"  WARNING: You tend to predict {bias} (avg error: {avg_err:+.4f})")
+                if "TOO HIGH" in bias:
+                    lines.append("  -> Correct for this by nudging your estimate DOWN")
+                elif "TOO LOW" in bias:
+                    lines.append("  -> Correct for this by nudging your estimate UP")
+
+            # Show recent prediction history
+            history = contract_data.get("history", [])
+            recent = [h for h in history[-5:] if h.get("scoring_type") == "resolved"]
+            if recent:
+                for h in recent:
+                    outcome_str = "YES" if h.get("outcome") == 1 else "NO"
+                    lines.append(f"  Cycle {h.get('cycle', '?')}: "
+                                 f"predicted {h['prediction']:.2f}, outcome={outcome_str}, "
+                                 f"brier={h.get('brier_score', 0):.4f}")
+        else:
+            # Pre-resolution: weaker signal, clearly labeled
+            history = contract_data.get("history", [])
+            preds = [f"{h['prediction']:.2f}" for h in history[-5:]]
+            mkts = [f"{h['market_price']:.2f}" for h in history[-5:]]
+            lines.append(f"TRACKING THIS CONTRACT ({n_contract} predictions, NOT YET RESOLVED):")
+            lines.append(f"  Your predictions: {', '.join(preds)}")
+            lines.append(f"  Market prices:    {', '.join(mkts)}")
+
+            bias = contract_data.get("bias", "neutral")
+            if bias != "neutral":
+                avg_div = contract_data.get("avg_divergence", 0)
+                lines.append(f"  Note: You are consistently {bias} (avg divergence: {avg_div:+.3f})")
+                lines.append(f"  (This is vs market only -- not necessarily wrong)")
 
     # Per-domain lesson (as fallback or supplement)
     domain_data = cache.get("per_domain", {}).get(domain or "", {})
-    n_domain = domain_data.get("n_predictions", 0)
+    n_domain_resolved = domain_data.get("n_resolved", 0)
 
-    if n_domain >= MIN_DOMAIN and n_contract < 3:
-        bias = domain_data.get("bias", "")
-        avg_abs = domain_data.get("avg_abs_error", 0)
+    if n_domain_resolved >= MIN_DOMAIN:
+        # Domain lesson from actual outcomes
+        bias = domain_data.get("bias", "neutral")
+        avg_brier = domain_data.get("avg_brier", 0)
 
-        domain_line = f"DOMAIN PATTERN ({domain}, {n_domain} predictions): "
-        if bias and bias != "neutral":
-            domain_line += f"you tend to predict {bias} (avg abs error: {avg_abs:.3f})"
+        domain_line = f"DOMAIN PATTERN ({domain}, {n_domain_resolved} resolved predictions): "
+        if bias != "neutral":
+            domain_line += f"you tend to predict {bias} (Brier: {avg_brier:.4f})"
         else:
-            domain_line += f"avg abs error: {avg_abs:.3f}"
-
+            domain_line += f"well-calibrated in this domain (Brier: {avg_brier:.4f})"
         lines.append(domain_line)
+
+    elif domain_data.get("n_unresolved", 0) >= MIN_DOMAIN and n_contract < 3:
+        # Weak proxy: domain divergence from market
+        bias = domain_data.get("bias", "neutral")
+        if bias != "neutral":
+            lines.append(f"DOMAIN NOTE ({domain}): "
+                         f"you tend to predict {bias} vs market (pre-resolution data only)")
 
     if not lines:
         return ""
