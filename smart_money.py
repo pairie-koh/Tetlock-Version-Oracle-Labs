@@ -397,6 +397,7 @@ def analyze_market(market_key: str, market_config: Dict) -> Dict:
             signal_components.append(0.2)
 
     # 4. Order book imbalance
+    imbalance_sig, ratio, imb_desc = False, 0.0, ""
     if order_book:
         imbalance_sig, ratio, imb_desc = detect_order_book_imbalance(order_book, depth=5)
         if imbalance_sig:

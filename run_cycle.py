@@ -30,9 +30,9 @@ def fetch_data_sources():
     """
     print("\n  Fetching GDELT news signals...")
     try:
-        from gdelt import fetch_all_queries, save_results
-        results = fetch_all_queries()
-        save_results(results)
+        from gdelt import run_queries, save_results
+        results = run_queries()
+        save_results(results, timespan="2d")
         total = sum(r.get("article_count", 0) for r in results.values())
         print(f"    GDELT: {len(results)} queries, {total} articles")
     except Exception as e:
@@ -40,8 +40,8 @@ def fetch_data_sources():
 
     print("  Fetching Hyperliquid perp prices...")
     try:
-        from hyperliquid import fetch_all, save_prices
-        prices = fetch_all()
+        from hyperliquid import fetch_prices, save_prices
+        prices = fetch_prices()
         save_prices(prices)
         print(f"    Hyperliquid: {len(prices)} assets")
     except Exception as e:
