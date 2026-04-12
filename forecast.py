@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 
 from constants import (
     MARKETS, SONNET_MODEL, SHRINKAGE_KEEP, PREDICTIONS_DIR, OPUS_MODEL,
-    SONNET_THRESHOLD, OPUS_THRESHOLD,
+    SONNET_THRESHOLD, OPUS_THRESHOLD, EXTREMIZING_D,
 )
 from market_data import fetch_all_prices
 from newswire import call_openrouter, parse_json_response
@@ -44,6 +44,22 @@ from updater import (
 
 # -- Data Source Gathering ----------------------------------------------------
 
+def _fetch_smart_money(market_key, market):
+    """Fetch smart money signals and format as a text block."""
+    from smart_money import analyze_market
+    sm_result = analyze_market(market_key, market)
+    if sm_result and sm_result.get("signal_strength", 0) > 0:
+        sm_lines = [
+            f"SMART MONEY SIGNAL ({market_key}):",
+            f"  Strength: {sm_result['signal_strength']:.2f}/1.00",
+            f"  Direction: {sm_result['direction']}",
+        ] + [f"  - {ev}" for ev in sm_result.get("evidence", [])[:5]]
+        print(f"    Smart money: signal={sm_result['signal_strength']:.2f} {sm_result['direction']}")
+        return "\n".join(sm_lines)
+    print("    Smart money: no signal")
+    return ""
+
+
 def gather_supplementary_data(market_key):
     """Gather all supplementary data sources, returning text blocks.
 
@@ -53,89 +69,65 @@ def gather_supplementary_data(market_key):
     context = {}
     market = MARKETS.get(market_key, {})
 
-    # GDELT news signals
-    try:
-        from gdelt import format_for_prompt as gdelt_prompt
-        gdelt_block = gdelt_prompt(contract_slug=market.get("slug"))
-        if gdelt_block:
-            context["gdelt"] = gdelt_block
-            print("    GDELT: loaded")
-    except Exception as e:
-        print(f"    GDELT: unavailable ({e})")
+    # Sources that return a text block directly via format_for_prompt()
+    simple_sources = [
+        ("gdelt",       "GDELT",       lambda: __import__("gdelt").format_for_prompt(contract_slug=market.get("slug"))),
+        ("hyperliquid", "Hyperliquid", lambda: __import__("hyperliquid").format_for_prompt()),
+        ("weather",     "Weather",     lambda: __import__("weather").format_for_prompt()),
+        ("orderflow",   "Order flow",  lambda: __import__("orderflow").format_for_prompt(contract_key=market_key)),
+        ("smart_money", "Smart money", lambda: _fetch_smart_money(market_key, market)),
+        ("lessons",     "Lessons",     lambda: __import__("lessons").build_lessons_block(market_key, domain=market.get("domain", ""))),
+    ]
 
-    # Hyperliquid perp prices (BTC, ETH, oil, S&P, gold)
-    try:
-        from hyperliquid import format_for_prompt as hl_prompt
-        hl_block = hl_prompt()
-        if hl_block:
-            context["hyperliquid"] = hl_block
-            print("    Hyperliquid: loaded")
-    except Exception as e:
-        print(f"    Hyperliquid: unavailable ({e})")
-
-    # Weather forecasts (for temperature contracts)
-    try:
-        from weather import format_for_prompt as weather_prompt
-        weather_block = weather_prompt()
-        if weather_block:
-            context["weather"] = weather_block
-            print("    Weather: loaded")
-    except Exception as e:
-        print(f"    Weather: unavailable ({e})")
-
-    # Order flow signals from pmxt archive
-    try:
-        from orderflow import format_for_prompt as of_prompt
-        of_block = of_prompt(contract_key=market_key)
-        if of_block:
-            context["orderflow"] = of_block
-            print("    Order flow: loaded")
-    except Exception as e:
-        print(f"    Order flow: unavailable ({e})")
-
-    # Smart money signals
-    try:
-        from smart_money import analyze_market
-        sm_result = analyze_market(market_key, market)
-        if sm_result and sm_result.get("signal_strength", 0) > 0:
-            sm_lines = [
-                f"SMART MONEY SIGNAL ({market_key}):",
-                f"  Strength: {sm_result['signal_strength']:.2f}/1.00",
-                f"  Direction: {sm_result['direction']}",
-            ]
-            for ev in sm_result.get("evidence", [])[:5]:
-                sm_lines.append(f"  - {ev}")
-            context["smart_money"] = "\n".join(sm_lines)
-            print(f"    Smart money: signal={sm_result['signal_strength']:.2f} {sm_result['direction']}")
-        else:
-            print("    Smart money: no signal")
-    except Exception as e:
-        print(f"    Smart money: unavailable ({e})")
-
-    # Lessons from past performance
-    try:
-        from lessons import build_lessons_block
-        domain = market.get("domain", "")
-        lessons_block = build_lessons_block(market_key, domain=domain)
-        if lessons_block:
-            context["lessons"] = lessons_block
-            print("    Lessons: loaded")
-    except Exception as e:
-        print(f"    Lessons: unavailable ({e})")
+    for source_key, label, fetcher in simple_sources:
+        try:
+            block = fetcher()
+            if block:
+                context[source_key] = block
+                if source_key not in ("smart_money",):  # smart_money prints its own status
+                    print(f"    {label}: loaded")
+        except Exception as e:
+            print(f"    {label}: unavailable ({e})")
 
     return context
 
 
 def build_context_block(supplementary_data):
     """Merge all supplementary data into a single context block for prompts."""
-    if not supplementary_data:
-        return ""
+    return "\n\n".join(supplementary_data.values()) if supplementary_data else ""
 
-    sections = []
-    for source, block in supplementary_data.items():
-        sections.append(block)
 
-    return "\n\n".join(sections)
+# -- Extremizing --------------------------------------------------------------
+
+def extremize(probability, d=None):
+    """Push probability away from 50% (Tetlock's extremizing transform).
+
+    Tetlock's GJP found that aggregated forecasts are systematically too
+    close to 50%. The extremizing transform corrects this by pushing
+    predictions toward 0 or 1 based on how far they are from 50%.
+
+    Formula: extremized = 0.5 + (1 + d) * (p - 0.5)
+
+    Where d is the extremizing constant:
+      d = 0.0: no change
+      d = 0.3: moderate push (GJP typical for individual forecasters)
+      d = 0.5: strong push (GJP typical for team aggregates)
+
+    Only apply when we have evidence-backed divergence from 50%.
+    Don't extremize if we're already very close to 50% (not enough signal).
+
+    References:
+      Baron et al. (2014), "Two Reasons to Make Aggregated Probability
+      Forecasts More Extreme"
+    """
+    if d is None:
+        d = EXTREMIZING_D
+
+    if d == 0:
+        return probability
+
+    extremized = 0.5 + (1.0 + d) * (probability - 0.5)
+    return max(0.02, min(0.98, extremized))
 
 
 # -- Adversarial Review -------------------------------------------------------
@@ -314,16 +306,32 @@ def run_forecast(briefing):
         )
         adj = adversarial["adjustment"]
 
-        final_prob = max(0.02, min(0.98, current_prob + adj))
+        post_adversarial = max(0.02, min(0.98, current_prob + adj))
         print(f"  Counter-argument: {adversarial['counter_argument'][:80]}...")
         print(f"  Adjustment: {adj:+.3f}")
-        print(f"  Final probability: {final_prob:.3f}")
+        print(f"  Post-adversarial: {post_adversarial:.3f}")
 
-        # Save adversarial adjustment to belief state
-        if abs(adj) > 0.001:
+        # -- Step 5b: Extremizing (Tetlock GJP transform) --
+        # Push away from 50% -- corrects for the systematic tendency of
+        # aggregated/shrunk forecasts to be too close to the center.
+        # Only extremize if we have meaningful evidence (not just base rate).
+        pre_extremize = post_adversarial
+        if len(evidence_evals) > 0:
+            final_prob = extremize(post_adversarial)
+            if abs(final_prob - pre_extremize) > 0.001:
+                print(f"  Extremized: {pre_extremize:.3f} -> {final_prob:.3f} "
+                      f"(d={EXTREMIZING_D})")
+        else:
+            final_prob = post_adversarial
+            print(f"  Extremizing skipped (no evidence)")
+
+        # Save to belief state
+        if abs(final_prob - current_prob) > 0.001:
             belief_state["probability"] = round(final_prob, 4)
             from updater import save_belief_state
             save_belief_state(belief_state)
+
+        print(f"  Final probability: {final_prob:.3f}")
 
         # -- Step 6: Build Prediction Record --
         divergence = final_prob - market_price
@@ -337,6 +345,8 @@ def run_forecast(briefing):
             "base_rate": round(base_rate_info["base_rate"], 4),
             "pre_adversarial": round(current_prob, 4),
             "adversarial_adjustment": round(adj, 4),
+            "pre_extremize": round(pre_extremize, 4),
+            "extremizing_d": EXTREMIZING_D,
             "final_probability": round(final_prob, 4),
             "divergence_from_market": round(divergence, 4),
             "evidence_count": len(evidence_evals),

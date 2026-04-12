@@ -38,30 +38,27 @@ CITIES = {
 }
 
 
-def fetch_forecast(city_key):
-    """Fetch daily forecast from NWS for a city. Returns periods list or None."""
-    url = CITIES[city_key]["forecast_url"]
+def _fetch_nws(city_key, url_key):
+    """Fetch forecast periods from NWS for a city. Returns periods list or None."""
+    url = CITIES[city_key][url_key]
     try:
         resp = requests.get(url, headers=NWS_HEADERS, timeout=15)
         resp.raise_for_status()
-        data = resp.json()
-        return data.get("properties", {}).get("periods", [])
+        return resp.json().get("properties", {}).get("periods", [])
     except Exception as e:
-        print(f"  WARNING: NWS forecast failed for {city_key}: {e}")
+        label = "forecast" if "hourly" not in url_key else "hourly"
+        print(f"  WARNING: NWS {label} failed for {city_key}: {e}")
         return None
+
+
+def fetch_forecast(city_key):
+    """Fetch daily forecast from NWS for a city. Returns periods list or None."""
+    return _fetch_nws(city_key, "forecast_url")
 
 
 def fetch_hourly(city_key):
     """Fetch hourly forecast from NWS for a city. Returns periods list or None."""
-    url = CITIES[city_key]["hourly_url"]
-    try:
-        resp = requests.get(url, headers=NWS_HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        return data.get("properties", {}).get("periods", [])
-    except Exception as e:
-        print(f"  WARNING: NWS hourly failed for {city_key}: {e}")
-        return None
+    return _fetch_nws(city_key, "hourly_url")
 
 
 def parse_today_forecast(periods):

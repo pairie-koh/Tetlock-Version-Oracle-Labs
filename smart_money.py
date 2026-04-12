@@ -69,20 +69,20 @@ IMBALANCE_THRESHOLD = 2.0  # 2:1 ratio
 
 # ── API Functions ────────────────────────────────────────────────────────────
 
-def fetch_market_data(condition_id: str) -> Optional[Dict]:
+_EMPTY_MARKET_DATA = {"volume24hr": 0, "volume1wk": 0, "liquidity": 0}
+
+
+def fetch_market_data(condition_id: str) -> Dict:
     """
     Fetch market metadata and volume data from Gamma API.
-    Falls back to estimated data if API fails.
+    Falls back to zeroed data if API fails.
     """
     try:
-        # Try to find market in Gamma API by searching all events
         url = f"{POLYMARKET_GAMMA_URL}/events"
         resp = requests.get(url, params={"active": "true"}, timeout=15)
         resp.raise_for_status()
-        data = resp.json()
 
-        # Search for our market by condition_id
-        for event in data:
+        for event in resp.json():
             for market in event.get("markets", []):
                 if market.get("conditionId") == condition_id:
                     return {
@@ -91,20 +91,11 @@ def fetch_market_data(condition_id: str) -> Optional[Dict]:
                         "liquidity": event.get("liquidity", 0),
                     }
 
-        # Market not found - return minimal data
         print(f"  WARNING: Market not found in Gamma API, using fallback")
-        return {
-            "volume24hr": 0,
-            "volume1wk": 0,
-            "liquidity": 0,
-        }
     except Exception as e:
         print(f"  WARNING: Gamma API error ({e}), using fallback")
-        return {
-            "volume24hr": 0,
-            "volume1wk": 0,
-            "liquidity": 0,
-        }
+
+    return dict(_EMPTY_MARKET_DATA)
 
 
 def fetch_order_book(token_id: str) -> Optional[Dict]:

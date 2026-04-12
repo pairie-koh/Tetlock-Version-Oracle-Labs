@@ -173,37 +173,33 @@ def format_contract(market):
     """Format market data into contract format matching MARKETS dict structure."""
     yes_token, no_token = parse_token_ids(market)
 
-    contract = {
+    # Parse outcomePrices whether it's a list or JSON string
+    prices_raw = market.get("outcomePrices", [])
+    if isinstance(prices_raw, str):
+        try:
+            prices_raw = json.loads(prices_raw)
+        except (json.JSONDecodeError, ValueError):
+            prices_raw = []
+    try:
+        current_prices = {"yes": float(prices_raw[0]), "no": float(prices_raw[1])}
+    except (IndexError, TypeError, ValueError):
+        current_prices = {"yes": 0, "no": 0}
+
+    return {
         "question": market.get("question", ""),
         "slug": market.get("slug", ""),
         "condition_id": market.get("conditionId", ""),
         "yes_token_id": yes_token,
         "no_token_id": no_token,
         "end_date": market.get("endDateIso", market.get("endDate", "")[:10] if market.get("endDate") else ""),
-        "description": market.get("description", "")[:500],  # Truncate long descriptions
+        "description": market.get("description", "")[:500],
         "categories": extract_categories(market),
         "volume": float(market.get("volumeNum", 0)),
         "liquidity": float(market.get("liquidityNum", 0)),
-        "current_prices": {
-            "yes": float(market.get("outcomePrices", ["0", "0"])[0]) if isinstance(market.get("outcomePrices"), list) else 0,
-            "no": float(market.get("outcomePrices", ["0", "0"])[1]) if isinstance(market.get("outcomePrices"), list) else 0,
-        },
+        "current_prices": current_prices,
         "resolution_source": market.get("resolutionSource", ""),
         "polymarket_id": market.get("id", ""),
     }
-
-    # Parse outcomePrices if it's a JSON string
-    if isinstance(market.get("outcomePrices"), str):
-        try:
-            prices = json.loads(market.get("outcomePrices"))
-            contract["current_prices"] = {
-                "yes": float(prices[0]),
-                "no": float(prices[1]),
-            }
-        except (json.JSONDecodeError, IndexError, ValueError):
-            pass
-
-    return contract
 
 
 def test_clob_price_lookup(token_id):

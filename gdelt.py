@@ -231,15 +231,15 @@ def run_queries(timespan="2d"):
         articles = fetch_articles(query, timespan=timespan, max_records=10)
 
         # Extract just what we need for the LLM
-        headlines = []
-        for art in articles:
-            headlines.append({
+        headlines = [
+            {
                 "title": art.get("title", "").strip(),
                 "domain": art.get("domain", ""),
                 "date": art.get("seendate", ""),
                 "country": art.get("sourcecountry", ""),
-            })
-
+            }
+            for art in articles
+        ]
         article_count = len(headlines)
         print(f"    {article_count} articles found")
 
