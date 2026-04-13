@@ -10,5 +10,6 @@ scores/*.json
 scores/*.csv
 price_history/
 contracts/*.json
+!contracts/active_contracts.json
 data/*.json
 orderflow_cache/

@@ -1,0 +1,2777 @@
+{
+  "fetched_at": "2026-03-23T02:46:36Z",
+  "total_contracts": 23,
+  "note": "Curated contract list. Rolling daily contracts (bitcoin, oil, NYC/Miami temp) are managed separately by rolling_contracts.py.",
+  "prediction_frequencies": {
+    "every_12h": "Run every 12 hours (geopolitics, economics, politics)",
+    "every_24h": "Run once daily (sports, tech, entertainment)",
+    "once_daily": "Run once each morning (rolling daily, gas prices)",
+    "once_weekly": "Run once per week (Survivor, weekly rolling)"
+  },
+  "contracts": [
+    {
+      "contract_name": "US-Iran nuclear deal before 2027",
+      "question": "US-Iran nuclear deal before 2027?",
+      "slug": "us-iran-nuclear-deal-before-2027",
+      "market_slug": "us-iran-nuclear-deal-before-2027",
+      "condition_id": "0x182390641d3b1b47cc64274b9da290efd04221c586651ba190880713da6347d9",
+      "yes_token_id": "102936224134271070189104847090829839924697394514566827387181305960175107677216",
+      "no_token_id": "45763018441764333771124945243746174684578244015331389396782339063349542289693",
+      "end_date": "2026-12-31T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "geopolitics",
+      "contract_type": "binary",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.43,
+        "no": 0.57
+      },
+      "volume": 399481.6480440004,
+      "event_slug": "us-iran-nuclear-deal-before-2027",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if the US and Iran reach a formal nuclear agreement (JCPOA revival or new deal) before 2027. Must be an official agreement, not just talks or frameworks.",
+      "geo_scope": "Middle East, US, Iran",
+      "key_actors": "US State Dept, Iran Foreign Ministry, IAEA, EU (E3 mediators)",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "US-Iran nuclear deal by April 30",
+      "question": "US-Iran nuclear deal by April 30?",
+      "slug": "us-iran-nuclear-deal-by-april-30",
+      "market_slug": "us-iran-nuclear-deal-by-april-30",
+      "condition_id": "0xd08544f6162283dc8d0a82f16362aab837a8537379df9bbe604960eec9cd4618",
+      "yes_token_id": "112492422223721833247811647742275675824808408889541609334054707084262154976006",
+      "no_token_id": "63111054483017727612527014142487261417181554883649541604828011046058146540352",
+      "end_date": "2026-04-30T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "geopolitics",
+      "contract_type": "binary",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.085,
+        "no": 0.915
+      },
+      "volume": 40162.51461099999,
+      "event_slug": "us-iran-nuclear-deal-by-april-30",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if a formal US-Iran nuclear agreement is reached by April 30, 2026. Same criteria as the 2027 version but shorter deadline.",
+      "geo_scope": "Middle East, US, Iran",
+      "key_actors": "US State Dept, Iran Foreign Ministry, IAEA, EU (E3 mediators)",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "Strait of Hormuz traffic normalizes by April 30",
+      "question": "Strait of Hormuz traffic returns to normal by end of April?",
+      "slug": "strait-of-hormuz-traffic-returns-to-normal-by-april-30",
+      "market_slug": "strait-of-hormuz-traffic-returns-to-normal-by-april-30",
+      "condition_id": "0x924a2942747dd75703321a7c8d809c68f6a514c3b0f2a2e64274e02310634669",
+      "yes_token_id": "77893140510362582253172593084218413010407941075415081594586195705930819989216",
+      "no_token_id": "56231474151770057648855426299021396541474371449092934400587810748856711049761",
+      "end_date": "2026-04-30T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "geopolitics",
+      "contract_type": "binary",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.385,
+        "no": 0.615
+      },
+      "volume": 872405.0266439983,
+      "event_slug": "strait-of-hormuz-traffic-returns-to-normal-by-april-30",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if commercial shipping traffic through the Strait of Hormuz returns to pre-disruption levels by April 30, 2026. Based on shipping data and maritime intelligence reports.",
+      "geo_scope": "Persian Gulf, Middle East",
+      "key_actors": "Iran Navy, IRGC, US CENTCOM, shipping companies, maritime intelligence firms",
+      "resolution_type": "data_threshold"
+    },
+    {
+      "contract_name": "Will Iran close the Strait of Hormuz",
+      "question": "Will Iran close the Strait of Hormuz by...?",
+      "slug": "will-iran-close-the-strait-of-hormuz-by-2027",
+      "end_date": "2026-12-31T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "geopolitics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 5772413.378727998,
+      "event_slug": "will-iran-close-the-strait-of-hormuz-by-2027",
+      "num_outcomes": 6,
+      "outcomes": [
+        {
+          "question": "Will Iran close the Strait of Hormuz before 2027?",
+          "condition_id": "0x5bbabd359667d5bbdb9ee690bb959c9aa4cf4b08b2ae6592118a59753f622d78",
+          "yes_token_id": "58355627502289992307583374323003575940756819098871991505843403023372064305947",
+          "yes_price": 1.0,
+          "market_slug": "will-iran-close-the-strait-of-hormuz-by-2027-969-911-654-431-667"
+        },
+        {
+          "question": "arch Will Iran close the Strait of Hormuz by March 31?",
+          "condition_id": "0x015299405c7267990ee75b3db22237f391e46c8d05bc5a03c5076e1a96f817e8",
+          "yes_token_id": "25449748345434136675508262363143254123943255034717074494431209629324573900407",
+          "yes_price": 0.5,
+          "market_slug": "arch-will-iran-close-the-strait-of-hormuz-by-march-31"
+        },
+        {
+          "question": "arch Will Iran close the Strait of Hormuz by June 30?",
+          "condition_id": "0x95a201815a803d721934c473257dc7ba9bc880f5726b35c84ab3bba745d1881e",
+          "yes_token_id": "17702510808530976449022906726095855345303830241238951265798337178838538566762",
+          "yes_price": 0.5,
+          "market_slug": "arch-will-iran-close-the-strait-of-hormuz-by-june-30"
+        },
+        {
+          "question": "Will Iran close the Strait of Hormuz by January 31?",
+          "condition_id": "0x521c20a2815c1ffc40f5a3186fcaaaec8ada81661c74cded21d28615adb89fa8",
+          "yes_token_id": "98826277139015456279512639203298534104818877052551328706067253595899999167703",
+          "yes_price": 0.0,
+          "market_slug": "will-iran-close-the-strait-of-hormuz-by-january-31"
+        },
+        {
+          "question": "Will Iran close the Strait of Hormuz by March 31?",
+          "condition_id": "0x561cd8d035bac38ed04e23d7882a126da38d7ead9d6679f722ad62c0c9d54ad2",
+          "yes_token_id": "11259214629259962188961658360673801608680858594287954976598964541495296876564",
+          "yes_price": 1.0,
+          "market_slug": "will-iran-close-the-strait-of-hormuz-by-march-31"
+        },
+        {
+          "question": "Will Iran close the Strait of Hormuz by June 30?",
+          "condition_id": "0x43c7e8f73e867ebc035edf002617f67cf96b90c85eccac18090e553bfe7a8411",
+          "yes_token_id": "96553364970466373803947573971182456872615857518046435760618204033520963141265",
+          "yes_price": 1.0,
+          "market_slug": "will-iran-close-the-strait-of-hormuz-by-june-30"
+        }
+      ],
+      "resolution_rules": "Resolves based on whether Iran takes action to block or significantly disrupt commercial shipping through the Strait of Hormuz before 2027.",
+      "geo_scope": "Persian Gulf, Middle East",
+      "key_actors": "Iran government, IRGC Navy, US military, oil tanker operators, Gulf states",
+      "resolution_type": "event_occurrence"
+    },
+    {
+      "contract_name": "Which world leaders will leave office",
+      "question": "Next leader out of power before 2027?",
+      "slug": "next-leader-out-of-power-before-2027-795",
+      "end_date": "2026-12-31T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "geopolitics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 1948642.68633,
+      "event_slug": "next-leader-out-of-power-before-2027-795",
+      "num_outcomes": 25,
+      "outcomes": [
+        {
+          "question": "Will Emmanuel Macron be the next leader out before 2027?",
+          "condition_id": "0xe20838e0d89930c4deccefed1cebd5723eb3611b6168a63514300a3939f5618a",
+          "yes_token_id": "68743733794503302859548827283421167164843300362203144062404561427599906105090",
+          "yes_price": 0.014,
+          "market_slug": "will-emmanuel-macron-be-the-next-leader-out-before-2027-621"
+        },
+        {
+          "question": "Will Recep Tayyip Erdo\u011fan be the next leader out before 2027?",
+          "condition_id": "0x5b2acdcefaa34108ed0ccfa33d92f754b60af717f8905cbaec24c37e411f4f3b",
+          "yes_token_id": "7698746022110322199901396929238168391453363233524867102058578304885388837786",
+          "yes_price": 0.009,
+          "market_slug": "will-recep-tayyip-erdoan-be-the-next-leader-out-before-2027-344"
+        },
+        {
+          "question": "Will Kim Jong Un be the next leader out before 2027?",
+          "condition_id": "0xcff2073f13a60dca2e9d19a18e318f088bab9d2a84607e687c14ecbe36894478",
+          "yes_token_id": "22103564255762462832509081552559015472215843698646462118049987478590626439797",
+          "yes_price": 0.0055,
+          "market_slug": "will-kim-jong-un-be-the-next-leader-out-before-2027-416"
+        },
+        {
+          "question": "Will Xi Jinping be the next leader out before 2027?",
+          "condition_id": "0x8e2f2a0a2e715c54be5bf213df03b5f13e5a878f5f233ea9b638c0a62063a77d",
+          "yes_token_id": "74203226771519376821364168396648626879461221335207370524227334590368801964432",
+          "yes_price": 0.0125,
+          "market_slug": "will-xi-jinping-be-the-next-leader-out-before-2027-728"
+        },
+        {
+          "question": "Will Benjamin Netanyahu be the next leader out before 2027?",
+          "condition_id": "0x6f416ddd0d4e15ad8d76fff96851a154c16713a26aafc753173c49acf5c6eb74",
+          "yes_token_id": "58012685113350264182553336543743113268085481773497806837891043920813360079306",
+          "yes_price": 0.1015,
+          "market_slug": "will-benjamin-netanyahu-be-the-next-leader-out-before-2027-467"
+        },
+        {
+          "question": "Will Anthony Albanese be the next leader out before 2027?",
+          "condition_id": "0xd9901ef1d9fbab09dfbf78ebbd90782456f44c0ef57ac1691ae69e6b4759c2a4",
+          "yes_token_id": "66259138149999966340775084196793175445199026709598979929961591694132055313334",
+          "yes_price": 0.005,
+          "market_slug": "will-anthony-albanese-be-the-next-leader-out-before-2027-751"
+        },
+        {
+          "question": "Will Gavin Newsom be the next leader out before 2027?",
+          "condition_id": "0x3c60f112f8235c99c99b69922a5a50bff912a18c9d35352a06df96132e9edbac",
+          "yes_token_id": "26935636826666773701635299019878372882076776319123503367086511850919118365388",
+          "yes_price": 0.007,
+          "market_slug": "will-gavin-newsom-be-the-next-leader-out-before-2027-485"
+        },
+        {
+          "question": "Will Javier Milei be the next leader out before 2027?",
+          "condition_id": "0x9936785c8bd8c16c5a7436c642ccbd375f4dd20cdc6700e56b7724e113607054",
+          "yes_token_id": "12966116009835317297685402258429947620276783329420565078728509061630285585099",
+          "yes_price": 0.0075,
+          "market_slug": "will-javier-milei-be-the-next-leader-out-before-2027-625"
+        },
+        {
+          "question": "Will Keir Starmer be the next leader out before 2027?",
+          "condition_id": "0xc3fab30f17f5856b8e4d5b8d63f090d1ea88c2fa0721292204c493803ee68a40",
+          "yes_token_id": "50350333145603796684468357968301715711399983020855729105016351053193693650392",
+          "yes_price": 0.0475,
+          "market_slug": "will-keir-starmer-be-the-next-leader-out-before-2027-973"
+        },
+        {
+          "question": "Will Donald Trump be the next leader out before 2027?",
+          "condition_id": "0x96fd9357d0245c7cb8316c3f838026086deb2457693ea1958862b769e3032952",
+          "yes_token_id": "66380415966693421801815345560392897762189990829477756769662239765270012907462",
+          "yes_price": 0.0155,
+          "market_slug": "will-donald-trump-be-the-next-leader-out-before-2027-277"
+        },
+        {
+          "question": "Will Volodymyr Zelenskyy be the next leader out before 2027?",
+          "condition_id": "0x85a96cbc8c3dc059ef461a17001efd347c1d000c6cad6c2b32f7e866bfd66e3a",
+          "yes_token_id": "20789891994060359045919013890397957467876860107718888089501053666313891959313",
+          "yes_price": 0.017,
+          "market_slug": "will-volodymyr-zelenskyy-be-the-next-leader-out-before-2027-426"
+        },
+        {
+          "question": "Will Vladimir Putin be the next leader out before 2027?",
+          "condition_id": "0xd79fe765f7e2adfbaa07429050cf179647f409202f12c93879e966f1da99ecaa",
+          "yes_token_id": "89052805190563530598499830142438548610699448864941341974996820428003815235291",
+          "yes_price": 0.022,
+          "market_slug": "will-vladimir-putin-be-the-next-leader-out-before-2027-919"
+        },
+        {
+          "question": "Will Luiz In\u00e1cio Lula da Silva be the next leader out before 2027?",
+          "condition_id": "0xa73a98fdb8ad6d042680dac7f20836dc17156fd7a13c6388957a48e05068fe02",
+          "yes_token_id": "4095786857141654994926492004009126594049904654775352641977427664224656311632",
+          "yes_price": 0.005,
+          "market_slug": "will-luiz-incio-lula-da-silva-be-the-next-leader-out-before-2027-635"
+        },
+        {
+          "question": "Will S\u00e9bastien Lecornu be the next leader out before 2027?",
+          "condition_id": "0x8f7d31eb8b240ca579189cd7c21ff295b3cf4d29bb40b9be68025817fb0672f4",
+          "yes_token_id": "100061247910822953580130230319195664342276820247734205738644513433375188027023",
+          "yes_price": 0.008,
+          "market_slug": "will-sbastien-lecornu-be-the-next-leader-out-before-2027-431"
+        },
+        {
+          "question": "Will Sanae Takaichi be the next leader out before 2027?",
+          "condition_id": "0xe111b1ee12df2943a3e7c2f860f2cf38b1e00d9091450dee18b18989cdd2a990",
+          "yes_token_id": "85717737669875662485212703253697543976985667864085963182706834149127430558260",
+          "yes_price": 0.029,
+          "market_slug": "will-sanae-takaichi-be-the-next-leader-out-before-2027-365"
+        },
+        {
+          "question": "Will Mahmoud Abbas be the next leader out before 2027?",
+          "condition_id": "0x5b10c26682077225010f27701151020b3a69fbbf81f3e02353cf2499fe889245",
+          "yes_token_id": "88563840765397214570706636660214971317625963848701727383575424882343174151753",
+          "yes_price": 0.0165,
+          "market_slug": "will-mahmoud-abbas-be-the-next-leader-out-before-2027-629"
+        },
+        {
+          "question": "Will Friedrich Merz be the next leader out before 2027?",
+          "condition_id": "0x1690499c62aab886fd6f057e0e385454da7cd0c06c103daa5a28f98a9022f08a",
+          "yes_token_id": "96073258428839552571833882118917873158568229554443943315287643047134775683220",
+          "yes_price": 0.006,
+          "market_slug": "will-friedrich-merz-be-the-next-leader-out-before-2027-314"
+        },
+        {
+          "question": "Will Pedro S\u00e1nchez be the next leader out before 2027?",
+          "condition_id": "0xdf0d55165cf7e35058ccafd772737823686b7f53cc846735152cd4b4b34bdd40",
+          "yes_token_id": "22817937663911991679373209693465179488704966404948837043912552835736724447299",
+          "yes_price": 0.0105,
+          "market_slug": "will-pedro-snchez-be-the-next-leader-out-before-2027-897"
+        },
+        {
+          "question": "Will Claudia Sheinbaum be the next leader out before 2027?",
+          "condition_id": "0x37e18924db74da1bfe2a1c5ec3b098596e51cf6199bb6edd84bad2fdfbeccab2",
+          "yes_token_id": "96118400207767493074545698045092542688999299570142008696560541934138541955950",
+          "yes_price": 0.0065,
+          "market_slug": "will-claudia-sheinbaum-be-the-next-leader-out-before-2027-732"
+        },
+        {
+          "question": "Will Miguel D\u00edaz-Canel be the next leader out before 2027?",
+          "condition_id": "0x5e02b629947c0d067d1be44a977a0b790eb34026beefb83ae165261710fd70fe",
+          "yes_token_id": "32783627408437802279821366090349314776185393457891619970198744152052995193007",
+          "yes_price": 0.195,
+          "market_slug": "will-miguel-daz-canel-be-the-next-leader-out-before-2027-162"
+        },
+        {
+          "question": "Will Gustavo Petro be the next leader out before 2027?",
+          "condition_id": "0x4ea7001ce0bd4617c78b109b3412a65c204d7d24e0e283f5661843ae28435f98",
+          "yes_token_id": "46649622678827122015315810197514574269130796224870177227142764116940340521245",
+          "yes_price": 0.017,
+          "market_slug": "will-gustavo-petro-be-the-next-leader-out-before-2027-766"
+        },
+        {
+          "question": "Will Viktor Orb\u00e1n be the next leader out before 2027?",
+          "condition_id": "0x3a39018720ae04cfa3ecf6945359192eec2198fb9847672b9879b29e17b2c592",
+          "yes_token_id": "56601823177134642275405457872031083606199567470919666090545656450308791045273",
+          "yes_price": 0.455,
+          "market_slug": "will-viktor-orbn-be-the-next-leader-out-before-2027-495"
+        },
+        {
+          "question": "Will Delcy Rodr\u00edguez be the next leader out before 2027?",
+          "condition_id": "0x688db85f462d33d1c0413eb9725377b2cc8255ea5e7db82c230dbb92ee07e0c9",
+          "yes_token_id": "56036595415752409743071554809354915316659613758564217915649306860338464447556",
+          "yes_price": 0.006,
+          "market_slug": "will-delcy-rodrguez-be-the-next-leader-out-before-2027-173"
+        },
+        {
+          "question": "Will Ahmed al-Sharaa be the next leader out before 2027?",
+          "condition_id": "0x7877ce086d302b90007cf299d4bef4b0962776acc0817c8582ca17314ecd5d3b",
+          "yes_token_id": "57965036616764917704271807187310617306438752060823489567646117464669762827024",
+          "yes_price": 0.006,
+          "market_slug": "will-ahmed-al-sharaa-be-the-next-leader-out-before-2027-725"
+        },
+        {
+          "question": "Will no listed leader be out before 2027?",
+          "condition_id": "0x5eb41992936d1d364f705c4b795929054d9180205c65f74fe3e346363c6bf212",
+          "yes_token_id": "56629770834371525332971666074299543864473181120744480508402190433650834278114",
+          "yes_price": 0.02,
+          "market_slug": "will-no-listed-leader-be-out-before-2027-257"
+        }
+      ],
+      "resolution_rules": "Resolves for whichever listed head of state/government is next to leave office before 2027. Includes resignation, removal, death, or end of term. The leader must actually vacate power, not just announce departure.",
+      "geo_scope": "global",
+      "key_actors": "listed heads of state/government (varies by outcome)",
+      "resolution_type": "event_occurrence"
+    },
+    {
+      "contract_name": "SAVE Act becomes law in 2026",
+      "question": "H.R. 22 (SAVE Act) signed into law in 2026?",
+      "slug": "save-act-signed-into-law-in-2026",
+      "market_slug": "save-act-signed-into-law-in-2026",
+      "condition_id": "0xf2a1d529e46480e1e1c5df6c344b7ee1e7c751c3f519cdf64cd7756d7570d93a",
+      "yes_token_id": "37467631285531831665697591524375215432057927358158099750839810397764187374475",
+      "no_token_id": "67984513619168733684462610692534996694945959944363445850754064952177416344386",
+      "end_date": "2026-12-31T00:00:00Z",
+      "category": "geopolitics",
+      "domain": "politics",
+      "contract_type": "binary",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.11,
+        "no": 0.89
+      },
+      "volume": 124678.56877399997,
+      "event_slug": "save-act-signed-into-law-in-2026",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if the Safeguard American Voter Eligibility (SAVE) Act is signed into law by the President in 2026. Must pass both House and Senate and receive presidential signature.",
+      "geo_scope": "US",
+      "key_actors": "US House, US Senate, President, House Speaker",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "US recession by end of 2026",
+      "question": "US recession by end of 2026?",
+      "slug": "us-recession-by-end-of-2026",
+      "market_slug": "us-recession-by-end-of-2026",
+      "condition_id": "0xfdc73f10edf0266756686f35b5712cffa828b0940fc015e0426c76c934c2105d",
+      "yes_token_id": "100379208559626151022751801118534484742123694725746262280150222742563282755057",
+      "no_token_id": "113732820231608904682346496304917888352004831436510840986547065248348999143469",
+      "end_date": "2027-01-31T00:00:00Z",
+      "category": "economics",
+      "domain": "economics",
+      "contract_type": "binary",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.365,
+        "no": 0.635
+      },
+      "volume": 741368.5340840027,
+      "event_slug": "us-recession-by-end-of-2026",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if the NBER Business Cycle Dating Committee declares a US recession that includes any part of 2026, OR if two consecutive quarters of negative real GDP growth occur with at least one quarter in 2026.",
+      "geo_scope": "US",
+      "key_actors": "NBER Business Cycle Dating Committee, BEA, Federal Reserve",
+      "resolution_type": "data_release"
+    },
+    {
+      "contract_name": "Fed decision in April",
+      "question": "Fed decision in April?",
+      "slug": "fed-decision-in-april",
+      "end_date": "2026-04-29T00:00:00Z",
+      "category": "economics",
+      "domain": "economics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 20367464.21957971,
+      "event_slug": "fed-decision-in-april",
+      "num_outcomes": 4,
+      "outcomes": [
+        {
+          "question": "Will the Fed decrease interest rates by 50+ bps after the April 2026 meeting?",
+          "condition_id": "0xd72622d154dfe65b9c019d6afcfe75a55717e5c502db611f555b101aafbf6ec5",
+          "yes_token_id": "18690049947242812495755151360212639738977254879109748949267393375856311641700",
+          "yes_price": 0.0045,
+          "market_slug": "will-the-fed-decrease-interest-rates-by-50-bps-after-the-april-2026-meeting"
+        },
+        {
+          "question": "Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?",
+          "condition_id": "0x0d14f5dc9fb3250ec888b1ac8d9fe9a0ce06f9d3ea60fdf138e8690622fea84c",
+          "yes_token_id": "83479140651306794046790588004449066364152228067472874205697111967337978544729",
+          "yes_price": 0.0125,
+          "market_slug": "will-the-fed-decrease-interest-rates-by-25-bps-after-the-april-2026-meeting"
+        },
+        {
+          "question": "Will there be no change in Fed interest rates after the April 2026 meeting?",
+          "condition_id": "0x36e8ca24d2a13435f519f15580d42b45cdbe3bc425fb39a7c2733260357af0fa",
+          "yes_token_id": "63586620628756015058616403521099137018911742768824051367331188904593189743777",
+          "yes_price": 0.9405,
+          "market_slug": "will-there-be-no-change-in-fed-interest-rates-after-the-april-2026-meeting"
+        },
+        {
+          "question": "Will the Fed increase interest rates by 25+ bps after the April 2026 meeting?",
+          "condition_id": "0xd4d00e5bf8b960cc37c74c1ec19e41e00b0706add203ddcfbb65ad006c5c223a",
+          "yes_token_id": "9556122149160720922715284597610520228366807023831966638741974320131898296289",
+          "yes_price": 0.0425,
+          "market_slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-april-2026-meeting"
+        }
+      ],
+      "resolution_rules": "Resolves based on the FOMC decision announced after the April 29-30, 2026 meeting. Options: rate cut (25bps or 50+bps), no change, or rate hike. Based on the official FOMC statement.",
+      "geo_scope": "US",
+      "key_actors": "FOMC, Jerome Powell, Federal Reserve Board governors",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "CPI year-over-year in March",
+      "question": "March Inflation US - Annual",
+      "slug": "march-inflation-us-annual",
+      "end_date": "2026-04-10T00:00:00Z",
+      "category": "economics",
+      "domain": "economics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 2494126.278687,
+      "event_slug": "march-inflation-us-annual",
+      "num_outcomes": 9,
+      "outcomes": [
+        {
+          "question": "Will annual inflation increase by 2.2% in March?",
+          "condition_id": "0x2091f233d41008fb13d4cf8f105630947d1bf0f054e42db8a3b2276dad7d4db0",
+          "yes_token_id": "22597893842041295706288723049268858786886179531869660622737706735565644670294",
+          "yes_price": 0.0015,
+          "market_slug": "will-annual-inflation-increase-by-2pt2-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.4% in March?",
+          "condition_id": "0xcfe2adf287d2b09ee6640e05e36070ffa6b90dd1c292a977ff378d66188d36fd",
+          "yes_token_id": "9142380125973562699416914862072037651241839875853231508499064163952569478638",
+          "yes_price": 0.003,
+          "market_slug": "will-annual-inflation-increase-by-2pt4-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.7% in March?",
+          "condition_id": "0x8018480ae01e45888bbe48c9caa95ad978b5989274707ed4e11a21fd092a52c7",
+          "yes_token_id": "54552110979521097931707932767305116135974210126500989699594811589045226152200",
+          "yes_price": 0.0055,
+          "market_slug": "will-annual-inflation-increase-by-2pt7-in-march-892"
+        },
+        {
+          "question": "Will annual inflation increase by \u22652.8% in March?",
+          "condition_id": "0x34ae6edef62d01800a54869009ccd6b9a1e08260a276e2e2348b630eaec7079e",
+          "yes_token_id": "108968538130342611748009087633031699151771583070409553135474065099575034498035",
+          "yes_price": 0.973,
+          "market_slug": "will-annual-inflation-increase-by-2pt8-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.5% in March?",
+          "condition_id": "0x49ddcacf6c172c59598a6dec8e5eff90d971cb612a00c573111b23046cf61ff1",
+          "yes_token_id": "28088734189743488863605325140905243144214812242559842825871447118742458301100",
+          "yes_price": 0.003,
+          "market_slug": "will-annual-inflation-increase-by-2pt5-in-march-584"
+        },
+        {
+          "question": "Will annual inflation increase by \u22642.0% in March?",
+          "condition_id": "0xcb34fbe5b254686208d154329772bc1e8422f0bb5c5bce9376eec2277f34d91a",
+          "yes_token_id": "31063790499730414321504983201404963122486014005359864813212051746613497857637",
+          "yes_price": 0.003,
+          "market_slug": "will-annual-inflation-increase-by-2pt0-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.3% in March?",
+          "condition_id": "0x33c11bb8169f21897aab2c3f541369536eb4be8f48a1b7c6801d90a4ddc310e0",
+          "yes_token_id": "37168439745568117465026212618931290412487877293787495999936762240862970528264",
+          "yes_price": 0.0035,
+          "market_slug": "will-annual-inflation-increase-by-2pt3-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.1% in March?",
+          "condition_id": "0xaaec92aee62b3dda886c0c5229ce4dd3cebfbf629b0aac3d6968bb4fc14fe870",
+          "yes_token_id": "15716319438301619532636290387565972570300171436345002698889113172432020591838",
+          "yes_price": 0.003,
+          "market_slug": "will-annual-inflation-increase-by-2pt1-in-march"
+        },
+        {
+          "question": "Will annual inflation increase by 2.6% in March?",
+          "condition_id": "0x7bb15864f9a2bc18136e0a2d4ae3c22919f5162619ee4c62fa7982c01ff726fc",
+          "yes_token_id": "96068897205576055163637237519063501733810257354941984039706393904299909481037",
+          "yes_price": 0.0055,
+          "market_slug": "will-annual-inflation-increase-by-2pt6-in-march-845"
+        }
+      ],
+      "resolution_rules": "Resolves based on the official BLS Consumer Price Index report for March 2026, using the year-over-year all-items CPI-U percentage change, rounded to one decimal place.",
+      "geo_scope": "US",
+      "key_actors": "Bureau of Labor Statistics (BLS)",
+      "resolution_type": "data_release"
+    },
+    {
+      "contract_name": "Bitcoin price targets 2026",
+      "question": "What price will Bitcoin hit in 2026?",
+      "slug": "what-price-will-bitcoin-hit-before-2027",
+      "end_date": "2027-01-01T05:00:00Z",
+      "category": "economics",
+      "domain": "crypto",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 26206017.148006935,
+      "event_slug": "what-price-will-bitcoin-hit-before-2027",
+      "num_outcomes": 34,
+      "outcomes": [
+        {
+          "question": "Will Bitcoin reach $200,000 by December 31, 2026?",
+          "condition_id": "0xac32e73aa9e0dae801d88d4f81efd2ef3fa0f04b815f3a0e74426f0762e668cd",
+          "yes_token_id": "61368943128255287414565270336856615453000675377332178800733742873558311943412",
+          "yes_price": 0.0515,
+          "market_slug": "will-bitcoin-reach-200000-by-december-31-2026-752-232-389"
+        },
+        {
+          "question": "Will Bitcoin reach $180,000 by December 31, 2026?",
+          "condition_id": "0x799c35de1e5f3ebd75053643e020e6df9e9a3f477e3d6066eb0a8565f65d547f",
+          "yes_token_id": "74565691184914883284595890202312045107598400454020809925536957708002527360857",
+          "yes_price": 0.065,
+          "market_slug": "will-bitcoin-reach-180000-by-december-31-2026-629-622-598"
+        },
+        {
+          "question": "Will Bitcoin reach $160,000 by December 31, 2026?",
+          "condition_id": "0x472c9035786b390c08e674fc60bddda488957e1b8aecad3f5480cc531a0754b0",
+          "yes_token_id": "82383148892491951057986758727379275490538136042110607950765593149629854993897",
+          "yes_price": 0.095,
+          "market_slug": "will-bitcoin-reach-160000-by-december-31-2026-934-934-164"
+        },
+        {
+          "question": "Will Bitcoin reach $140,000 by December 31, 2026?",
+          "condition_id": "0xf0a4c0bc8a8162f0ac95b5a5af7fa665d20a19ca0db03b9117514dafc695f15e",
+          "yes_token_id": "71296910957902084356560391757722633648005498400799774895345285101862220728868",
+          "yes_price": 0.115,
+          "market_slug": "will-bitcoin-reach-140000-by-december-31-2026-131-829-299"
+        },
+        {
+          "question": "Will Bitcoin reach $120,000 by December 31, 2026?",
+          "condition_id": "0xf9b6b5c3c6e07afe4aad6ed9ce4fa7545f9c2baa9f1dc632cd81a085c99acfe4",
+          "yes_token_id": "65965214225073605704712365855887384729237451947822407248598722221769498441791",
+          "yes_price": 0.195,
+          "market_slug": "will-bitcoin-reach-120000-by-december-31-2026-625-425-562"
+        },
+        {
+          "question": "Will Bitcoin reach $100,000 by December 31, 2026?",
+          "condition_id": "0xdaa4866bae18be58c5a79d2aeeffd035ec78f1bb49dbd88f72993997778a990f",
+          "yes_token_id": "56078938060096976448086754249497300447360333783952000147427828224794011030104",
+          "yes_price": 0.375,
+          "market_slug": "will-bitcoin-reach-100000-by-december-31-2026-571-361-361"
+        },
+        {
+          "question": "Will Bitcoin dip to $85,000 by December 31, 2026?",
+          "condition_id": "0xb3107910941bedc37b5e559be93e24285aabb8af59f0d2bd92c76e0bc3e9e8cd",
+          "yes_token_id": "98388241835297815796110858611416905740720164276894314702692455931304616501401",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-dip-to-85000-by-december-31-2026-281-257-273-554-855-332-854"
+        },
+        {
+          "question": "Will Bitcoin dip to $65,000 by December 31, 2026?",
+          "condition_id": "0xc72ad4bb4de75c1b745c3135c52d6451f910c1161d7be60a37e9db0e96ffc533",
+          "yes_token_id": "9459955723729000168415965497880658848525081015841723965956909276964376998953",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-dip-to-65000-by-december-31-2026-175-145-572-522-479-997-983"
+        },
+        {
+          "question": "Will Bitcoin dip to $45,000 by December 31, 2026?",
+          "condition_id": "0x024b68f77bfc019341ee3db8f57c103334e4b9430bba4746d8c94aafd8b36fee",
+          "yes_token_id": "9894510651052373088408067031031513212801618531203062911959630395716258202132",
+          "yes_price": 0.485,
+          "market_slug": "will-bitcoin-dip-to-45000-by-december-31-2026-674-923-755-971-998-525-926-245-316-517-544-589-965-923-986-841-815-224"
+        },
+        {
+          "question": "Will Bitcoin dip to $25,000 by December 31, 2026?",
+          "condition_id": "0xe326d1abf5fb59b82ecfdff3348e75f90561eace327ba1bdc8d38d045ddbe775",
+          "yes_token_id": "58908160299895538838177673280060816284346493901538403975218911918392404378292",
+          "yes_price": 0.14,
+          "market_slug": "will-bitcoin-dip-to-25000-by-december-31-2026-948-243-253-666-115-787-981-282-573-719-186-417-762-754-486-851-278-145"
+        },
+        {
+          "question": "Will Bitcoin reach $190,000 by December 31, 2026?",
+          "condition_id": "0xe71b9d788ce662d967ff2c90749ff8b26cee290455ef6cb84f33d1393ffae115",
+          "yes_token_id": "44277901818108806761236452190579702355420207259376614876965091268791774916719",
+          "yes_price": 0.065,
+          "market_slug": "will-bitcoin-reach-190000-by-december-31-2026-936-485-627"
+        },
+        {
+          "question": "Will Bitcoin reach $170,000 by December 31, 2026?",
+          "condition_id": "0x9affeb38bce1e9a6de30e9ecada1ecfaf636574d3961cf3b9177299786214234",
+          "yes_token_id": "91771200478987002878887468575926960041640880090910228629453422737528263499583",
+          "yes_price": 0.075,
+          "market_slug": "will-bitcoin-reach-170000-by-december-31-2026-335-688-943"
+        },
+        {
+          "question": "Will Bitcoin reach $150,000 by December 31, 2026?",
+          "condition_id": "0xa7b594ae07d5c1590fa86028fcc2f8705990437237416556c05837a08b2e1cda",
+          "yes_token_id": "9408196828451163378822245032645030045707991112669125056198742225498158094445",
+          "yes_price": 0.105,
+          "market_slug": "will-bitcoin-reach-150000-by-december-31-2026-557-246-971"
+        },
+        {
+          "question": "Will Bitcoin reach $130,000 by December 31, 2026?",
+          "condition_id": "0x885a6abefad122348b4fbd503473d7fd1f9035d0438cf988a7591620f316a859",
+          "yes_token_id": "106722178102302988256241610384561546855057790384749278490135208236665942286983",
+          "yes_price": 0.145,
+          "market_slug": "will-bitcoin-reach-130000-by-december-31-2026-756-151-855"
+        },
+        {
+          "question": "Will Bitcoin reach $110,000 by December 31, 2026?",
+          "condition_id": "0x63eaf41ce1f475323e2202d7dfa3b1def8b82cd166f7007c50bfbf47615c7b01",
+          "yes_token_id": "74843373582432484858627201602003648342208168490128239235522790524493414154441",
+          "yes_price": 0.255,
+          "market_slug": "will-bitcoin-reach-110000-by-december-31-2026-658-339-969"
+        },
+        {
+          "question": "Will Bitcoin reach $90,000 by December 31, 2026?",
+          "condition_id": "0xeea323848af312ec374930197cdb33b28d1e66a420faacfed5c53af46b0be51c",
+          "yes_token_id": "91123456470574037695962182403499684756243531673970906405131238289979498511066",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-reach-90000-by-december-31-2026-164-234-278"
+        },
+        {
+          "question": "Will Bitcoin dip to $75,000 by December 31, 2026?",
+          "condition_id": "0xf2591ada43eda11c5923f0190307d2cc5f5d994695a654779c3dd328ff820d55",
+          "yes_token_id": "91974662136055067642364013130087782739900436702089259146989314423661850084252",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-dip-to-75000-by-december-31-2026-333-141-768-486-937-643-979"
+        },
+        {
+          "question": "Will Bitcoin dip to $55,000 by December 31, 2026?",
+          "condition_id": "0x752fa61c93f16c4b15e85b0bd438d9c684176b0ea7b319a84c8aca34616e8a8c",
+          "yes_token_id": "115462087336983275104521488923966022755348986822352694745153736621832003960847",
+          "yes_price": 0.74,
+          "market_slug": "will-bitcoin-dip-to-55000-by-december-31-2026-527-627-868-745-188-361-314-673-612-946-821-624-855-557-684-381"
+        },
+        {
+          "question": "Will Bitcoin dip to $35,000 by December 31, 2026?",
+          "condition_id": "0x2745c38ff0617cb345c1d2df19b4f74ea777508e07411e88eeb6ab3affcda2a2",
+          "yes_token_id": "19830138103155427354579425893303398904208550475895360582465715721785944321950",
+          "yes_price": 0.255,
+          "market_slug": "will-bitcoin-dip-to-35000-by-december-31-2026-744-877-748-219-467-465-646-211-122-947-537-552-555-361-972-954-635-887"
+        },
+        {
+          "question": "Will Bitcoin reach $250,000 by December 31, 2026?",
+          "condition_id": "0x6fefc0438c7598b23531457c8c60541990d0786bd4bd9dfc3eabc8d95c291092",
+          "yes_token_id": "13433573766910980267981622064090484781359464703732825845886677588040916221533",
+          "yes_price": 0.042,
+          "market_slug": "will-bitcoin-reach-250000-by-december-31-2026-579-442"
+        },
+        {
+          "question": "Will Bitcoin dip to $15,000 by December 31, 2026?",
+          "condition_id": "0xa885bfe10688056a9d0f4e9a1523bfa18f66fda065f0400d714ba54776083713",
+          "yes_token_id": "63985397218239656926367525871649971575041102854345777114360978052613472299768",
+          "yes_price": 0.0665,
+          "market_slug": "will-bitcoin-dip-to-15000-by-december-31-2026-416-954-417-853-885-363-335-458-585-275-615-269-479-379-516-218-918-374-598"
+        },
+        {
+          "question": "Will Bitcoin dip to $60,000 by December 31, 2026?",
+          "condition_id": "0x64838f7153f3621825a3d64589a21e3f4f70c786f1edfdc0cd7f92252f22ee4f",
+          "yes_token_id": "82217196106525584851163932525188345787570320915850983538518154021481563628776",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-dip-to-60000-by-december-31-2026-868-514-748-652-885-613-696-368-736-451-217-888-749-379"
+        },
+        {
+          "question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
+          "condition_id": "0xce3c54c3e773e8b3bf73e4c12af93205b21195d03b9c386e22f274b9acfc2c56",
+          "yes_token_id": "13887983551129862992605123088744175927084435631400400451585519366058907542147",
+          "yes_price": 0.625,
+          "market_slug": "will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451"
+        },
+        {
+          "question": "Will Bitcoin dip to $40,000 by December 31, 2026?",
+          "condition_id": "0x1e5564c1a2a6839cc2780a889437c63786a2c2ec5e95569b710ee659a3e8baa2",
+          "yes_token_id": "4255890554350661695724949176183233033027635903850796430457642328613772591960",
+          "yes_price": 0.385,
+          "market_slug": "will-bitcoin-dip-to-40000-by-december-31-2026-593-522-842-874-931-776-991"
+        },
+        {
+          "question": "Will Bitcoin dip to $30,000 by December 31, 2026?",
+          "condition_id": "0x903a1387e6414be5529efc8f7757e30371e6698de9d68fa4ce33252009db69ef",
+          "yes_token_id": "32100646597103151520708930825184762124585961199171649862922931416837210460836",
+          "yes_price": 0.185,
+          "market_slug": "will-bitcoin-dip-to-30000-by-december-31-2026-971-191-116-343-999-758-299"
+        },
+        {
+          "question": "Will Bitcoin dip to $20,000 by December 31, 2026?",
+          "condition_id": "0x23fb92bb72604ff35bfe591b5506de47f1bf6632ed55c388baa4843118bf69fc",
+          "yes_token_id": "59683974246799525831244219921114455736275705032978487912646746315061494194144",
+          "yes_price": 0.09,
+          "market_slug": "will-bitcoin-dip-to-20000-by-december-31-2026-121-885-178-397-354-236-731"
+        },
+        {
+          "question": "Will Bitcoin dip to $10,000 by December 31, 2026?",
+          "condition_id": "0xd8a5843555ba95455a28d895660c07c59b615184bf4ae64893992f3504797d29",
+          "yes_token_id": "42439528758178981890895605039938161151582654744978607695897321288347422769852",
+          "yes_price": 0.049,
+          "market_slug": "will-bitcoin-dip-to-10000-by-december-31-2026-888-644-567-258-946-853"
+        },
+        {
+          "question": "Will Bitcoin dip to $5,000 by December 31, 2026?",
+          "condition_id": "0xe681a6326237f3b17ce8622728b6cd104281dfe4d2b38f4520fd7f1734cf3469",
+          "yes_token_id": "78813286502861287035170675523688055494398144118547987619022209059970667952352",
+          "yes_price": 0.0395,
+          "market_slug": "will-bitcoin-dip-to-5000-by-december-31-2026-jy3n-991-141-345-117-196-482"
+        },
+        {
+          "question": "Will Bitcoin reach $70,000 by December 31, 2026?",
+          "condition_id": "0x954c7b5e4daa80eb941fe5dffa20d328215c52ddc24940bd1384d9c2b9ff4300",
+          "yes_token_id": "6957220155530414699017435634288578926316572270085931081749585539058181163663",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-reach-70000-by-december-31-2026-594-899-294-344-343-378-654"
+        },
+        {
+          "question": "Will Bitcoin reach $75,000 by December 31, 2026?",
+          "condition_id": "0x5e27b3f969ef1c59aaf32ec22bd88f3f895aeefb62dbeff0d3a5332e68538e41",
+          "yes_token_id": "85080102177445047827595824773776292884437000821375292353013080455752528630674",
+          "yes_price": 1.0,
+          "market_slug": "will-bitcoin-reach-75000-by-december-31-2026-887-423-442-296-878"
+        },
+        {
+          "question": "Will Bitcoin reach $80,000 by December 31, 2026?",
+          "condition_id": "0x6e1fbd722b0aca8a4e05c7c2f4ff1428d4c97f2ee02056712463d00c1c705a55",
+          "yes_token_id": "57919935471407397521237084573781793510659396827525482575585173092467716045100",
+          "yes_price": 0.685,
+          "market_slug": "will-bitcoin-reach-80000-by-december-31-2026-195-842-488-785"
+        },
+        {
+          "question": "Will Bitcoin reach $90,000 by December 31, 2026?",
+          "condition_id": "0xbb379a14cd03f68c35c279ddbd928a6326f4fd2e21827f8cdaaf59715d6df50e",
+          "yes_token_id": "89384721767526056909881321094852287855436067743554155484781205764118128944311",
+          "yes_price": 0.51,
+          "market_slug": "will-bitcoin-reach-90000-by-december-31-2026-113-862-581"
+        },
+        {
+          "question": "Will Bitcoin reach $500,000 by December 31, 2026?",
+          "condition_id": "0xf3519e50e99fa353443d45060813453b1b717e463b5b76c306e85e8f5b026116",
+          "yes_token_id": "91920414851381703961459336798965934286338468050347816160274927361190904665656",
+          "yes_price": 0.024,
+          "market_slug": "will-bitcoin-reach-500000-by-december-31-2026-864"
+        },
+        {
+          "question": "Will Bitcoin reach $1,000,000 by December 31, 2026?",
+          "condition_id": "0xa7d7ed69cfd6107e5e005556730dcf45727c1cdd1001f0378f5e471526181c47",
+          "yes_token_id": "18571303954259773157233385333455041418270179723020753158306812650937565180666",
+          "yes_price": 0.0165,
+          "market_slug": "will-bitcoin-reach-1000000-by-december-31-2026-946"
+        }
+      ],
+      "resolution_rules": "Each outcome resolves YES if BTC/USD reaches the specified price level at any point before January 1, 2027, on major exchanges (Coinbase, Binance). Intraday wicks count.",
+      "geo_scope": "global",
+      "key_actors": "Coinbase, Binance, crypto market participants, Bitcoin ETF issuers",
+      "resolution_type": "price_threshold"
+    },
+    {
+      "contract_name": "Gas prices end of March",
+      "question": "Will gas hit__ by end of March?",
+      "slug": "will-gas-hit-by-end-of-march",
+      "end_date": "2026-03-31T00:00:00Z",
+      "category": "economics",
+      "domain": "economics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "once_daily",
+      "prediction_horizon": "end_of_month",
+      "volume": 201515.76805000007,
+      "event_slug": "will-gas-hit-by-end-of-march",
+      "num_outcomes": 12,
+      "outcomes": [
+        {
+          "question": "Will gas hit (High) $5.00 by March 31?",
+          "condition_id": "0x909bf9a58a1c15d045041f1c59dde7d040eaac98afb85515e9bc9365ebce2b59",
+          "yes_token_id": "102968377026032546585548264748358868631816814100348657258243251114587435198578",
+          "yes_price": 0.043,
+          "market_slug": "will-gas-hit-high-5pt00-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $4.50 by March 31?",
+          "condition_id": "0xdeaecf9904d03a6fe48ab52ad4caed979a658fb5d7d89d608b087a0cd065d937",
+          "yes_token_id": "51623318905821601697430514825415765725245773669587964800342957628810336355398",
+          "yes_price": 0.205,
+          "market_slug": "will-gas-hit-high-4pt50-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $4.25 by March 31?",
+          "condition_id": "0x5d685b99a4c522fa073f3e61c81fdbb631debcaaf1dadffc97596262649aeaf3",
+          "yes_token_id": "85436902506827700846144947383942938170650972728775270444321132417438026159677",
+          "yes_price": 0.465,
+          "market_slug": "will-gas-hit-high-4pt25-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $4.00 by March 31?",
+          "condition_id": "0x029cd00d5716cd5e5e3f08c92056945ec632c46b4dc58a9eeb2ed57d0d02eb14",
+          "yes_token_id": "11381590247622780183932402907240923623054853352782168389656533654670945033032",
+          "yes_price": 0.92,
+          "market_slug": "will-gas-hit-high-4pt00-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $3.75 by March 31?",
+          "condition_id": "0x01fcd4359561aa1d797882fde9569aa75b12defa9570d9f2ea25dfb1a01dae8e",
+          "yes_token_id": "44457996092436748797895802961974281340917200529128414262736312514209367756731",
+          "yes_price": 1.0,
+          "market_slug": "will-gas-hit-high-3pt75-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $3.50 by March 31?",
+          "condition_id": "0xd12cdd224b053bd2e2b9d1281987e5226c22502b8a36bec285b8d8246bf01979",
+          "yes_token_id": "69114988529957727159439740881883059807262843357290632144638822351572523844728",
+          "yes_price": 1.0,
+          "market_slug": "will-gas-hit-high-3pt50-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $3.35 by March 31?",
+          "condition_id": "0x7fa9d5a419806d7797257de8bdb187cd9298acc83727e9271fedae38370637e4",
+          "yes_token_id": "15723937413080266785236153978674900164790906827325793266720089624060145431098",
+          "yes_price": 1.0,
+          "market_slug": "will-gas-hit-high-3pt35-by-march-31"
+        },
+        {
+          "question": "Will gas hit (High) $3.25 by March 31?",
+          "condition_id": "0x2a22bf83414ec17b1d4da700cd66b2594eb53f8f0c99c3ebf2c5c29e8bee3668",
+          "yes_token_id": "103437058285798517190513768526719699785546567852041283870662751572912584160429",
+          "yes_price": 1.0,
+          "market_slug": "will-gas-hit-high-3pt25-by-march-31"
+        },
+        {
+          "question": "Will gas hit (Low) $3.15 by March 31?",
+          "condition_id": "0xd1575ec657fc00abc795e0f3f04dceff6f12efd63587c5e54d3a36c0a6c4df8b",
+          "yes_token_id": "40850972139814322293046402195344169773432876548461104150215253554297213710260",
+          "yes_price": 0.022,
+          "market_slug": "will-gas-hit-low-3pt15-by-march-31"
+        },
+        {
+          "question": "Will gas hit (Low) $3.10 by March 31?",
+          "condition_id": "0x4936be5521f30f504ad0a3f6c4c7783beee31bd8317d6cd02fac775a4fc626d8",
+          "yes_token_id": "101507578417810763661022169691856712297460060764658149380232819564347237039099",
+          "yes_price": 0.0135,
+          "market_slug": "will-gas-hit-low-3pt10-by-march-31"
+        },
+        {
+          "question": "Will gas hit (Low) $3.05 by March 31?",
+          "condition_id": "0x7681f2f0015a40dc150b47f09204820ad72abafb94c145e689a7c28e4a7c8695",
+          "yes_token_id": "7055750514614693078464673579084621849880688481044571371847076425112084778704",
+          "yes_price": 0.0155,
+          "market_slug": "will-gas-hit-low-3pt05-by-march-31"
+        },
+        {
+          "question": "Will gas hit (Low) $3.00 by March 31?",
+          "condition_id": "0x23d8aab56dae779017cd56e0db179c9e222750caff714d7284ed1b42867badf6",
+          "yes_token_id": "2817026648079557060731634021683371569025887766067130063874651398900269281858",
+          "yes_price": 0.013,
+          "market_slug": "will-gas-hit-low-3pt00-by-march-31"
+        }
+      ],
+      "resolution_rules": "Resolves based on the AAA national average regular gasoline price as of March 31, 2026. Each outcome corresponds to a specific price threshold being reached.",
+      "geo_scope": "US",
+      "key_actors": "AAA, EIA, OPEC+, US refiners",
+      "resolution_type": "data_threshold"
+    },
+    {
+      "contract_name": "Powell out as Fed chair",
+      "question": "Jerome Powell out as Fed Chair by...?",
+      "slug": "jerome-powell-out-as-fed-chair-by",
+      "end_date": "2026-05-14T00:00:00Z",
+      "category": "politics",
+      "domain": "politics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 1662412.1146419982,
+      "event_slug": "jerome-powell-out-as-fed-chair-by",
+      "num_outcomes": 2,
+      "outcomes": [
+        {
+          "question": "Jerome Powell out as Fed Chair by May 14, 2026?",
+          "condition_id": "0xa1b91b95e0941fafb86b8e55f5f8051bf5620f5b03d8547dfb1cf81e10abf077",
+          "yes_token_id": "15699440674241797968871736402001807248437809029766812124799046031951432118179",
+          "yes_price": 0.027,
+          "market_slug": "jerome-powell-out-as-fed-chair-by-may-14-2026"
+        },
+        {
+          "question": "Jerome Powell out as Fed Chair by March 31, 2026?",
+          "condition_id": "0x72f2eafdddbe76af4dc3add2f0f8aff93520400d423b347655c2eaa10d0f099f",
+          "yes_token_id": "37630452565726710287337019432568734999935105393847322660206180233791277542800",
+          "yes_price": 0.003,
+          "market_slug": "jerome-powell-out-as-fed-chair-by-march-31-2026"
+        }
+      ],
+      "resolution_rules": "Resolves based on the date Jerome Powell ceases to serve as Federal Reserve Chair. Includes resignation, removal, or term expiration. His current term as Chair expires May 2026.",
+      "geo_scope": "US",
+      "key_actors": "Jerome Powell, President, White House",
+      "resolution_type": "event_occurrence"
+    },
+    {
+      "contract_name": "Who will be confirmed as Fed Chair",
+      "question": "Who will be confirmed as Fed Chair?",
+      "slug": "who-will-be-confirmed-as-fed-chair",
+      "end_date": "2026-10-31T00:00:00Z",
+      "category": "politics",
+      "domain": "politics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 10799859.445123997,
+      "event_slug": "who-will-be-confirmed-as-fed-chair",
+      "num_outcomes": 35,
+      "outcomes": [
+        {
+          "question": "Will Kevin Warsh be confirmed as Fed Chair?",
+          "condition_id": "0x23dbb60ade08c2664ac29488325afbc0136735bc7beb9180d9c0cb72620b0b13",
+          "yes_token_id": "66581786403328670900354976753624410175196577607177076834389236263921375429170",
+          "yes_price": 0.9425,
+          "market_slug": "will-kevin-warsh-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Judy Shelton be confirmed as Fed Chair?",
+          "condition_id": "0x14fd8ab261d14215058b77a9541a5013ccc3d3eb677276a9de54445a31acd194",
+          "yes_token_id": "29577345180542753188700941748705224076025927865234220835903826643992439907745",
+          "yes_price": 0.02,
+          "market_slug": "will-judy-shelton-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Kevin Hassett be confirmed as Fed Chair?",
+          "condition_id": "0xa8ff8edde7ae952227d2dfa0378d8dd83bcff4b4385919fc39bbf9fdbd3bda7a",
+          "yes_token_id": "61364575302888892256263572537795032833314778829383489595560500694647355656644",
+          "yes_price": 0.0025,
+          "market_slug": "will-kevin-hassett-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Christopher Waller be confirmed as Fed Chair?",
+          "condition_id": "0x1e2f7fc724af0b4c3a074a131749910a5352fca693e3ab6d693ae8e16ed7856e",
+          "yes_token_id": "28523456384109302890122367980534727951669313475890616220945872453153951834344",
+          "yes_price": 0.0015,
+          "market_slug": "will-christopher-waller-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Jerome Powell be confirmed as Fed Chair?",
+          "condition_id": "0xb3d00f908d0bb0320cfb28cfb64904d9d10fb4d3d174baf8a2c9583b6eb66cfb",
+          "yes_token_id": "113880505253547882482136636694908412192374747350498661610587228363381170604465",
+          "yes_price": 0.0035,
+          "market_slug": "will-jerome-powell-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Stephen Miran be confirmed as Fed Chair?",
+          "condition_id": "0x54b63595ef2cf6dfe8ac67d43a326c4bcdc99209b222241036e788df891932ba",
+          "yes_token_id": "88804521894690934652427504021531418926681387429361567868732471293365987185182",
+          "yes_price": 0.0025,
+          "market_slug": "will-stephen-miran-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Scott Bessent be confirmed as Fed Chair?",
+          "condition_id": "0xabe87ef65fbf14524375d7875fca53cab24de288efad25fc17269b7b7b580bb4",
+          "yes_token_id": "18952729838521617505667896460544943655832004271481524077564465208576090772253",
+          "yes_price": 0.005,
+          "market_slug": "will-scott-bessent-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will another outcome occur?",
+          "condition_id": "0x61b0c66fa7c50d20f0ee3a373ab2c31f4fc735e666cd2fe8ff86a6517ef1d322",
+          "yes_token_id": "76667193312861348076875747865731418595980026773920741373492483604089063724059",
+          "yes_price": 0.5,
+          "market_slug": "will-another-outcome-occur-144"
+        },
+        {
+          "question": "Will Michelle Bowman be confirmed as Fed Chair?",
+          "condition_id": "0x2fc1e1bcf0aed6eebd7056480133ebea59d0c8666bd07f2498c14bf958f700ae",
+          "yes_token_id": "29263958654354796311788973357180442160747806750694580213339330729683579170780",
+          "yes_price": 0.0205,
+          "market_slug": "will-michelle-bowman-be-confirmed-as-fed-chair"
+        },
+        {
+          "question": "Will Person B be confirmed as Fed Chair?",
+          "condition_id": "0xbe187c18b13c19d899a80af906853deca430342615e21205507dd4e6d728dab7",
+          "yes_token_id": "1246374104272273818485168570350743559712865331761815188660019012907597463446",
+          "yes_price": 0.5,
+          "market_slug": "will-person-b-be-confirmed-as-fed-chair-599"
+        },
+        {
+          "question": "Will Person C be confirmed as Fed Chair?",
+          "condition_id": "0x6b7efa26155926abb92bd11a38c01c4eabf615f0f0cd427e8c5ba18d1e0a7780",
+          "yes_token_id": "39590960122265510688850396375627872956415479495398696787117955809790597277341",
+          "yes_price": 0.5,
+          "market_slug": "will-person-c-be-confirmed-as-fed-chair-299"
+        },
+        {
+          "question": "Will Person D be confirmed as Fed Chair?",
+          "condition_id": "0x75b5d79bd84e0400e7cb1e9b7c3dd4cde0fb036a5ec30cf568aadf56d33c2727",
+          "yes_token_id": "88137017486426815206670693061707079635431476305969001282340963217563841775859",
+          "yes_price": 0.5,
+          "market_slug": "will-person-d-be-confirmed-as-fed-chair-799"
+        },
+        {
+          "question": "Will Person E be confirmed as Fed Chair?",
+          "condition_id": "0x8b2b59ed01b5efdd020a9ae10027338dd9058e77afd36741f5a97c8b73de6f69",
+          "yes_token_id": "75694946426121008278945984171656316792872244180904423903143650458887884822263",
+          "yes_price": 0.5,
+          "market_slug": "will-person-e-be-confirmed-as-fed-chair-747"
+        },
+        {
+          "question": "Will Person F be confirmed as Fed Chair?",
+          "condition_id": "0x5d01ec214d82bfbb703913c9205a36fb9ddd763053dd11b46def6c125711cd9b",
+          "yes_token_id": "12267921735252236774208705067812533242287188552574705846245496845857131055767",
+          "yes_price": 0.5,
+          "market_slug": "will-person-f-be-confirmed-as-fed-chair-695"
+        },
+        {
+          "question": "Will Person G be confirmed as Fed Chair?",
+          "condition_id": "0x95bdce964c2af7ef7ba55f74bf4b638c0e66663bae0e54e4a0e75d4d80bbdda6",
+          "yes_token_id": "35129565666714386573222856787493537385173462331986311404907343432227243683582",
+          "yes_price": 0.5,
+          "market_slug": "will-person-g-be-confirmed-as-fed-chair-221"
+        },
+        {
+          "question": "Will Person H be confirmed as Fed Chair?",
+          "condition_id": "0x25c3bff00d00d5d2f7cc938bb5a8463babb0565cb1a9305cbdb6409c58689343",
+          "yes_token_id": "102369082409599690343291844742710727621165643292173705946068142519139322846056",
+          "yes_price": 0.5,
+          "market_slug": "will-person-h-be-confirmed-as-fed-chair-412"
+        },
+        {
+          "question": "Will Person I be confirmed as Fed Chair?",
+          "condition_id": "0xb8d6b08b9876aaf0e6f34b1526232b5b38e07942eb4a06031696c2a277617280",
+          "yes_token_id": "13977105741427420007905764619574186633845062047166834827607726681827374817901",
+          "yes_price": 0.5,
+          "market_slug": "will-person-i-be-confirmed-as-fed-chair-571"
+        },
+        {
+          "question": "Will Person J be confirmed as Fed Chair?",
+          "condition_id": "0x1ce30d63ad73d115b382247188d54dad598064f699388482f23280249fea48af",
+          "yes_token_id": "102954842027365582768385666596591815982878857207092431283735872513013210986938",
+          "yes_price": 0.5,
+          "market_slug": "will-person-j-be-confirmed-as-fed-chair-674"
+        },
+        {
+          "question": "Will Person K be confirmed as Fed Chair?",
+          "condition_id": "0x92a1ad9d6606cb7a35bf5ad23b9a2a56b011a057e3e6c85ae94c6550907f3e42",
+          "yes_token_id": "2238013969792838681435973093465435386265849348535117866407221374272404324455",
+          "yes_price": 0.5,
+          "market_slug": "will-person-k-be-confirmed-as-fed-chair-183"
+        },
+        {
+          "question": "Will Person L be confirmed as Fed Chair?",
+          "condition_id": "0x223db654be2588160d06f445a7286d167166539c0a43dad6576ae082c0c648bd",
+          "yes_token_id": "6720108558069206465226020392141411989276092800817092958486695295152996303799",
+          "yes_price": 0.5,
+          "market_slug": "will-person-l-be-confirmed-as-fed-chair-745"
+        },
+        {
+          "question": "Will Person M be confirmed as Fed Chair?",
+          "condition_id": "0x04203a3c050ab738c40ee5554f489d1a01c5627511902bca00a619fa346bcb29",
+          "yes_token_id": "6315975799644740242355612649497358123452997786283262865066370883852958306939",
+          "yes_price": 0.5,
+          "market_slug": "will-person-m-be-confirmed-as-fed-chair-949"
+        },
+        {
+          "question": "Will Person N be confirmed as Fed Chair?",
+          "condition_id": "0x2d220416151bdbeb0d1b033e0753aa4d23e2fcbca42da9503abfe9fe4c898070",
+          "yes_token_id": "56585944856965941213336965189126159799383370262244790646065514371100296174124",
+          "yes_price": 0.5,
+          "market_slug": "will-person-n-be-confirmed-as-fed-chair-659"
+        },
+        {
+          "question": "Will Person O be confirmed as Fed Chair?",
+          "condition_id": "0x07bc4617aab8065a3f291030bc22ad15ada2108a2059b91b8048e84f3b3c9a2f",
+          "yes_token_id": "38400098517127705483561517738803450967327490020219214969555737920929032232458",
+          "yes_price": 0.5,
+          "market_slug": "will-person-o-be-confirmed-as-fed-chair-117"
+        },
+        {
+          "question": "Will Person P be confirmed as Fed Chair?",
+          "condition_id": "0x57ec9bdce99fa593b376b331bd02f3dc2e6381f77d0fda7ef7b05c5ac23f217b",
+          "yes_token_id": "19057327859299124124278986345980098304479890217564421028229341418628173034943",
+          "yes_price": 0.5,
+          "market_slug": "will-person-p-be-confirmed-as-fed-chair-454"
+        },
+        {
+          "question": "Will Person Q be confirmed as Fed Chair?",
+          "condition_id": "0x93925430cab1233d548f507fd488672aa7bd38530329ba9bcfd9c213ce7e2e5c",
+          "yes_token_id": "27038880615932734967898177042496385750796673525220190915667198695217181137170",
+          "yes_price": 0.5,
+          "market_slug": "will-person-q-be-confirmed-as-fed-chair-781"
+        },
+        {
+          "question": "Will Person R be confirmed as Fed Chair?",
+          "condition_id": "0xe65fa1f6777a83faed23241d461f399f5efcf65a84c5e7465140d76d1cae9338",
+          "yes_token_id": "1602012299979868950535264010106493026855888930060346997592972642450183019508",
+          "yes_price": 0.5,
+          "market_slug": "will-person-r-be-confirmed-as-fed-chair-878"
+        },
+        {
+          "question": "Will Person S be confirmed as Fed Chair?",
+          "condition_id": "0xfe6c2bce498e07c079e3fe30b7570e7071f49df0c33ca63842278cf40b36d256",
+          "yes_token_id": "29530260424395292033084149589435266856481695495396559515124886500456036685778",
+          "yes_price": 0.5,
+          "market_slug": "will-person-s-be-confirmed-as-fed-chair-521"
+        },
+        {
+          "question": "Will Person T be confirmed as Fed Chair?",
+          "condition_id": "0x693ec8ccfa69b077633ef8c67252ba01660e539bd9e3e252b850f97d187a9542",
+          "yes_token_id": "104351288401565875359061441988465864986200069797250237736823118836890791591589",
+          "yes_price": 0.5,
+          "market_slug": "will-person-t-be-confirmed-as-fed-chair-276"
+        },
+        {
+          "question": "Will Person U be confirmed as Fed Chair?",
+          "condition_id": "0x985ef1a8d9f71470e94966fc5585e2b6d1091e489a48fb8d371cf3d58aed7535",
+          "yes_token_id": "79782898943775270522722916764660449591412061081420347150517016059598844051537",
+          "yes_price": 0.5,
+          "market_slug": "will-person-u-be-confirmed-as-fed-chair-454"
+        },
+        {
+          "question": "Will Person V be confirmed as Fed Chair?",
+          "condition_id": "0xe69857331ac1f2199821a244ae681ff9f330dc8eebffb6e40592537f55263815",
+          "yes_token_id": "33058035796676267291794936426285984054122132449478223969894468956230478150058",
+          "yes_price": 0.5,
+          "market_slug": "will-person-v-be-confirmed-as-fed-chair-938"
+        },
+        {
+          "question": "Will Person W be confirmed as Fed Chair?",
+          "condition_id": "0xe5a1cb92e879998f4f830d05ba87118f9425bd7934cf4bbf8530e3964972d34f",
+          "yes_token_id": "98043053634162326454677166214297027911376430018096886107004378564465466601855",
+          "yes_price": 0.5,
+          "market_slug": "will-person-w-be-confirmed-as-fed-chair-551"
+        },
+        {
+          "question": "Will Person X be confirmed as Fed Chair?",
+          "condition_id": "0xb7ef165342346721e8c0f3a7b714a544f2ffa4c2a41d52aab0bdf7fdd2c2d515",
+          "yes_token_id": "93546393624508985597922511929590829007315821372559218898177066940760794668033",
+          "yes_price": 0.5,
+          "market_slug": "will-person-x-be-confirmed-as-fed-chair-236"
+        },
+        {
+          "question": "Will Person Y be confirmed as Fed Chair?",
+          "condition_id": "0x123df8c0a3bc2b9ef80a808c7faf29a2a219dab4418f9a8d2f30adbeb32cc4de",
+          "yes_token_id": "75727706997130887776287300694470317039834184171169189862408166036083394788461",
+          "yes_price": 0.5,
+          "market_slug": "will-person-y-be-confirmed-as-fed-chair-542"
+        },
+        {
+          "question": "Will Person Z be confirmed as Fed Chair?",
+          "condition_id": "0x9988e7018fce4a6eb1051b39de6d19e72210f507ca99104832a7aeb979084ca0",
+          "yes_token_id": "101225419408161581095738348755863296185304413868493165031383128087669136245314",
+          "yes_price": 0.5,
+          "market_slug": "will-person-z-be-confirmed-as-fed-chair-989"
+        },
+        {
+          "question": "Will Rick Reider be confirmed as Fed Chair?",
+          "condition_id": "0x7538d4b4f24e276d243c1e0ac15c5d2799120277a9b921db3364a4dde86397e8",
+          "yes_token_id": "104807184979803759394326910316480341535652871214511487804916793385164586605845",
+          "yes_price": 0.0025,
+          "market_slug": "will-rick-reider-be-confirmed-as-fed-chair"
+        }
+      ],
+      "resolution_rules": "Resolves for whichever individual is confirmed by the US Senate as the next Federal Reserve Chair. Requires formal Senate confirmation vote.",
+      "geo_scope": "US",
+      "key_actors": "President, US Senate Banking Committee, Fed Chair nominees",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "2026 midterms - House winner",
+      "question": "Which party will win the House in 2026?",
+      "slug": "which-party-will-win-the-house-in-2026",
+      "end_date": "2026-11-03T00:00:00Z",
+      "category": "politics",
+      "domain": "politics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 3905280.9834179967,
+      "event_slug": "which-party-will-win-the-house-in-2026",
+      "num_outcomes": 9,
+      "outcomes": [
+        {
+          "question": "Will another party control the House after the 2026 Midterm elections?",
+          "condition_id": "0xc2f2e988a909add725da525f4056ffdcfd64e951427199ac176967cc18f98edb",
+          "yes_token_id": "32806512678351792960664166512761758085909980077229801614845545250268642481454",
+          "yes_price": 0.5,
+          "market_slug": "will-another-party-control-the-house-after-the-2026-midterm-elections-693"
+        },
+        {
+          "question": "Will the Democratic Party control the House after the 2026 Midterm elections?",
+          "condition_id": "0xd5d9fc47718bd553592d126b1fa5e87183d27f3936975b0c04cc0f2dec1f1bb4",
+          "yes_token_id": "83247781037352156539108067944461291821683755894607244160607042790356561625563",
+          "yes_price": 0.845,
+          "market_slug": "will-the-democratic-party-control-the-house-after-the-2026-midterm-elections"
+        },
+        {
+          "question": "Will the Republican Party control the House after the 2026 Midterm elections?",
+          "condition_id": "0x4e4f77e7dbf4cab666e9a1943674d7ae66348e862df03ea6f44b11eb95731928",
+          "yes_token_id": "65139230827417363158752884968303867495725894165574887635816574090175320800482",
+          "yes_price": 0.145,
+          "market_slug": "will-the-republican-party-control-the-house-after-the-2026-midterm-elections"
+        },
+        {
+          "question": "Will Party A control the House after the 2026 Midterm elections?",
+          "condition_id": "0xa06d946799f30a8cf93ad5c2b9af6072ecac4ee5c9991c77490a7fc20ae7cc5c",
+          "yes_token_id": "70303402279443140172926218682114579985324187231253704051483086965820158099590",
+          "yes_price": 0.5,
+          "market_slug": "will-party-a-control-the-house-after-the-2026-midterm-elections-162"
+        },
+        {
+          "question": "Will Party B control the House after the 2026 Midterm elections?",
+          "condition_id": "0xad6bb73233357873983ffa565b5be5206e8debead67cc9e23af5fbd7c8409060",
+          "yes_token_id": "81979431255219199651248841892701491486178820308435482490575589280083789494850",
+          "yes_price": 0.5,
+          "market_slug": "will-party-b-control-the-house-after-the-2026-midterm-elections-574"
+        },
+        {
+          "question": "Will Party C control the House after the 2026 Midterm elections?",
+          "condition_id": "0x3f85f441f4606b4b1daaef0529b85989f4d07e18f2396bda2cc36124e2bb28d7",
+          "yes_token_id": "11243218298534683369174318398350176578601931808194431771228447480692855916349",
+          "yes_price": 0.5,
+          "market_slug": "will-party-c-control-the-house-after-the-2026-midterm-elections-881"
+        },
+        {
+          "question": "Will Party D control the House after the 2026 Midterm elections?",
+          "condition_id": "0x7e21279710b84fe0d4319ffd965878fc4208561221866f2f451a8fc50e7a6290",
+          "yes_token_id": "28824300090638744780625607578785524408357468113563177705145298704900471236173",
+          "yes_price": 0.5,
+          "market_slug": "will-party-d-control-the-house-after-the-2026-midterm-elections-212"
+        },
+        {
+          "question": "Will Party E control the House after the 2026 Midterm elections?",
+          "condition_id": "0x242c2791f1ec41121f7cb44ef421688cb80b4a93753205129fecb567f6487265",
+          "yes_token_id": "33290843110504336429428398944925000210037606347547982472593935195439193313628",
+          "yes_price": 0.5,
+          "market_slug": "will-party-e-control-the-house-after-the-2026-midterm-elections-469"
+        },
+        {
+          "question": "Will Party F control the House after the 2026 Midterm elections?",
+          "condition_id": "0x6b4403f90a5fbc712f82c9ffd99401e1cadf9391c2f0505c408d288b49f67d77",
+          "yes_token_id": "22410429510894424384809137049030330156217256544780881049872554028009109432410",
+          "yes_price": 0.5,
+          "market_slug": "will-party-f-control-the-house-after-the-2026-midterm-elections-531"
+        }
+      ],
+      "resolution_rules": "Resolves based on which party wins a majority of seats in the US House of Representatives in the November 2026 midterm elections. Based on certified election results.",
+      "geo_scope": "US",
+      "key_actors": "Democratic Party, Republican Party, state election officials",
+      "resolution_type": "election_result"
+    },
+    {
+      "contract_name": "2026 midterms - Balance of Power",
+      "question": "Balance of Power: 2026 Midterms",
+      "slug": "balance-of-power-2026-midterms",
+      "end_date": "2026-11-03T00:00:00Z",
+      "category": "politics",
+      "domain": "politics",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_12h",
+      "prediction_horizon": "24h+7d",
+      "volume": 3894837.1687640003,
+      "event_slug": "balance-of-power-2026-midterms",
+      "num_outcomes": 5,
+      "outcomes": [
+        {
+          "question": "2026 Balance of Power: D Senate, D House",
+          "condition_id": "0x16c63b7cc37f012b9f59ee164ec03877914c701d06d48291ae8d6fc08a088b0d",
+          "yes_token_id": "34722410608062854697106861099776685947172185964394483545370684749662285977831",
+          "yes_price": 0.505,
+          "market_slug": "2026-balance-of-power-d-senate-d-house-949"
+        },
+        {
+          "question": "2026 Balance of Power: D Senate, R House",
+          "condition_id": "0x0808de4f0cfd47947f2d1be51f9a9c52ea0fec76f73a75cfbe79ddec98d8a908",
+          "yes_token_id": "70997927349469817841862065582625658840347600365813612622959588796331622340305",
+          "yes_price": 0.0055,
+          "market_slug": "2026-balance-of-power-d-senate-r-house-692"
+        },
+        {
+          "question": "2026 Balance of Power: R Senate, D House",
+          "condition_id": "0x998bc71817b2d76921d1999ce0f3431cfd5945583667a371280ca2b430b0c06e",
+          "yes_token_id": "6302359956133594764084277082169634158291609371270652093164054687145970756151",
+          "yes_price": 0.355,
+          "market_slug": "2026-balance-of-power-r-senate-d-house-444"
+        },
+        {
+          "question": "2026 Balance of Power: R Senate, R House",
+          "condition_id": "0xc5eae79d1ffe716572353962eb926b1e3964c500a4880a7a94f58408218ee76b",
+          "yes_token_id": "103704141773947678931823410030956181918562062788486034785782641603149828893320",
+          "yes_price": 0.145,
+          "market_slug": "2026-balance-of-power-r-senate-r-house-537"
+        },
+        {
+          "question": "2026 Balance of Power: Other",
+          "condition_id": "0x7987a821b8032824f1805ee39eb5dfb8f64603e4e9e673259eb76f82b439fd3d",
+          "yes_token_id": "35477631289241705233759154026285946627439635224019448868888132647783862821489",
+          "yes_price": 0.005,
+          "market_slug": "2026-balance-of-power-other-131"
+        }
+      ],
+      "resolution_rules": "Resolves based on the combined House and Senate outcomes in 2026 midterms: e.g., Dem trifecta, Rep trifecta, split government. Based on certified election results and January 2027 Congress composition.",
+      "geo_scope": "US",
+      "key_actors": "Democratic Party, Republican Party, state election officials",
+      "resolution_type": "election_result"
+    },
+    {
+      "contract_name": "FIFA World Cup 2026 winner",
+      "question": "2026 FIFA World Cup Winner ",
+      "slug": "2026-fifa-world-cup-winner-595",
+      "end_date": "2026-07-20T00:00:00Z",
+      "category": "sports",
+      "domain": "sports",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 352131861.13842297,
+      "event_slug": "2026-fifa-world-cup-winner-595",
+      "num_outcomes": 60,
+      "outcomes": [
+        {
+          "question": "Will Spain win the 2026 FIFA World Cup?",
+          "condition_id": "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892",
+          "yes_token_id": "4394372887385518214471608448209527405727552777602031099972143344338178308080",
+          "yes_price": 0.154,
+          "market_slug": "will-spain-win-the-2026-fifa-world-cup-963"
+        },
+        {
+          "question": "Will New Zealand win the 2026 FIFA World Cup?",
+          "condition_id": "0x9e5f9d8c384f8fe368b195fa9a780be58643dff7360588a4e577012df8af00a7",
+          "yes_token_id": "79609298644734030886284029462369514848707878622071495577618126141372199748974",
+          "yes_price": 0.0015,
+          "market_slug": "will-new-zealand-win-the-2026-fifa-world-cup-635"
+        },
+        {
+          "question": "Will Switzerland win the 2026 FIFA World Cup?",
+          "condition_id": "0x3a26ca6425e2d98f14935670bc22cdb0744defc6f6d83c65f8c413a921c5c70c",
+          "yes_token_id": "62131913648515148266463816694306031394539656598501514114816028349608560215534",
+          "yes_price": 0.0075,
+          "market_slug": "will-switzerland-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will England win the 2026 FIFA World Cup?",
+          "condition_id": "0x375409bc5eeeff961e82b479caeccc20f33d15738e5bce1186d628aa3d9dfb1f",
+          "yes_token_id": "115556263888245616435851357148058235707004733438163639091106356867234218207169",
+          "yes_price": 0.1305,
+          "market_slug": "will-england-win-the-2026-fifa-world-cup-937"
+        },
+        {
+          "question": "Will Team AM win the 2026 FIFA World Cup?",
+          "condition_id": "0x74885870fd540aa9881baac1a99c7a205f80556baba91e1f44fb80178ec46830",
+          "yes_token_id": "86040916914507857269605207059811736324691981407025555024902462000511476766233",
+          "yes_price": 0.5,
+          "market_slug": "will-team-am-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will France win the 2026 FIFA World Cup?",
+          "condition_id": "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894",
+          "yes_token_id": "108233603819467706476318984012158651931658302669301887462181073562758483842092",
+          "yes_price": 0.105,
+          "market_slug": "will-france-win-the-2026-fifa-world-cup-924"
+        },
+        {
+          "question": "Will South Korea win the 2026 FIFA World Cup?",
+          "condition_id": "0x65307f30dce84ac35e41813035d3c04933da830dc4efbbb2fcdc4b282700ef3b",
+          "yes_token_id": "80724786407275266937534613008558715581084712230616856739273522348302669402554",
+          "yes_price": 0.0045,
+          "market_slug": "will-south-korea-win-the-2026-fifa-world-cup-485"
+        },
+        {
+          "question": "Will Haiti win the 2026 FIFA World Cup?",
+          "condition_id": "0x506f80bcf76bc75e6b31a250e2d754f347c4c231665326931d58bdb339ba1913",
+          "yes_token_id": "113379015922744700109400673843380371641970914885846970213129353605968934558386",
+          "yes_price": 0.0015,
+          "market_slug": "will-haiti-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Brazil win the 2026 FIFA World Cup?",
+          "condition_id": "0x30d55d8124ee1e12dabe89201badc45669b81dff69e4ce44d961f32878ec178a",
+          "yes_token_id": "27576533317283401577758999384642760405921738493660383550832555714312627457443",
+          "yes_price": 0.087,
+          "market_slug": "will-brazil-win-the-2026-fifa-world-cup-183"
+        },
+        {
+          "question": "Will Jordan win the 2026 FIFA World Cup?",
+          "condition_id": "0x33a87d02fa01e958929385c74b8627d32cc4474e9ebd312d268865c5207147fa",
+          "yes_token_id": "98686749402500678753487703372528277029342097490180026723487433517076969282825",
+          "yes_price": 0.0015,
+          "market_slug": "will-jordan-win-the-2026-fifa-world-cup-233"
+        },
+        {
+          "question": "Will Cura\u00e7ao win the 2026 FIFA World Cup?",
+          "condition_id": "0xdb4b2f370c3d0e996fbb32213c87aa5402936e3d4882432b6738e2f5661b79a6",
+          "yes_token_id": "69020832226510184384177497367584971770730339593583713190288186699694495509961",
+          "yes_price": 0.0015,
+          "market_slug": "will-curaao-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Argentina win the 2026 FIFA World Cup?",
+          "condition_id": "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f",
+          "yes_token_id": "18812649149814341758733697580460697418474693998558159483117100240528657629879",
+          "yes_price": 0.1095,
+          "market_slug": "will-argentina-win-the-2026-fifa-world-cup-245"
+        },
+        {
+          "question": "Will Germany win the 2026 FIFA World Cup?",
+          "condition_id": "0x1595b4818eeb1ea1e0bec5de6f057218e557feee9b405a0e930d290384fa1d16",
+          "yes_token_id": "81739002353269632749850710185641576213562066971072676369728657545679630163887",
+          "yes_price": 0.0515,
+          "market_slug": "will-germany-win-the-2026-fifa-world-cup-467"
+        },
+        {
+          "question": "Will Colombia win the 2026 FIFA World Cup?",
+          "condition_id": "0xe99cc59f32b10d23acf196d1a0e8264ea30fca198428acadd3464b06ff60e771",
+          "yes_token_id": "98803390175521456712653678280474920637934596234667490983228578374641217211132",
+          "yes_price": 0.0155,
+          "market_slug": "will-colombia-win-the-2026-fifa-world-cup-734"
+        },
+        {
+          "question": "Will Iran win the 2026 FIFA World Cup?",
+          "condition_id": "0x84edef36bded182da6a395ac6c785dba8f3e09b6c5ad041385b2042536cbef25",
+          "yes_token_id": "33747305042007778221968790541070114008811587676172030120559423448386310500957",
+          "yes_price": 0.0015,
+          "market_slug": "will-iran-win-the-2026-fifa-world-cup-788"
+        },
+        {
+          "question": "Will Portugal win the 2026 FIFA World Cup?",
+          "condition_id": "0x4f3421fb2daf5cca7430ed8d8132463963081572d75434393a1808fdb8829fe8",
+          "yes_token_id": "45415751658241142530386585138386640503488308219341470020075667342738719018629",
+          "yes_price": 0.067,
+          "market_slug": "will-portugal-win-the-2026-fifa-world-cup-912"
+        },
+        {
+          "question": "Will Ghana win the 2026 FIFA World Cup?",
+          "condition_id": "0x881a3ffa618b6ae0ab95a5637e310afb1afc2d99c921bfe3235b15eccfce0344",
+          "yes_token_id": "43907673646206657865778036957293730446366626078011238443367990170655175896145",
+          "yes_price": 0.0025,
+          "market_slug": "will-ghana-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Netherlands win the 2026 FIFA World Cup?",
+          "condition_id": "0x9be56371f6a29d12769b2f196847ee825b9585ebb8bfa042136be031b081eba1",
+          "yes_token_id": "55935183786009449883683540312350046975246300613283087403691731856990327029236",
+          "yes_price": 0.032,
+          "market_slug": "will-netherlands-win-the-2026-fifa-world-cup-739"
+        },
+        {
+          "question": "Will Algeria win the 2026 FIFA World Cup?",
+          "condition_id": "0x5a59d269c2b5108cd2f64c624e46ee2c8b5cfd88b882582565f927918315b6aa",
+          "yes_token_id": "58392024727359233794992635293106675983094683080284912908526627785964160484939",
+          "yes_price": 0.0025,
+          "market_slug": "will-algeria-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AD win the 2026 FIFA World Cup?",
+          "condition_id": "0xbce6698c9a61376c0709a2a724a9cf0dd0236d8dea882533073b6bb062efbee0",
+          "yes_token_id": "89770121993255619705119104591644526712193505786928967250693522950895615785005",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ad-win-the-2026-fifa-world-cup-423"
+        },
+        {
+          "question": "Will Italy win the 2026 FIFA World Cup?",
+          "condition_id": "0xc7c21c8972c773b34f36f67f15dada2584474d959f7e338aca5994727d37ae39",
+          "yes_token_id": "71902280236980528007966111072910269163651886024599423678358797794246690742124",
+          "yes_price": 0.0185,
+          "market_slug": "will-italy-win-the-2026-fifa-world-cup-813"
+        },
+        {
+          "question": "Will USA win the 2026 FIFA World Cup?",
+          "condition_id": "0xcdb1f0400949238a63d3e88243d2ada08cd9c2a71985ced9f0cfd5e66354cf90",
+          "yes_token_id": "94603648636330087039501304492699481091005420017442244191603206509188088089447",
+          "yes_price": 0.016,
+          "market_slug": "will-usa-win-the-2026-fifa-world-cup-467"
+        },
+        {
+          "question": "Will Canada win the 2026 FIFA World Cup?",
+          "condition_id": "0x67443cb1ffb2bf180f7df5b6ca7adff63f7e8e933c7e41405ba118f3e9f8befb",
+          "yes_token_id": "99303605181956827630838461879484468077121754034387765735989859308848389894408",
+          "yes_price": 0.0055,
+          "market_slug": "will-canada-win-the-2026-fifa-world-cup-755"
+        },
+        {
+          "question": "Will Team AF win the 2026 FIFA World Cup?",
+          "condition_id": "0x106ccc4508432a065a67394837d4c2c529a8d77ed69fa3ba90b81eedf5236598",
+          "yes_token_id": "18704778540677036028551740861729937822696511439974613107767625408338509619395",
+          "yes_price": 0.5,
+          "market_slug": "will-team-af-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Uruguay win the 2026 FIFA World Cup?",
+          "condition_id": "0x7876851632c295043c66536150a304cb785abdf712ba8489d298c6e6926be106",
+          "yes_token_id": "97239126062673310243763617236644392945530356142765650402171508075574679292913",
+          "yes_price": 0.014,
+          "market_slug": "will-uruguay-win-the-2026-fifa-world-cup-932"
+        },
+        {
+          "question": "Will Team AI win the 2026 FIFA World Cup?",
+          "condition_id": "0xc6faca08d35300aa7edd45a8d7ee3c060eb7424daa6e6d2dcabdd0e889271b48",
+          "yes_token_id": "12366378008763522974663587592879031391963617972072183715011748595784372282658",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ai-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Mexico win the 2026 FIFA World Cup?",
+          "condition_id": "0x5ccfe1b69a582d2985db08a8481a0d74c314b1fce9b4711ae2efb2c6467fe6aa",
+          "yes_token_id": "22587775301869146748237913050505932485648958481571808324285560650057390882036",
+          "yes_price": 0.0105,
+          "market_slug": "will-mexico-win-the-2026-fifa-world-cup-529"
+        },
+        {
+          "question": "Will Paraguay win the 2026 FIFA World Cup?",
+          "condition_id": "0x675bba4df50fd123f7fbfbafa67e9b75f4092d85ce0f9148ce78fc945964c856",
+          "yes_token_id": "93165696161088512376930999170413968261015485018106746563527821398897374023845",
+          "yes_price": 0.0045,
+          "market_slug": "will-paraguay-win-the-2026-fifa-world-cup-967"
+        },
+        {
+          "question": "Will Scotland win the 2026 FIFA World Cup?",
+          "condition_id": "0xf950740bc71136155d6525cc0528a582c81f88812bff227803190c32ca25f54d",
+          "yes_token_id": "105252206997885252352889070218074909957179496257006510170583432513037465278006",
+          "yes_price": 0.0035,
+          "market_slug": "will-scotland-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Peru win the 2026 FIFA World Cup?",
+          "condition_id": "0xe574324078501de57aa22beaaeafe461518a6556f0f97764bbbbd78d3a8e8048",
+          "yes_token_id": "101676169054030206233833764842719082618757802536849310267210048314274509219904",
+          "yes_price": 0.0,
+          "market_slug": "will-peru-win-the-2026-fifa-world-cup-981"
+        },
+        {
+          "question": "Will Japan win the 2026 FIFA World Cup?",
+          "condition_id": "0x0189df05ed7bf84d799213b01a79571e305c03b2ac5359cfbb3a323448ba20fa",
+          "yes_token_id": "19159976531313550247579355752030367100657092033093647047491459813592996250034",
+          "yes_price": 0.0145,
+          "market_slug": "will-japan-win-the-2026-fifa-world-cup-112"
+        },
+        {
+          "question": "Will Norway win the 2026 FIFA World Cup?",
+          "condition_id": "0x7b52405ad0e0d31bfe970940b67d77f24ecedeab8a2361c11148c02a006e325c",
+          "yes_token_id": "60447443643099453130956385288904175887233107411078568881602330835010340506057",
+          "yes_price": 0.0315,
+          "market_slug": "will-norway-win-the-2026-fifa-world-cup-893"
+        },
+        {
+          "question": "Will Any Other Team win the 2026 FIFA World Cup?",
+          "condition_id": "0x8135dd6aee528b32e4e0727ce7151f63102d121aaa0ddb46c932a256cd16ec56",
+          "yes_token_id": "79294058792460060508456003181703265072132285732867201188949277886067025923060",
+          "yes_price": 0.5,
+          "market_slug": "will-any-other-team-win-the-2026-fifa-world-cup-541-319-294-845-754-317-243-911-472-778-811-233-235-839-426-488"
+        },
+        {
+          "question": "Will Team AG win the 2026 FIFA World Cup?",
+          "condition_id": "0x50068ddcf9066b652c2c7d15baf26d3eeafaa5a74f3d27315b7c8454c2968f83",
+          "yes_token_id": "22080439003081160335463459731968476156829161112460238800360422178479386141464",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ag-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Tunisia win the 2026 FIFA World Cup?",
+          "condition_id": "0xff0cfa9506cfa95759e4c7591654195bd26e3011f9882b51439135e04f2b69f1",
+          "yes_token_id": "86035858416252385053603758548087253570549129844230230783932738372075949702177",
+          "yes_price": 0.0025,
+          "market_slug": "will-tunisia-win-the-2026-fifa-world-cup-165"
+        },
+        {
+          "question": "Will Team AH win the 2026 FIFA World Cup?",
+          "condition_id": "0xf1593a699a791af4eb4fad4381e48bda8a8e65e38de06123f482ff953660693f",
+          "yes_token_id": "36690899872851265212073248479749198484310643977286990183654353938157257385703",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ah-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Ecuador win the 2026 FIFA World Cup?",
+          "condition_id": "0xbaf7780f9059e34b84301fd411f8dc573b4d56adfe6e0cda33daf304b1438da4",
+          "yes_token_id": "39971087496427056640429359043364261029374524049464674733142166279730655826181",
+          "yes_price": 0.0085,
+          "market_slug": "will-ecuador-win-the-2026-fifa-world-cup-986"
+        },
+        {
+          "question": "Will Uzbekistan win the 2026 FIFA World Cup?",
+          "condition_id": "0x965ebc5d79eb1ec02cad67245a44b9e45b33359018f013fb6cf81d5bbf7bcc8d",
+          "yes_token_id": "90538013438399246674125939147272424357773921253199632436930218305581040235987",
+          "yes_price": 0.0015,
+          "market_slug": "will-uzbekistan-win-the-2026-fifa-world-cup-773"
+        },
+        {
+          "question": "Will Morocco win the 2026 FIFA World Cup?",
+          "condition_id": "0x37a6de1b21803e5f3fb1965116218215d79963af4f7e51659696366267a63a03",
+          "yes_token_id": "69910730841487615802736046038473620030754616421912831175284551372639933569112",
+          "yes_price": 0.016,
+          "market_slug": "will-morocco-win-the-2026-fifa-world-cup-464"
+        },
+        {
+          "question": "Will Team Z win the 2026 FIFA World Cup?",
+          "condition_id": "0x9779c09fd4dd0a1c82dd82618269c2aa5669d91305293b396d1e0b8a166b566e",
+          "yes_token_id": "112181485529919660901332188537214992263355343785744498550605179448744432717486",
+          "yes_price": 0.5,
+          "market_slug": "will-team-z-win-the-2026-fifa-world-cup-316"
+        },
+        {
+          "question": "Will Team AC win the 2026 FIFA World Cup?",
+          "condition_id": "0x51e8c8df709aa78f64d2d9324d9d2556270f81e3966ade308099e5338bb4e4c9",
+          "yes_token_id": "53465512181802150755993130711224070738002100921790051090044528012833736167995",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ac-win-the-2026-fifa-world-cup-369"
+        },
+        {
+          "question": "Will South Africa win the 2026 FIFA World Cup?",
+          "condition_id": "0x233ce0c3969a5cd5079287f16fcd283be7c1db82263e08697f85dbe1b4d2113c",
+          "yes_token_id": "29544965695734183971376022965555206180154533479443150154863135205600734339980",
+          "yes_price": 0.0025,
+          "market_slug": "will-south-africa-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Senegal win the 2026 FIFA World Cup?",
+          "condition_id": "0x6972edb1b3f8cd8192651a665fc424dff846efe1c4a2376f628d4b20c704144c",
+          "yes_token_id": "32169302633723235235251659810064817019484855501133685217130365128535248672349",
+          "yes_price": 0.0075,
+          "market_slug": "will-senegal-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Ivory Coast win the 2026 FIFA World Cup?",
+          "condition_id": "0x289568d555ec620ed6fa33c936c5f42649d3a2e30748a1daf7079f42453fbea4",
+          "yes_token_id": "58374167250364215964582274356498746399676421878376948523944979542572589542202",
+          "yes_price": 0.0045,
+          "market_slug": "will-ivory-coast-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AB win the 2026 FIFA World Cup?",
+          "condition_id": "0xcd836ec4d94b8a4ddc5713d80fe9db245d2fb4796eaf12337974da1b4e96100d",
+          "yes_token_id": "87403333427856945144645806003352057704193778078820484282942507058200689996202",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ab-win-the-2026-fifa-world-cup-362"
+        },
+        {
+          "question": "Will Cape Verde win the 2026 FIFA World Cup?",
+          "condition_id": "0x3bc69cb672591e4fcd2ef856b64b219a906e15d4601b50066ac81a446574dfaf",
+          "yes_token_id": "61595193871140044336898809781418183952441527621084596848414908595268863899573",
+          "yes_price": 0.0015,
+          "market_slug": "will-cape-verde-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AE win the 2026 FIFA World Cup?",
+          "condition_id": "0x5e614739363bbfc399469102c600e4e8260032d41e59e0bc12ebc0e71231642d",
+          "yes_token_id": "35797818400757287472708740881657961304270157125643131597907636474183210188025",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ae-win-the-2026-fifa-world-cup-897"
+        },
+        {
+          "question": "Will Qatar win the 2026 FIFA World Cup?",
+          "condition_id": "0x4fe305a2ae995a52ff278895344895fe587b4fec3d5f04347b4dbf5e99bce99c",
+          "yes_token_id": "18605216520960122093689427575806651607517827372535894526532079999408408169156",
+          "yes_price": 0.0025,
+          "market_slug": "will-qatar-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Belgium win the 2026 FIFA World Cup?",
+          "condition_id": "0x32cfa52198e85e070d1b17d1b53c5c3a6aaae7736cdc33fa6aa04d353f0c2811",
+          "yes_token_id": "30815807067456631524510535002617106205417832891402132396713720656146245200000",
+          "yes_price": 0.0185,
+          "market_slug": "will-belgium-win-the-2026-fifa-world-cup-358"
+        },
+        {
+          "question": "Will Australia win the 2026 FIFA World Cup?",
+          "condition_id": "0x098e2be3df8ab529940c567819f8ef007cf007820e9d627642a5bbfaa42af372",
+          "yes_token_id": "43661509251351142169227141691164122649250455115438867334436875294380701133091",
+          "yes_price": 0.0035,
+          "market_slug": "will-australia-win-the-2026-fifa-world-cup-816"
+        },
+        {
+          "question": "Will Saudi Arabia win the 2026 FIFA World Cup?",
+          "condition_id": "0x3fb8a8de2ac275882d72b2c4f22d41776fcf033f9e413a77a84dd395c0d5257c",
+          "yes_token_id": "23542782083949026234898323432000742558288032327930681121040136746492993951914",
+          "yes_price": 0.0025,
+          "market_slug": "will-saudi-arabia-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AL win the 2026 FIFA World Cup?",
+          "condition_id": "0xb4549449a206480bc6823e7e3cfa15963e8dc66a1e27c3d61c18f6c876c5e2a0",
+          "yes_token_id": "112698997011817206967685330885482813151983819281331724209499074879167443880973",
+          "yes_price": 0.5,
+          "market_slug": "will-team-al-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Austria win the 2026 FIFA World Cup?",
+          "condition_id": "0xfe230d510eaf545198c0d62bb17871e5fe8989f1b19aa54c0c062b858360987c",
+          "yes_token_id": "88168215299416146215691671077998911754346458567817860712850392736799004561327",
+          "yes_price": 0.0055,
+          "market_slug": "will-austria-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Croatia win the 2026 FIFA World Cup?",
+          "condition_id": "0xe5bd80313b8859e3f5761568ac9498866ea9d4419e4d1b6a877a9a9bd2754cb4",
+          "yes_token_id": "106593539437032467615148553707998472829334050617128244920821917025746481184109",
+          "yes_price": 0.0125,
+          "market_slug": "will-croatia-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AN win the 2026 FIFA World Cup?",
+          "condition_id": "0xec277392eab0b6edcb85f97081a7afd0b40efc3c3deccc0c7657bc148dbbc2ca",
+          "yes_token_id": "14203543069867412195885282783300574554675270350831553865498671736859883729328",
+          "yes_price": 0.5,
+          "market_slug": "will-team-an-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Egypt win the 2026 FIFA World Cup?",
+          "condition_id": "0x7412d284c8f63791fec807f9b1f61c6fe61163621775a3dc8686cd2575272abe",
+          "yes_token_id": "30499731947464516579580181356221397335865912996104577000510883912653418218808",
+          "yes_price": 0.0035,
+          "market_slug": "will-egypt-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AA win the 2026 FIFA World Cup?",
+          "condition_id": "0xd0dbdc94b28c5cffeef64ed6b13e5f0f2324fb177e5ffaa634b48c88fe18d5e7",
+          "yes_token_id": "41004484905556820430171783088292854654441952667499527125436634397522798168110",
+          "yes_price": 0.5,
+          "market_slug": "will-team-aa-win-the-2026-fifa-world-cup-493"
+        },
+        {
+          "question": "Will Team AJ win the 2026 FIFA World Cup?",
+          "condition_id": "0x3112606456d170b831bfa09abce8cdca2b4492e6bc3b0fcc9bc13cce6fb25afc",
+          "yes_token_id": "106714509099031307386969305100232668041979073723855036394840185882925764512824",
+          "yes_price": 0.5,
+          "market_slug": "will-team-aj-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AK win the 2026 FIFA World Cup?",
+          "condition_id": "0xad28c7168aae36c824b0bec790fa8acf16579a2c03a5f5e8b51233fb8bf7751e",
+          "yes_token_id": "61793790334080006057089648535471543975515468838412489783998924413235561084673",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ak-win-the-2026-fifa-world-cup"
+        },
+        {
+          "question": "Will Team AO win the 2026 FIFA World Cup?",
+          "condition_id": "0x50baa2cdafecab85934a85f0debb1e9f90d858d692ec9d5da8c0a0d1e2646c05",
+          "yes_token_id": "6248841595165561514782366563826694953383315834764501750927289530971890369258",
+          "yes_price": 0.5,
+          "market_slug": "will-team-ao-win-the-2026-fifa-world-cup"
+        }
+      ],
+      "resolution_rules": "Resolves for whichever national team wins the 2026 FIFA World Cup final (June-July 2026, hosted by US/Canada/Mexico). Based on official FIFA results.",
+      "geo_scope": "global (US/Canada/Mexico host)",
+      "key_actors": "FIFA, 48 qualified national teams",
+      "resolution_type": "event_outcome"
+    },
+    {
+      "contract_name": "NBA Finals 2026 winner",
+      "question": "2026 NBA Champion",
+      "slug": "2026-nba-champion",
+      "end_date": "2026-07-01T00:00:00Z",
+      "category": "sports",
+      "domain": "sports",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 254330722.05820873,
+      "event_slug": "2026-nba-champion",
+      "num_outcomes": 30,
+      "outcomes": [
+        {
+          "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+          "condition_id": "0x22e7b5e35423e76842dd3a5e1a21d13793811080d5e7b2896d0c001bd5e97d54",
+          "yes_token_id": "49500299856831034491021962156746701298730459370557900271970866855042624695770",
+          "yes_price": 0.375,
+          "market_slug": "will-the-oklahoma-city-thunder-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Houston Rockets win the 2026 NBA Finals?",
+          "condition_id": "0x9b56568af78dd036b03c641e0673729d72cd7d63578eb0119cd23eb1f94f1b56",
+          "yes_token_id": "50705248713323657762767401378286601907820885259053704401453562452183494476631",
+          "yes_price": 0.022,
+          "market_slug": "will-the-houston-rockets-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the New Orleans Pelicans win the 2026 NBA Finals?",
+          "condition_id": "0xe709dcb12986139fa5b4cc793069d0c64bde1bfb351914c95bdd6149ec91a3ee",
+          "yes_token_id": "53866778779597540216098195494948116143462973030875609635557099377395290457894",
+          "yes_price": 0.0005,
+          "market_slug": "will-the-new-orleans-pelicans-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?",
+          "condition_id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "yes_token_id": "111039354521750894925304771773687530394455073318948424656845140321925374032772",
+          "yes_price": 0.0075,
+          "market_slug": "will-the-toronto-raptors-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Chicago Bulls win the 2026 NBA Finals?",
+          "condition_id": "0xf374fb58698bccedf29399f9f5548a70370a11c0fece34f2570fb9b3885e8e5a",
+          "yes_token_id": "101657448900324364213467059356648689270832606863187352286785694887095023173679",
+          "yes_price": 0.0015,
+          "market_slug": "will-the-chicago-bulls-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Cleveland Cavaliers win the 2026 NBA Finals?",
+          "condition_id": "0x6b44bd667fad6cb5b3b68d8bd1055a038c77d9176dbd51f123879797cc3368a7",
+          "yes_token_id": "21929863894047830651599085392978377118642353711084157807549430066031384497667",
+          "yes_price": 0.0475,
+          "market_slug": "will-the-cleveland-cavaliers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the New York Knicks win the 2026 NBA Finals?",
+          "condition_id": "0x713641f745d71f6ec61f906237ffca3c8583f251e49384429a63ceb0ccdb2d37",
+          "yes_token_id": "20257190540739490630509657713144742134547949967093643458458133445357169845406",
+          "yes_price": 0.05,
+          "market_slug": "will-the-new-york-knicks-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
+          "condition_id": "0x649ad05a2868343271fe82ea692031d567ca1af652e3529788933157e94aa088",
+          "yes_token_id": "5771676627182954113677164857547228277089396639521594262964034606220001939923",
+          "yes_price": 0.019,
+          "market_slug": "will-the-minnesota-timberwolves-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Phoenix Suns win the 2026 NBA Finals?",
+          "condition_id": "0xa49fc89bfb87bb302bfc43567709850565161bdaed5bc506bff4b85fd3c5c2ee",
+          "yes_token_id": "106572879185916710503631021854572801471104977091252507745096331167318654083650",
+          "yes_price": 0.0065,
+          "market_slug": "will-the-phoenix-suns-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Boston Celtics win the 2026 NBA Finals?",
+          "condition_id": "0x13e1cc703a120883a709d3bb29707097952845d61ca6793ea2b4328bae2a7451",
+          "yes_token_id": "98951343420969493497594761179562691809954416596888138302255086663562042936451",
+          "yes_price": 0.1135,
+          "market_slug": "will-the-boston-celtics-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Indiana Pacers win the 2026 NBA Finals?",
+          "condition_id": "0xe492ad958b21201e928b6666570820a184b8f71e834910945efcfb86eecd02cd",
+          "yes_token_id": "108169301860964568280919009470345091856250866871799542460872818801065399794523",
+          "yes_price": 0.0,
+          "market_slug": "will-the-indiana-pacers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Orlando Magic win the 2026 NBA Finals?",
+          "condition_id": "0x7338d9dea0de820ed621abdff3de2d4b07a573bc0c1a6f7128941f4d0c5606e3",
+          "yes_token_id": "95140346952277551620015228752585531762813913098320669805735291271863965388665",
+          "yes_price": 0.006,
+          "market_slug": "will-the-orlando-magic-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
+          "condition_id": "0x4e65282819c98c6aed529f357fbf5983b1ae9407a3c25bd50fe97b2906df68f9",
+          "yes_token_id": "56814725870179920615881424393027028330166672775619196396436430486653645555698",
+          "yes_price": 0.085,
+          "market_slug": "will-the-denver-nuggets-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+          "condition_id": "0xb6b3d7a2037b3faa7e1306d741840d453432902d73cc9a146a035e40271eae73",
+          "yes_token_id": "102227184035967850089766981958743064457339118173548431660886438726896222843254",
+          "yes_price": 0.1385,
+          "market_slug": "will-the-san-antonio-spurs-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Milwaukee Bucks win the 2026 NBA Finals?",
+          "condition_id": "0x7a18c03e9dd79943a25c65a5b696378e54b5b7d236140edb5d157685ce96476a",
+          "yes_token_id": "45990013143445742554418902941609344301435090837151736095983841403365776942169",
+          "yes_price": 0.0005,
+          "market_slug": "will-the-milwaukee-bucks-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Los Angeles Clippers win the 2026 NBA Finals?",
+          "condition_id": "0x543da007c2f149346cf9f9f21021f1b2e10c46c78fcd0c9297c0c21f10c94626",
+          "yes_token_id": "80136419076132148090526858778468252473966514781048966836641001333641477735657",
+          "yes_price": 0.0195,
+          "market_slug": "will-the-los-angeles-clippers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Golden State Warriors win the 2026 NBA Finals?",
+          "condition_id": "0xfbf7ab9e6b6d324ffe436bab8c7a1e10aeb8200e10c1e1dbb35d2959becebc1e",
+          "yes_token_id": "24562451406833903239172268319519891863383297300349256425313284172658771272863",
+          "yes_price": 0.0035,
+          "market_slug": "will-the-golden-state-warriors-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Dallas Mavericks win the 2026 NBA Finals?",
+          "condition_id": "0xf523e45d6bfe49d30e45e4e7794fd6e5f621b0304e07044fef156e6dd4d4b249",
+          "yes_token_id": "66366257655830261525886886009374355528181312179120554384746710233627914852488",
+          "yes_price": 0.0005,
+          "market_slug": "will-the-dallas-mavericks-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Detroit Pistons win the 2026 NBA Finals?",
+          "condition_id": "0xe202539dfbeced92dc4112f134a205c80ca6cf4db32bd82f05b291c297219fd8",
+          "yes_token_id": "59742411602053785892348440048778056320272639465974092140970920277782290781360",
+          "yes_price": 0.0365,
+          "market_slug": "will-the-detroit-pistons-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Memphis Grizzlies win the 2026 NBA Finals?",
+          "condition_id": "0xc094fd60c0a09ba0df48a086ef91e12390fa8777fcd9cb63c154e9622cb1d497",
+          "yes_token_id": "14471701768196830630634668680091812585489580903183764961933738527738578243643",
+          "yes_price": 0.0015,
+          "market_slug": "will-the-memphis-grizzlies-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Los Angeles Lakers win the 2026 NBA Finals?",
+          "condition_id": "0x796e791e7058571e460278814fc7a3183752285338f1400087b98bef3c447908",
+          "yes_token_id": "86297520870744792204751483474339201341298076835836561764334428915355504860913",
+          "yes_price": 0.0395,
+          "market_slug": "will-the-los-angeles-lakers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Portland Trail Blazers win the 2026 NBA Finals?",
+          "condition_id": "0x6331a779482df72d904c3c1e12b6409ff836bc06f8c97945cba9b25ada2c605c",
+          "yes_token_id": "82402823484466457361170410951601106261368113664328436062375970009969959380598",
+          "yes_price": 0.0035,
+          "market_slug": "will-the-portland-trail-blazers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Atlanta Hawks win the 2026 NBA Finals?",
+          "condition_id": "0xfda648d24cdad32dfe959195bd75ef4c81fbea5130eb6c7a4a0c18607a11ce63",
+          "yes_token_id": "46018378684967856456278619377189791752501136727354913341087475972513992392267",
+          "yes_price": 0.0065,
+          "market_slug": "will-the-atlanta-hawks-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Brooklyn Nets win the 2026 NBA Finals?",
+          "condition_id": "0x314ec5fd53735e23cadc475161e37b1529984d97097c0fdf417941c44b6b274e",
+          "yes_token_id": "64549842273644936434796394147539611999053320902810805414231521716955581728589",
+          "yes_price": 0.0,
+          "market_slug": "will-the-brooklyn-nets-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Charlotte Hornets win the 2026 NBA Finals?",
+          "condition_id": "0xc58cfb7397c4f3f803f5c20135cafa7f6d2c87cf3bb1e6138042b95d828e1866",
+          "yes_token_id": "56958503032603479474712760211473691965846495282533669255954105717594026846100",
+          "yes_price": 0.0105,
+          "market_slug": "will-the-charlotte-hornets-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Utah Jazz win the 2026 NBA Finals?",
+          "condition_id": "0x298157e618b5729dafd742eec9b21e040a13da0bb09ff1fa4492360c347e3824",
+          "yes_token_id": "53006315426468323724031258089790468729343421857824347432950535733105890769616",
+          "yes_price": 0.0,
+          "market_slug": "will-the-utah-jazz-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Sacramento Kings win the 2026 NBA Finals?",
+          "condition_id": "0xbc2d59e8ea0378f0851c86e84d250e80a5698874db52c13798053841f291dc28",
+          "yes_token_id": "43188456899429095169719425657675574406971788455653520655277889301401421589231",
+          "yes_price": 0.0,
+          "market_slug": "will-the-sacramento-kings-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Miami Heat win the 2026 NBA Finals?",
+          "condition_id": "0xb76183fb9e7e80c5a8f983a87ceefd35c9c177f684dd001d7387dc7b70d596d6",
+          "yes_token_id": "37553153998693380670857208408425399740373310817860780263908431095180775476801",
+          "yes_price": 0.0105,
+          "market_slug": "will-the-miami-heat-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Philadelphia 76ers win the 2026 NBA Finals?",
+          "condition_id": "0x567f1ff714731fafa702d454a105b064a7ec4d10f6fb71ad3221f4918681c709",
+          "yes_token_id": "5644679982684846699855787022092402984369447277920326773883608030240292167917",
+          "yes_price": 0.0055,
+          "market_slug": "will-the-philadelphia-76ers-win-the-2026-nba-finals"
+        },
+        {
+          "question": "Will the Washington Wizards win the 2026 NBA Finals?",
+          "condition_id": "0x30a8ed0d01b7e8b25334358f71d9ec71c147783c0f908c2e7c7a527905007bf8",
+          "yes_token_id": "57216346243194048494106885096326902046397640842339362261275028299309205230984",
+          "yes_price": 0.0,
+          "market_slug": "will-the-washington-wizards-win-the-2026-nba-finals"
+        }
+      ],
+      "resolution_rules": "Resolves for whichever team wins the 2025-26 NBA Finals. Based on official NBA results.",
+      "geo_scope": "US, Canada",
+      "key_actors": "NBA, 30 NBA teams",
+      "resolution_type": "event_outcome"
+    },
+    {
+      "contract_name": "Top AI model this month",
+      "question": "Which company has the best AI model end of March?",
+      "slug": "which-company-has-the-best-ai-model-end-of-march-751",
+      "end_date": "2026-03-31T00:00:00Z",
+      "category": "tech",
+      "domain": "ai",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 12251305.544342041,
+      "event_slug": "which-company-has-the-best-ai-model-end-of-march-751",
+      "num_outcomes": 25,
+      "outcomes": [
+        {
+          "question": "Will Google have the best AI model at the end of March 2026?",
+          "condition_id": "0x0dd9378e404c2b77d5bdaabe50187635e7fc25f064d1f0563040b9b46ac4e0b2",
+          "yes_token_id": "107368907668133809834392077107493873962272133771051077472071669782290014419894",
+          "yes_price": 0.0115,
+          "market_slug": "will-google-have-the-best-ai-model-at-the-end-of-march-2026-941"
+        },
+        {
+          "question": "Will OpenAI have the best AI model at the end of March 2026?",
+          "condition_id": "0xf76bd0b3d8326ba4dbe9a56236bf083ac6097c6e1c940739e056625229de0b22",
+          "yes_token_id": "82771945684613191575918816812746438965336531953746232611343932299736525251652",
+          "yes_price": 0.003,
+          "market_slug": "will-openai-have-the-best-ai-model-at-the-end-of-march-2026-562"
+        },
+        {
+          "question": "Will Baidu have the best AI model at the end of March 2026?",
+          "condition_id": "0xbbbb08ce3ed8389596b50e67bb8ad6ae64d512901536b94a5e05269403777083",
+          "yes_token_id": "21648899162468988835755085958516761215933210410899911914866742054204159435159",
+          "yes_price": 0.0005,
+          "market_slug": "will-baidu-have-the-best-ai-model-at-the-end-of-march-2026-986"
+        },
+        {
+          "question": "Will xAI have the best AI model at the end of March 2026?",
+          "condition_id": "0xa5ac806db33bcb9e580a534ecfc64e612ecfb67ce643b4fd196c33f90d4f6625",
+          "yes_token_id": "42529793113487005725824143820697339422651161900354627484653133052574795326511",
+          "yes_price": 0.005,
+          "market_slug": "will-xai-have-the-best-ai-model-at-the-end-of-march-2026-497"
+        },
+        {
+          "question": "Will Moonshot have the best AI model at the end of March 2026?",
+          "condition_id": "0xadddfb35e1f27b963070256ee22301a5f14646a12932fc4335b26f1fe8934ae5",
+          "yes_token_id": "96297078835247894812879609229761167374837063036950839965086680829485922082819",
+          "yes_price": 0.0005,
+          "market_slug": "will-moonshot-have-the-best-ai-model-at-the-end-of-march-2026-924"
+        },
+        {
+          "question": "Will Meituan have the best AI model at the end of March 2026?",
+          "condition_id": "0x1e2c5a317dfa33635671394f2def49273f6e84ab083fadcf2a77493f78c8d02c",
+          "yes_token_id": "111646250931838932302421100465311863857465734768037379595335905351441550302588",
+          "yes_price": 0.0005,
+          "market_slug": "will-meituan-have-the-best-ai-model-at-the-end-of-march-2026-469"
+        },
+        {
+          "question": "Will Company B have the best AI model at the end of March 2026?",
+          "condition_id": "0x58d95bc8a0d51807afa65f556c3e7f0e85709a193bcd2b8ced7a0db4f5b3b597",
+          "yes_token_id": "78499255259816727858921957212551218841445776780338494756701581669903563121756",
+          "yes_price": 0.5,
+          "market_slug": "will-company-b-have-the-best-ai-model-at-the-end-of-march-2026-518"
+        },
+        {
+          "question": "Will Company D have the best AI model at the end of March 2026?",
+          "condition_id": "0x839d898487032059a7b2b17327db625a68ab5957409b6b25bc2185b5c44ed75b",
+          "yes_token_id": "102409159521519788224259271255194298923669712725454789951572123635131759055783",
+          "yes_price": 0.5,
+          "market_slug": "will-company-d-have-the-best-ai-model-at-the-end-of-march-2026-135"
+        },
+        {
+          "question": "Will Company F have the best AI model at the end of March 2026?",
+          "condition_id": "0x6484b9f7de83e1d03dd931905935841bf56947de8b4ff5fba63a63c1af672ba4",
+          "yes_token_id": "83005284730172844484892489558460216665829053243420225522651096228989660829038",
+          "yes_price": 0.5,
+          "market_slug": "will-company-f-have-the-best-ai-model-at-the-end-of-march-2026-982"
+        },
+        {
+          "question": "Will Company H have the best AI model at the end of March 2026?",
+          "condition_id": "0x388157ac9e65ceb83b7a8aec805d2ab7cee01c78ca7d4c00bf2e1a9482039f49",
+          "yes_token_id": "70308887497632646277408520656581262967061504040757351244404020619927837847729",
+          "yes_price": 0.5,
+          "market_slug": "will-company-h-have-the-best-ai-model-at-the-end-of-march-2026-375"
+        },
+        {
+          "question": "Will Company J have the best AI model at the end of March 2026?",
+          "condition_id": "0x07e1f8da498245e9afde25ef7e1c27e11fed543f6e9ca5a3ce243b36c70178d2",
+          "yes_token_id": "112774286600572251155318468103586129540476680197665738235658633466653186999276",
+          "yes_price": 0.5,
+          "market_slug": "will-company-j-have-the-best-ai-model-at-the-end-of-march-2026-581"
+        },
+        {
+          "question": "Will Company L have the best AI model at the end of March 2026?",
+          "condition_id": "0x3108f40c65fffd74fd4917b8db6461cc70928ad857d64e6125c61f2b5097e6ac",
+          "yes_token_id": "47266301159581617728306854232909129663051540732640000433308512446263850705746",
+          "yes_price": 0.5,
+          "market_slug": "will-company-l-have-the-best-ai-model-at-the-end-of-march-2026-869"
+        },
+        {
+          "question": "Will any other company have the best AI model at the end of March 2026?",
+          "condition_id": "0xcb6046b5eda24456afdff9696ba5eabbe487dc4591f6935c5ea59d7659720e21",
+          "yes_token_id": "15202357785187056278401969413340768976368200714805938857725641356197713408651",
+          "yes_price": 0.5,
+          "market_slug": "will-any-other-company-have-the-best-ai-model-at-the-end-of-march-2026-312"
+        },
+        {
+          "question": "Will Anthropic have the best AI model at the end of March 2026?",
+          "condition_id": "0x5cd80b8fd72f37c78260a4f8fa0d5bbaaad3adffcfc2c0705e05ee20b8672908",
+          "yes_token_id": "83519181807223149176944154673874245034190466411042063015447181347367071679109",
+          "yes_price": 0.976,
+          "market_slug": "will-anthropic-have-the-best-ai-model-at-the-end-of-march-2026-437"
+        },
+        {
+          "question": "Will Alibaba have the best AI model at the end of March 2026?",
+          "condition_id": "0x22940303dcf84c7f3a9b51389f6ebdc81c9bdb2e8c5dc1d86eeefd38f3040118",
+          "yes_token_id": "22976079915052637713373345225757218712786424054438517989261784223368521410202",
+          "yes_price": 0.0015,
+          "market_slug": "will-alibaba-have-the-best-ai-model-at-the-end-of-march-2026-712"
+        },
+        {
+          "question": "Will Z.ai have the best AI model at the end of March 2026?",
+          "condition_id": "0xce55d9be8db3e526a9097b1c09b16763d77349c5bbc0d3cfcd037890b47dd880",
+          "yes_token_id": "8202149456926452031696234399264641527119853120493588751348414538144169296915",
+          "yes_price": 0.0005,
+          "market_slug": "will-zai-have-the-best-ai-model-at-the-end-of-march-2026-189"
+        },
+        {
+          "question": "Will DeepSeek have the best AI model at the end of March 2026?",
+          "condition_id": "0xcf610a4fdc73a619e3d72530a8d173d7f8dbeb258da9e8fcd869eb7ce32b1a1f",
+          "yes_token_id": "46551849505221374547610168515331651824748662034006159370798381394329798321337",
+          "yes_price": 0.004,
+          "market_slug": "will-deepseek-have-the-best-ai-model-at-the-end-of-march-2026-113"
+        },
+        {
+          "question": "Will Mistral have the best AI model at the end of March 2026?",
+          "condition_id": "0xa360ac9fbd12976ccad4ae8799598aaabeb1c28de6493e3c52a67cb592dbb7d4",
+          "yes_token_id": "51987385801358926855910883595326267087055772360563428896396745951977155263507",
+          "yes_price": 0.0005,
+          "market_slug": "will-mistral-have-the-best-ai-model-at-the-end-of-march-2026-494"
+        },
+        {
+          "question": "Will Company A have the best AI model at the end of March 2026?",
+          "condition_id": "0x3cef149f50ca2b50626ceca3ad3600a3b26cd79a644516aa877439981e382b8f",
+          "yes_token_id": "84273020832086636684117717609678350774429944115124160796318792532866810907111",
+          "yes_price": 0.5,
+          "market_slug": "will-company-a-have-the-best-ai-model-at-the-end-of-march-2026-198"
+        },
+        {
+          "question": "Will Company C have the best AI model at the end of March 2026?",
+          "condition_id": "0x48c3de5a6aaa84a8f92739e452e8f84fc64756a465b8b4d3abff3488660a3b8a",
+          "yes_token_id": "100654706751686588628242423398202119075849506339488007679495316654213242513851",
+          "yes_price": 0.5,
+          "market_slug": "will-company-c-have-the-best-ai-model-at-the-end-of-march-2026-152"
+        },
+        {
+          "question": "Will Company E have the best AI model at the end of March 2026?",
+          "condition_id": "0xea40492ecfc043b5dc22a04521b594c0ec59f9c28ba3794b3013e83faa70e0b2",
+          "yes_token_id": "70975122339787221926292502443358088414830883369790757465581034697236873652111",
+          "yes_price": 0.5,
+          "market_slug": "will-company-e-have-the-best-ai-model-at-the-end-of-march-2026-642"
+        },
+        {
+          "question": "Will Company G have the best AI model at the end of March 2026?",
+          "condition_id": "0xe5abb21b60a4146963f488748b28cbd04acb5e569f2cabf2771a5fa1cacbdd3a",
+          "yes_token_id": "87039401651556577709737052913419825212463471052068705651720535379758820418683",
+          "yes_price": 0.5,
+          "market_slug": "will-company-g-have-the-best-ai-model-at-the-end-of-march-2026-495"
+        },
+        {
+          "question": "Will Company I have the best AI model at the end of March 2026?",
+          "condition_id": "0xfc8c2d5e94db2792654d8a00ae701631200454ab03ae7cf1d55930a799a6377b",
+          "yes_token_id": "9067777480860580432827118415347472176984627368670954691564315315444194295576",
+          "yes_price": 0.5,
+          "market_slug": "will-company-i-have-the-best-ai-model-at-the-end-of-march-2026-443"
+        },
+        {
+          "question": "Will Company K have the best AI model at the end of March 2026?",
+          "condition_id": "0xe0de92ffb60c0cc797aa05a6221c72abf7aff0c742ec418f90ef9a03e524f508",
+          "yes_token_id": "57877257068957482334364740372196947837508470719536948967491547727002835203900",
+          "yes_price": 0.5,
+          "market_slug": "will-company-k-have-the-best-ai-model-at-the-end-of-march-2026-118"
+        },
+        {
+          "question": "arch Will Company M have the best AI model at the end of March 2026?",
+          "condition_id": "0xfceb584f7aef14ec49f02ee175beed094ea130e5dbc5c9552f212dc2e6845c5f",
+          "yes_token_id": "66488880824312417122800392469302079201044039849313597072048095366480302987097",
+          "yes_price": 0.5,
+          "market_slug": "arch-will-company-m-have-the-best-ai-model-at-the-end-of-march-2026"
+        }
+      ],
+      "resolution_rules": "Resolves based on which company has the #1 ranked model on the LMSYS Chatbot Arena leaderboard (overall Elo) as of March 31, 2026.",
+      "geo_scope": "global",
+      "key_actors": "Anthropic, OpenAI, Google DeepMind, Meta AI, LMSYS (benchmark operator)",
+      "resolution_type": "benchmark_ranking"
+    },
+    {
+      "contract_name": "Best AI coding model end of March",
+      "question": "Which company will have the best AI model for coding on March 31?",
+      "slug": "which-company-will-have-the-best-ai-model-for-coding-on-march-31",
+      "end_date": "2026-03-31T00:00:00Z",
+      "category": "tech",
+      "domain": "ai",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 999430.3973869993,
+      "event_slug": "which-company-will-have-the-best-ai-model-for-coding-on-march-31",
+      "num_outcomes": 18,
+      "outcomes": [
+        {
+          "question": "Will Google have the best AI model for coding on March 31?",
+          "condition_id": "0xaec744acc776760b5ae4ea624392701e5be37f226030347437abdb6df9c1d184",
+          "yes_token_id": "101982479106085743672801224611352854881298304403358116970444362116404081985491",
+          "yes_price": 0.0045,
+          "market_slug": "will-google-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will OpenAI have the best AI model for coding on March 31?",
+          "condition_id": "0x5ed8142bfb7dedd29123c51d93e78d41bb11347a9dc99af028f8c26d379f7991",
+          "yes_token_id": "21074627447851722982583017164862562903762903675957478566509692359288711223560",
+          "yes_price": 0.91,
+          "market_slug": "will-openai-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Z.ai have the best AI model for coding on March 31?",
+          "condition_id": "0xad1d3f37d4b3e994cf6e345342e4c6d77b847c125d222144c583ef5c4bd2f84a",
+          "yes_token_id": "80861576758208246291858186808740958603555626246511495793257831406422094470572",
+          "yes_price": 0.0005,
+          "market_slug": "will-zai-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will DeepSeek have the best AI model for coding on March 31?",
+          "condition_id": "0x90301098126f955f3ce5a03b7fe4c35a3641b233f4c56e88b11070a1b414c61a",
+          "yes_token_id": "79853007977105815624113941534992494565347323884772610518298707804471039732081",
+          "yes_price": 0.0025,
+          "market_slug": "will-deepseek-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Mistral have the best AI model for coding on March 31?",
+          "condition_id": "0xc7982ab943183b14a136538b1943a99f0b783266c46647ac5d93a53145c1a7b5",
+          "yes_token_id": "109831253762520485632120158952131204631888758680701510579735402842471158516644",
+          "yes_price": 0.0015,
+          "market_slug": "will-mistral-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company B have the best AI model for coding on March 31?",
+          "condition_id": "0x3ede8983d8af333f5b4f9c5530ba386ba63a3ba056afcb9cb86f851e36ae2add",
+          "yes_token_id": "41135701223406092651983791608239184907854761909786185659018054168337292183101",
+          "yes_price": 0.5,
+          "market_slug": "will-company-b-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company D have the best AI model for coding on March 31?",
+          "condition_id": "0xea43c945bda96e764899f8eb49834dc47f1a5887b3acec3b89400424231298a4",
+          "yes_token_id": "20378354609053462630613995030411813853784971961569919947181707713156971153076",
+          "yes_price": 0.5,
+          "market_slug": "will-company-d-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company F have the best AI model for coding on March 31?",
+          "condition_id": "0x9eb90b34d25cd194d11d725de0ce47ae0049708bb897ffa0505df157ebe3a38c",
+          "yes_token_id": "106103845857296300526377034419414811430944670820258884834373055769660574217243",
+          "yes_price": 0.5,
+          "market_slug": "will-company-f-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company H have the best AI model for coding on March 31?",
+          "condition_id": "0x26f5067c435248f7b767d94b213ff47f43703370e0aa1acb2979341566850d1e",
+          "yes_token_id": "53112795890785647568567879793479727587289622163620983543575718938077190653025",
+          "yes_price": 0.5,
+          "market_slug": "will-company-h-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Anthropic have the best AI model for coding on March 31?",
+          "condition_id": "0x4a0cc84209df8e25f2651148c15ca45841bf02133903a990ad2be56d8337efe5",
+          "yes_token_id": "61649988503359407770258418097615151606970415315192585742996814749095348840604",
+          "yes_price": 0.0645,
+          "market_slug": "will-anthropic-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Alibaba have the best AI model for coding on March 31?",
+          "condition_id": "0x9203a698f9fa14be61cfdb6bfef9deddd0aa7d2b2907d93a619702683087b3da",
+          "yes_token_id": "78105936059580066886637010200879176612465407936158598378531832410898792072331",
+          "yes_price": 0.0015,
+          "market_slug": "will-alibaba-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will xAI have the best AI model for coding on March 31?",
+          "condition_id": "0xdf3aed600715b8cc4a23e3d7e6caad79791de8dcd5af48f450dc1b8dc52128c3",
+          "yes_token_id": "111955058608111392596805821148637930362581269673097069733693799539148925173769",
+          "yes_price": 0.0015,
+          "market_slug": "will-xai-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Moonshot have the best AI model for coding on March 31?",
+          "condition_id": "0xb5f410ce6db52b387d5e3c9aa386f1cf2c6d9603d4ffbb59d7b3ad78c6ce54bc",
+          "yes_token_id": "90311555114079332121873713225331719655517167698979277482922143777516026157644",
+          "yes_price": 0.0015,
+          "market_slug": "will-moonshot-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company A have the best AI model for coding on March 31?",
+          "condition_id": "0x2f8646ee2a8e43a669effacdca9392e6b16119e78f60599f6381c36ed5716c65",
+          "yes_token_id": "16517227335307018101923410774797580539946078592472052288541477663228169740391",
+          "yes_price": 0.5,
+          "market_slug": "will-company-a-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company C have the best AI model for coding on March 31?",
+          "condition_id": "0x8d761660312ffde0b3c07e07a0b6da2ea1612a24ef8480b2cbeb1cfd4ca5c6f0",
+          "yes_token_id": "38764529847096393681719582429676610736959285363138247320780917388215902234008",
+          "yes_price": 0.5,
+          "market_slug": "will-company-c-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company E have the best AI model for coding on March 31?",
+          "condition_id": "0x23bd5ac5b23117e31644d08c0a834e022b0e8977cb042d51711c166e166837db",
+          "yes_token_id": "1710093728842390731441528643372952296150198412445510061997611198447695640613",
+          "yes_price": 0.5,
+          "market_slug": "will-company-e-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will Company G have the best AI model for coding on March 31?",
+          "condition_id": "0xc73870cd24145b69def137b51d9a406d9ec549d96029813635a0bcd2c1811ac9",
+          "yes_token_id": "58263099444234683950142814619546080003198804794386267846036477836378472645491",
+          "yes_price": 0.5,
+          "market_slug": "will-company-g-have-the-best-ai-model-for-coding-on-march-31"
+        },
+        {
+          "question": "Will any other company have the best AI model for coding on March 31?",
+          "condition_id": "0x305cf683ba6771e2de481bd9bc78a21bc432c4f4849eb9945dc966aec62dfaa6",
+          "yes_token_id": "78588541351231859410028734474684619935287926923628460193193162592882716956947",
+          "yes_price": 0.5,
+          "market_slug": "will-any-other-company-have-the-best-ai-model-for-coding-on-march-31"
+        }
+      ],
+      "resolution_rules": "Resolves based on which company has the #1 ranked model on the LMSYS Chatbot Arena Coding leaderboard as of March 31, 2026.",
+      "geo_scope": "global",
+      "key_actors": "Anthropic, OpenAI, Google DeepMind, Meta AI, LMSYS (benchmark operator)",
+      "resolution_type": "benchmark_ranking"
+    },
+    {
+      "contract_name": "US confirms aliens exist before 2027",
+      "question": "Will the US confirm that aliens exist by...?",
+      "slug": "will-the-us-confirm-that-aliens-exist-before-2027",
+      "end_date": "2026-12-31T00:00:00Z",
+      "category": "tech",
+      "domain": "science",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 19480901.327103615,
+      "event_slug": "will-the-us-confirm-that-aliens-exist-before-2027",
+      "num_outcomes": 2,
+      "outcomes": [
+        {
+          "question": "Will the US confirm that aliens exist before 2027?",
+          "condition_id": "0x747dc809fb79e1b05be09c42d6179459a58de2ef3e40f02484a4e1260f741f75",
+          "yes_token_id": "107505882767731489358349912513945399560393482969656700824895970500493757150417",
+          "yes_price": 0.165,
+          "market_slug": "will-the-us-confirm-that-aliens-exist-before-2027-789"
+        },
+        {
+          "question": "Will the US confirm that aliens exist by March 31?",
+          "condition_id": "0x1f4b7a59e09d34209391c549db18b2c5c7be842e70a5c5fb30e2cdbb9d68c929",
+          "yes_token_id": "104592249296929730460568602412541090396383082867742680952022395642006023581899",
+          "yes_price": 0.009,
+          "market_slug": "will-the-us-confirm-that-aliens-exist-by-march-31"
+        }
+      ],
+      "resolution_rules": "Resolves YES if the US government (President, Congress, DOD, or NASA) makes an official public statement confirming the existence of extraterrestrial life before 2027.",
+      "geo_scope": "US",
+      "key_actors": "President, Congress, DOD, NASA, UAP task force",
+      "resolution_type": "official_announcement"
+    },
+    {
+      "contract_name": "Survivor season 50 winner",
+      "question": "Survivor 50 Winner",
+      "slug": "survivor-50-winner",
+      "end_date": "2026-05-20T00:00:00Z",
+      "category": "entertainment",
+      "domain": "entertainment",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "once_weekly",
+      "prediction_horizon": "end_of_episode",
+      "volume": 353264.302628,
+      "event_slug": "survivor-50-winner",
+      "num_outcomes": 40,
+      "outcomes": [
+        {
+          "question": "Will Aubry Bracco win Survivor Season 50?",
+          "condition_id": "0xa0965c6e18be3e0893f9a3f69cd77e8d998e817dfab4ad7c5388b5f718d1efeb",
+          "yes_token_id": "43707251690511944941898574616702455596632685019807310418339283438893635013425",
+          "yes_price": 0.875,
+          "market_slug": "will-aubry-bracco-win-survivor-season-50"
+        },
+        {
+          "question": "Will Rizo Velovic win Survivor Season 50?",
+          "condition_id": "0x355093713e6bd18745724e2c42a8bdfeb8433a08a441b93a7ce27a97b707a9d6",
+          "yes_token_id": "60170194291888261156581402202700948575463111971929944319443581000603115704607",
+          "yes_price": 0.0065,
+          "market_slug": "will-rizo-velovic-win-survivor-season-50"
+        },
+        {
+          "question": "Will Emily Flippen win Survivor Season 50?",
+          "condition_id": "0x7d050be7cd2221ce2bf5852e849a0031b35eec9ba621c15ab5fa8060faf62143",
+          "yes_token_id": "82591359910990158086893797696922299184799581387488255664188768073212672497936",
+          "yes_price": 0.0025,
+          "market_slug": "will-emily-flippen-win-survivor-season-50"
+        },
+        {
+          "question": "Will Jenna Lewis-Dougherty win Survivor Season 50?",
+          "condition_id": "0x02e3977eac28d810a926911d19ddad26aff949efd71ba1ea00e2dcdf7cc2be2f",
+          "yes_token_id": "23383362785760214042809673476639271164250891112178533210094925558101109827724",
+          "yes_price": 0.0015,
+          "market_slug": "will-jenna-lewis-dougherty-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant A win Survivor Season 50?",
+          "condition_id": "0x513c3dcd58102aa113a39c704cb3ad2f2104221ce98bb281f58f2d874f35864b",
+          "yes_token_id": "62564040167341195896536354731708353439736533782594360600335108759938089767721",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-a-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant C win Survivor Season 50?",
+          "condition_id": "0x0ce489c289a9b24e70f69380a1b8ccd93bdfe690b62141b557cdddbe78e1283b",
+          "yes_token_id": "74379430937384554300995973319441286652833217152848068890773113098590160278130",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-c-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant D win Survivor Season 50?",
+          "condition_id": "0xe1002cada4e8904c3c02f5857adc29d1f030919a81855f6ca70dd3e8f5864e90",
+          "yes_token_id": "63590053794784075149903529147769777294303011691225644046312946691376500560425",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-d-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant F win Survivor Season 50?",
+          "condition_id": "0xc51ea8a811fc2db924df3875ee7478a42b571e82958f614144e648b267222c80",
+          "yes_token_id": "106659216661780878142923956514275684097770126907365600672255033229649137043604",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-f-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant M win Survivor Season 50?",
+          "condition_id": "0x1d8e7a96e7b5ba472fe4da11b0648978c579fab56e090e49e3fd8e325013bf2b",
+          "yes_token_id": "979866710841709186707518083086669731674862583410550387657608552140566464790",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-m-win-survivor-season-50"
+        },
+        {
+          "question": "Will Stephenie LaGrossa Kendrick win Survivor Season 50?",
+          "condition_id": "0x6a0114dc6a07012c5957aca7d396f613c4afa8f7bbbddaf7c11bbd3b0898f909",
+          "yes_token_id": "12739614715892931714507835641912874984097022324708610149476013534357695129109",
+          "yes_price": 0.0045,
+          "market_slug": "will-stephenie-lagrossa-kendrick-win-survivor-season-50"
+        },
+        {
+          "question": "Will Colby Donaldson win Survivor Season 50?",
+          "condition_id": "0xf01b918caca1283a9aff5cbaf41dd0c86533a6de52ba9d08ab037b59ca9dad2b",
+          "yes_token_id": "58366802062493744495463467229743244099418326679406449581649408945616607712360",
+          "yes_price": 0.003,
+          "market_slug": "will-colby-donaldson-win-survivor-season-50"
+        },
+        {
+          "question": "Will Mike White win Survivor Season 50?",
+          "condition_id": "0x98f3b66d0c62ee698a78dd685c18456280b08887843dde99c3bb52a5bcd67b5e",
+          "yes_token_id": "51335862775906004552259063179531981649070363752609681048498710590800998670105",
+          "yes_price": 0.004,
+          "market_slug": "will-mike-white-win-survivor-season-50"
+        },
+        {
+          "question": "Will Angelina Keeley win Survivor Season 50?",
+          "condition_id": "0x87af1c74404e88b5b81924a6cdc38493da4c65fae3439b734891a987c08818c6",
+          "yes_token_id": "76567812231070779021157408343448412336806973105976899811741667943630932082655",
+          "yes_price": 0.0015,
+          "market_slug": "will-angelina-keeley-win-survivor-season-50"
+        },
+        {
+          "question": "Will Charlie Davis win Survivor Season 50?",
+          "condition_id": "0xe4e53f617cab1623057fd2eb11acdb217a447b51eb9d7f2d3635e5daeb2c4e32",
+          "yes_token_id": "70206487431884291541526006419812979537010727946146516775059620761304117467013",
+          "yes_price": 0.007,
+          "market_slug": "will-charlie-davis-win-survivor-season-50"
+        },
+        {
+          "question": "Will Genevieve Mushaluk win Survivor Season 50?",
+          "condition_id": "0xeb3e533ec7663638476750023667dd703d6f4543f791cb27332b521ecb81c277",
+          "yes_token_id": "11496049141532726354527411817592365813714418805193274121160224389742423195310",
+          "yes_price": 0.0015,
+          "market_slug": "will-genevieve-mushaluk-win-survivor-season-50"
+        },
+        {
+          "question": "Will Kamilla Karthigesu win Survivor Season 50?",
+          "condition_id": "0x9717bd146090710fd37d61d07ec58af2dae1dfb8778596fefbfb4ace61d3f7f4",
+          "yes_token_id": "24464767523588722035413505717588909192623446577697056469182736117399077778425",
+          "yes_price": 0.0025,
+          "market_slug": "will-kamilla-karthigesu-win-survivor-season-50"
+        },
+        {
+          "question": "Will Joe Hunter win Survivor Season 50?",
+          "condition_id": "0x1a5a7436b2c93de064f279821fab4ee6dc45b6df864ed60750ac90f1662baf0c",
+          "yes_token_id": "49712004494325338995764211688702251714966567022276536854150300287833066931416",
+          "yes_price": 0.006,
+          "market_slug": "will-joe-hunter-win-survivor-season-50"
+        },
+        {
+          "question": "Will Cirie Fields win Survivor Season 50?",
+          "condition_id": "0xc4901cb13cdc704ae5f79e631dabec454791d6f42efeb4abc9e608048176e9a5",
+          "yes_token_id": "5255800641815377188915024735935698969638687849867197298397756091819450942836",
+          "yes_price": 0.0695,
+          "market_slug": "will-cirie-fields-win-survivor-season-50"
+        },
+        {
+          "question": "Will Benjamin \"Coach\" Wade win Survivor Season 50?",
+          "condition_id": "0x49e66c0feecc2b3f1496dd1e8fac192a69a5bb755ffb5f7a9c6baf84479f0a1c",
+          "yes_token_id": "60767306404101969707424303533872112317472475461783328558617350735807775789641",
+          "yes_price": 0.003,
+          "market_slug": "will-benjamin-coach-wade-win-survivor-season-50"
+        },
+        {
+          "question": "Will Ozzy Lusth win Survivor Season 50?",
+          "condition_id": "0x669b6cccff5de8b29f970ccce8c80f45af05409e428d4328d8aa38bbf6d05a17",
+          "yes_token_id": "100418007253992974554264845449153831359668752975707779514418274845249263728672",
+          "yes_price": 0.003,
+          "market_slug": "will-ozzy-lusth-win-survivor-season-50"
+        },
+        {
+          "question": "Will Quintavius \"Q\" Burdette win Survivor Season 50?",
+          "condition_id": "0xb74d05a525aafe825b47ebb3650bd1ffe61e1475bc450cfe1c5372ff7e9e70d0",
+          "yes_token_id": "90714181510751476106861620881774509600644891096380297732424068238155950262953",
+          "yes_price": 0.0015,
+          "market_slug": "will-quintavius-q-burdette-win-survivor-season-50"
+        },
+        {
+          "question": "Will Tiffany Nicole Ervin win Survivor Season 50?",
+          "condition_id": "0x29730f14a7ac3b6e32aa2491278a342716bde62401a9eac755315e239a74c445",
+          "yes_token_id": "9516382940082031704645640564011005785008413185271021672852058512958802096921",
+          "yes_price": 0.002,
+          "market_slug": "will-tiffany-nicole-ervin-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant G win Survivor Season 50?",
+          "condition_id": "0xe36e55c052cc47d90cba64bbb322d5183f35adc7e74ad6e51cc60799fb0db33f",
+          "yes_token_id": "57554636370714399402336199363921958092105981511089850072344771469996527880517",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-g-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant H win Survivor Season 50?",
+          "condition_id": "0xea27674b7624d35a484a3342953540a95f3fb499d7be8426fd9560ccec8f8426",
+          "yes_token_id": "111217301445417815063432156938816530159131778150904054058295399845319385172592",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-h-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant I win Survivor Season 50?",
+          "condition_id": "0xfc0cdc53aaf6613bf7c83b998f2451a82d55162b8f179a620161cc740cc89b63",
+          "yes_token_id": "34175547750529946038403623466852388853619961436778925608284323093681310092908",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-i-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant N win Survivor Season 50?",
+          "condition_id": "0xb4d8328c5324df47f3c1d6325ff32ec72f4afef6915f130d21e1190420e9b6f3",
+          "yes_token_id": "53271290339783363737167713577875812867947016504036913671161144646265056390883",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-n-win-survivor-season-50"
+        },
+        {
+          "question": "Will another contestant win Survivor Season 50?",
+          "condition_id": "0x463bc5cae33ac5c7e671d696215e1d3743420aa04c1cc2813fc3e4972e64f9b5",
+          "yes_token_id": "72235937613394040001723597139644949400542524206840573829036738234790227876646",
+          "yes_price": 0.5,
+          "market_slug": "will-another-contestant-win-survivor-season-50"
+        },
+        {
+          "question": "Will Jonathan Young win Survivor Season 50?",
+          "condition_id": "0xe0818e62ab9e8ed5448a486da3dd661b17f4bc388ab3a20c822a1f524cbdeedb",
+          "yes_token_id": "102732238518509869382205315874842701711016389354349987794400273109133306783945",
+          "yes_price": 0.0065,
+          "market_slug": "will-jonathan-young-win-survivor-season-50"
+        },
+        {
+          "question": "Will Chrissy Hofbeck win Survivor Season 50?",
+          "condition_id": "0x5f054a6ee3e206bab37a2314af7c8a70451ff623547752eefe6d9bdea0c477cc",
+          "yes_token_id": "82258180910663544565865859310151240732028476531526260582083376031055738448547",
+          "yes_price": 0.0025,
+          "market_slug": "will-chrissy-hofbeck-win-survivor-season-50"
+        },
+        {
+          "question": "Will Christian Hubicki win Survivor Season 50?",
+          "condition_id": "0x33da5ab8a8f333ad40c8d195a883b2fade5d82e94f50a9f1c87676d8baa3ed17",
+          "yes_token_id": "88341493872801448804053577912907263749588367527631044331036982774162348636863",
+          "yes_price": 0.0065,
+          "market_slug": "will-christian-hubicki-win-survivor-season-50"
+        },
+        {
+          "question": "Will Dee Valladares win Survivor Season 50?",
+          "condition_id": "0x3b187c2d1089187ee8843b156ecfa383e08d99ec01a3789fcf58158a18faa499",
+          "yes_token_id": "86012370998444861041023627487030532147637269487173661654734416153425148663031",
+          "yes_price": 0.0035,
+          "market_slug": "will-dee-valladares-win-survivor-season-50"
+        },
+        {
+          "question": "Will Rick Devens win Survivor Season 50?",
+          "condition_id": "0x1fd1b05f79df79bc1baf759386bf259a5879d65ba49a14d717f0e8a0e1da13a9",
+          "yes_token_id": "84706408697136940128865947816797144761839450423226239270637848097768765063475",
+          "yes_price": 0.0025,
+          "market_slug": "will-rick-devens-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant B win Survivor Season 50?",
+          "condition_id": "0xd1c5052cce19224e6eec1c3122955de6308c2d7428e67048ab4c2a534894d05c",
+          "yes_token_id": "105583205534800315448796427216790991827978005973933989266903023838648476661527",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-b-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant J win Survivor Season 50?",
+          "condition_id": "0x586c79b10c9ef329fd8609e5914cdacacdc1ad3697c141df57934510bd706508",
+          "yes_token_id": "49859861968644406281864186234762992261330356940148910220856854189279065804825",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-j-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant L win Survivor Season 50?",
+          "condition_id": "0xd9c5cf86bbd337c414f48a2fffa5b12efab36777515cd961e115f382f1fc12a2",
+          "yes_token_id": "14846924299472531146644442409969209032033068324251451915455194501933889880428",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-l-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant O win Survivor Season 50?",
+          "condition_id": "0x9797fc9d2e5606325d536249f784e936999c38631b3c68e5e8903ef84368db63",
+          "yes_token_id": "16504408359080939309087587310198394185087278243431539928771014880791235321028",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-o-win-survivor-season-50"
+        },
+        {
+          "question": "Will Kyle Fraser win Survivor Season 50?",
+          "condition_id": "0x68120e150271d37ef3b0f2ef3ac1dd99b41e1db2f74447804ec187d9e7bf0309",
+          "yes_token_id": "69151963209388040133694736576125582606975267162123985221136170680539641361652",
+          "yes_price": 0.0005,
+          "market_slug": "will-kyle-fraser-win-survivor-season-50"
+        },
+        {
+          "question": "Will Savannah Louie win Survivor Season 50?",
+          "condition_id": "0x855adeebceac8eb2e93bf5466b7294994f10c4bf70eb00779ef0d84a239673c1",
+          "yes_token_id": "51021048228223503377884310665890740498740649289812903721152082083378084390816",
+          "yes_price": 0.0015,
+          "market_slug": "will-savannah-louie-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant E win Survivor Season 50?",
+          "condition_id": "0xca4d06952115ad432bf5d8803c244a2417a86148cc1074b7311416ecc149981e",
+          "yes_token_id": "102503100581195742121064872107289304155804142614695169024790167509721622178496",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-e-win-survivor-season-50"
+        },
+        {
+          "question": "Will Contestant K win Survivor Season 50?",
+          "condition_id": "0xdbfc9579687ce7e0eb01abe0a855451266b6a730c39d4094e0e08ebde0d687a6",
+          "yes_token_id": "30749804804237860630030508757903143690240229840342187281241298944533115140792",
+          "yes_price": 0.5,
+          "market_slug": "will-contestant-k-win-survivor-season-50"
+        }
+      ],
+      "resolution_rules": "Resolves for whichever contestant wins Survivor Season 50 as announced in the CBS finale broadcast.",
+      "geo_scope": "US",
+      "key_actors": "CBS, Survivor contestants, Jeff Probst",
+      "resolution_type": "event_outcome"
+    },
+    {
+      "contract_name": "Stranger Things new episode release date",
+      "question": "New \"Stranger Things\" episode released by...? ",
+      "slug": "new-stranger-things-episode-released-by-wednesday",
+      "end_date": "2026-01-07T00:00:00Z",
+      "category": "entertainment",
+      "domain": "entertainment",
+      "contract_type": "multi-outcome",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "volume": 29440229.381826006,
+      "event_slug": "new-stranger-things-episode-released-by-wednesday",
+      "num_outcomes": 8,
+      "outcomes": [
+        {
+          "question": "New \"Stranger Things\" episode released by Wednesday? ",
+          "condition_id": "0xc111415f3e8d30760497cafd642d2672ce63c476769e4ddf95472e02e3931aea",
+          "yes_token_id": "84012806101436392643982982642999548176422329890780422058960941694165538584193",
+          "yes_price": 0.0,
+          "market_slug": "new-stranger-things-episode-released-by-wednesday"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by January 14? ",
+          "condition_id": "0xc4f9c5ce504fe71a5ab7a870b39ce0dd13d527e9656a270bfc55e2ed5d33b83a",
+          "yes_token_id": "17995803542616038445492082801478540110557446957690828115634862604211622554070",
+          "yes_price": 0.0,
+          "market_slug": "new-stranger-things-episode-released-by-january-14-741"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by January 31? ",
+          "condition_id": "0x3d109c1fe77572356951368f363ea16c6d8fd0fe78bd0ef2a51af572ae9a4c67",
+          "yes_token_id": "34613982789086600600845830471821044677655271045474993202420766998669879208316",
+          "yes_price": 0.0,
+          "market_slug": "new-stranger-things-episode-released-by-january-31-294"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by December 31? ",
+          "condition_id": "0xbafb642f421ed7b46654936a9fb85adc1b278fa5388a47364da7e67a8df15eca",
+          "yes_token_id": "32659009526475659897371564072228315909246519607913270143285466073749111434555",
+          "yes_price": 0.085,
+          "market_slug": "new-stranger-things-episode-released-by-december-31-587-657-824"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by February 28? ",
+          "condition_id": "0xa6480bbebce112177d153c814e85a7961b16cb2781ba707c33771d247cb51848",
+          "yes_token_id": "86467441243937969584885251075316927878588060030813784177816415483385855361350",
+          "yes_price": 0.0,
+          "market_slug": "new-stranger-things-episode-released-by-february-28-564-799"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by March 15? ",
+          "condition_id": "0xa5619632836a5b9a4a979a2192e4ab122fa9e95e992406be0c001b2a42afe505",
+          "yes_token_id": "40526994353622370886406071795411600872035706753198082813074029578532774763148",
+          "yes_price": 0.0,
+          "market_slug": "new-stranger-things-episode-released-by-march-15-276-499"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by April 30? ",
+          "condition_id": "0xdf72ce355c6405cf62414e6260e99c6de297ce31220c523d2886acd6f5ffd8d9",
+          "yes_token_id": "92157724648679826626366327711670739978423553277571051832313221197507958128724",
+          "yes_price": 0.013,
+          "market_slug": "new-stranger-things-episode-released-by-april-30"
+        },
+        {
+          "question": "New \"Stranger Things\" episode released by March 31? ",
+          "condition_id": "0x294759deb30aa52efdee2af1711411961c4cdaf696179c8a1d5ac08674814a52",
+          "yes_token_id": "55085216701626820635529066897310684842482666343205674762160429162121808794871",
+          "yes_price": 0.002,
+          "market_slug": "new-stranger-things-episode-released-by-march-31-299"
+        }
+      ],
+      "resolution_rules": "Resolves based on when Netflix releases new Stranger Things Season 5 episodes. YES if episode(s) are available on Netflix by the specified date.",
+      "geo_scope": "global",
+      "key_actors": "Netflix, Duffer Brothers",
+      "resolution_type": "content_release"
+    },
+    {
+      "contract_name": "GTA 6 launch postponed again",
+      "question": "GTA 6 launch postponed again?",
+      "slug": "gta-6-launch-postponed-again",
+      "market_slug": "gta-6-launch-postponed-again",
+      "condition_id": "0x652293940a98a7ec9b1d2b23fb9e8399728d1a461dce61523fa2fcce8d844e21",
+      "yes_token_id": "50225109718318658540280412494737610120319244416631769238081662045604870609068",
+      "no_token_id": "78843465762942534439325485216626496263376463773713149868808423998036009560357",
+      "end_date": "2026-11-19T00:00:00Z",
+      "category": "entertainment",
+      "domain": "gaming",
+      "contract_type": "binary",
+      "prediction_frequency": "every_24h",
+      "prediction_horizon": "24h+7d",
+      "current_prices": {
+        "yes": 0.25,
+        "no": 0.75
+      },
+      "volume": 159994.47683800056,
+      "event_slug": "gta-6-launch-postponed-again",
+      "num_outcomes": 2,
+      "resolution_rules": "Resolves YES if Rockstar Games or Take-Two officially announces a delay to GTA 6 beyond its previously announced Fall 2025 release window. Based on official company communications.",
+      "geo_scope": "global",
+      "key_actors": "Rockstar Games, Take-Two Interactive",
+      "resolution_type": "official_announcement"
+    }
+  ]
+}

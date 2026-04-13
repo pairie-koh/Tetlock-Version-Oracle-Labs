@@ -71,25 +71,47 @@ def parse_json_response(raw):
     return json.loads(cleaned)
 
 
+def _generic_queries(market_key, market_info):
+    """Generate a generic Perplexity query from the market question text."""
+    name = market_info.get("name", market_key)
+    end_date = market_info.get("end_date", "")
+    deadline = f" (resolution deadline: {end_date})" if end_date else ""
+
+    return [
+        (
+            "general",
+            f"What are the latest developments in the past 48 hours relevant "
+            f"to this prediction market question: \"{name}\"{deadline}? "
+            f"Include specific facts, sources, and dates. Focus on concrete "
+            f"events and official statements, not speculation."
+        ),
+    ]
+
+
 def gather_raw_news():
     """Run Perplexity queries. Returns [(market_key, focus, raw_text), ...]."""
     results = []
-    total = sum(len(QUERY_TEMPLATES[k]) for k in MARKETS if k in QUERY_TEMPLATES)
-    n = 0
 
-    for market_key in MARKETS:
-        if market_key not in QUERY_TEMPLATES:
-            continue
-        for focus, prompt in QUERY_TEMPLATES[market_key]:
-            n += 1
-            print(f"  [{n}/{total}] {market_key} / {focus}...")
-            try:
-                raw = call_perplexity(prompt)
-                results.append((market_key, focus, raw))
-                print(f"    Got {len(raw)} chars")
-            except Exception as e:
-                print(f"    FAILED: {e}")
-                results.append((market_key, focus, f"[Error: {e}]"))
+    # Build query list: custom templates override, generic fallback for the rest
+    queries = []
+    for market_key, market_info in MARKETS.items():
+        if market_key in QUERY_TEMPLATES:
+            for focus, prompt in QUERY_TEMPLATES[market_key]:
+                queries.append((market_key, focus, prompt))
+        else:
+            for focus, prompt in _generic_queries(market_key, market_info):
+                queries.append((market_key, focus, prompt))
+
+    total = len(queries)
+    for n, (market_key, focus, prompt) in enumerate(queries, 1):
+        print(f"  [{n}/{total}] {market_key} / {focus}...")
+        try:
+            raw = call_perplexity(prompt)
+            results.append((market_key, focus, raw))
+            print(f"    Got {len(raw)} chars")
+        except Exception as e:
+            print(f"    FAILED: {e}")
+            results.append((market_key, focus, f"[Error: {e}]"))
 
     return results
 

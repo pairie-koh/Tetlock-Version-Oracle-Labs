@@ -44,15 +44,21 @@ Uses three-tier LLM escalation based on divergence from market:
 Convert prior probability to odds, multiply by likelihood ratios, convert back.
 Apply overconfidence shrinkage toward market price.
 Persist belief state across cycles (incremental updates, not fresh starts).
+- Initial belief blends base rate with market price (not raw base rate alone)
+- LRs capped per sub-question (max 5:1) and overall (max 10:1)
+- Prevents runaway updating from compounding weak signals
 
-### 5. Adversarial Review -- `forecast.py`
+### 5. Adversarial Review + Extremizing -- `forecast.py`
 Force the model to argue against its own position. Adjust if a genuine blind spot is found.
+Then apply Tetlock's extremizing transform (d=0.3) to push forecasts away from 50%.
 Supplementary data (GDELT, Hyperliquid, weather, order flow, smart money, lessons) is
 injected as additional context for the adversarial reviewer.
 
 ### 6. Lessons Feedback -- `lessons.py`
 After scoring, rebuild per-contract and per-domain performance stats.
-Inject bias warnings ("you tend to predict TOO HIGH on geopolitics") into future prompts.
+Lessons are computed against ACTUAL OUTCOMES when available (not market prices).
+Inject bias warnings ("you tend to predict TOO HIGH vs outcomes") into future prompts.
+Falls back to market-divergence only when contracts haven't resolved yet.
 
 ## Key Differences from Oracle Labs v2
 
@@ -65,7 +71,12 @@ Inject bias warnings ("you tend to predict TOO HIGH on geopolitics") into future
 | Self-correction | Brute-force shrinkage | Adversarial review + structured updating |
 | Shrinkage | 0.75 (trust LLM more) | 0.50 (more conservative) |
 | LLM tiering | Haiku only at forecast | Three-tier: Haiku/Sonnet/Opus by divergence |
-| Feedback loop | None | Per-contract + per-domain bias tracking |
+| Feedback loop | None | Per-contract + per-domain bias tracking (vs outcomes) |
+| Extremizing | None | GJP extremizing transform (d=0.3) |
+| LR safety | None | Per-SQ cap (5:1), total cap (10:1) |
+| Auto-resolution | None | Detects settled contracts from Polymarket prices + Gamma API |
+| Scoring | SE vs market price (mislabeled "Brier") | Real Brier scores vs binary outcomes (0/1) |
+| Calibration tracking | None | Calibration curves + resolution metric |
 
 ## Project Layout
 
@@ -78,7 +89,7 @@ Inject bias warnings ("you tend to predict TOO HIGH on geopolitics") into future
 ├── evidence.py            # Step 3: BPT evidence eval (three-tier LLM)
 ├── updater.py             # Step 4: Bayesian belief updating
 ├── forecast.py            # Step 5: Main pipeline + adversarial review
-├── evaluate.py            # Scoring engine
+├── evaluate.py            # Tetlock scoring (Brier, calibration, resolution)
 ├── lessons.py             # Step 6: Feedback loop (bias tracking)
 ├── run_cycle.py           # Orchestrator (5-stage pipeline)
 │
@@ -93,7 +104,7 @@ Inject bias warnings ("you tend to predict TOO HIGH on geopolitics") into future
 ├── state/                 # Persistent belief states (per market)
 ├── briefings/             # News briefings
 ├── predictions/           # Forecast outputs with full audit trails
-├── scores/                # Evaluation results
+├── scores/                # Brier scores, calibration, resolutions
 ├── contracts/             # Discovered contract data
 ├── data/                  # GDELT results, weather, lessons cache
 └── price_history/         # Historical price CSVs
@@ -122,9 +133,15 @@ python orderflow.py              # fetch pmxt order book data
 # Individual pipeline stages
 python base_rates.py             # just base rates
 python decompose.py              # just decomposition
-python evaluate.py               # just scoring
+python evaluate.py               # evaluate latest (pre-resolution + resolved)
 python lessons.py rebuild        # rebuild lessons cache
 python lessons.py show           # show all lessons
+
+# Resolution tracking (record actual outcomes for real Brier scores)
+python evaluate.py resolve regime_fall 0   # record: Iranian regime did NOT fall
+python evaluate.py resolve regime_fall 1   # record: Iranian regime DID fall
+python evaluate.py resolutions             # show all recorded resolutions
+python evaluate.py resolved                # show all-time Brier scores + calibration
 ```
 
 ## Environment Variables
@@ -145,6 +162,24 @@ PERPLEXITY_API_KEY=...    # News gathering
 | Hyperliquid | hyperliquid.py | None | None | 24/7 BTC, ETH, oil, S&P, gold prices |
 | NWS | weather.py | None (User-Agent) | Polite use | Temperature forecasts (NYC, Miami) |
 | pmxt Archive | orderflow.py | None | None | Millisecond order book snapshots |
+
+## Scoring Methodology
+
+The evaluation system uses proper Tetlock scoring from the GJP:
+
+**Primary metrics** (require resolution -- did the event actually happen?):
+- **Brier Score**: `(prediction - outcome)^2` where outcome is 0 or 1. Perfect=0.0, coin flip=0.25, maximally wrong=1.0. GJP superforecasters averaged ~0.15.
+- **Calibration**: When you say 70%, events should happen ~70% of the time. Measured via calibration curves.
+- **Resolution**: Ability to make decisive forecasts (not always hovering near 50%).
+
+**Secondary metrics** (available before resolution):
+- Market comparison SE: does our divergence from market move us closer to where the market eventually goes? Informational only, NOT a Brier score.
+
+**Two modes**:
+1. Pre-resolution: predictions are tracked with market comparison (clearly labeled as not-yet-scored)
+2. Post-resolution: once a contract resolves (auto-detected from Polymarket or manually via `evaluate.py resolve <market> <0|1>`), real Brier scores + calibration are computed
+
+**Auto-resolution**: When a Polymarket contract settles, its price goes to ~0.00 or ~1.00. The system auto-detects this during evaluation and records the resolution. Also checks the Gamma API for explicit resolution status.
 
 ## Workflow Requirements
 
